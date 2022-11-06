@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <title>Div Tags</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+
+    <header>
+        Ticket Submission
+    </header>
+
+    <nav></nav>
+
+    <main>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Name of Exhibit</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                <a href="#Space">Space</a>
+                <a href="#Old Stuff">Old Stuff</a>
+                <a href="#Ceiling Pannels">Ceiliing Pannels</a>
+                <a href="#Floor">Floor</a>
+                <a href="#Things like That">Things like that</a>
+            </div>
+        </div>
+
+        <script>
+            /* When the user clicks on the button,
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                    txtValue = a[i].textContent || a[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </main>
+
+    <footer>
+        <div class="search-wrapper">
+            <label for="search">Search Users</label>
+            <input type="search" id="search" data-search>
+        </div>
+        <div class="user-cards" data-user-cards-container></div>
+        <template data-user-template>
+            <div class="card">
+                <div class="header" data-header></div>
+                <div class="body" data-body></div>
+            </div>
+        </template>
+    </footer>
+
+    </div>
+
+</body>
+</html>

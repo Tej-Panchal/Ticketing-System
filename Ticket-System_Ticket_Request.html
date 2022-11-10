@@ -1,76 +1,66 @@
 <!DOCTYPE html>
-
-<html lang="en-US">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device=width, initial-scale=1">
-    <title>Div Tags</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Submission Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="container">
+        <header>
+            <h1>Create A New Ticket</h1>
+        </header>
+        <main>
 
-    <div class="container">
-
-    <header>
-        Ticket Submission
-    </header>
-
-    <nav></nav>
-
-    <main>
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Name of Exhibit</button>
-            <div id="myDropdown" class="dropdown-content">
-                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                <a href="#Space">Space</a>
-                <a href="#Old Stuff">Old Stuff</a>
-                <a href="#Ceiling Pannels">Ceiliing Pannels</a>
-                <a href="#Floor">Floor</a>
-                <a href="#Things like That">Things like that</a>
+            <div class="catagory_container">
+                <h2>Exhibit</h2>
+                <form autocomlete="off">
+                    <div>
+                        <input type="text" id="input" placeholder="Type a name here..." />
+                    </div>
+                    <ul class="list"></ul>
+                </form>
             </div>
-        </div>
 
-        <script>
-            /* When the user clicks on the button,
-            toggle between hiding and showing the dropdown content */
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-            }
-
-            function filterFunction() {
-                var input, filter, ul, li, a, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                div = document.getElementById("myDropdown");
-                a = div.getElementsByTagName("a");
-                for (i = 0; i < a.length; i++) {
-                    txtValue = a[i].textContent || a[i].innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        a[i].style.display = "";
-                    } else {
-                        a[i].style.display = "none";
+            <div class="catagory_container">
+                <h2>Select The Best Catagory For Your Request</h2>
+                <div class="dropdown">
+                    <input type="text" class="textBox" placeholder="Dropdown Menu" readonly />
+                    <div class="option">
+                        <div onclick="show('HTML')">HTML</div>
+                        <div onclick="show('CSS')">CSS</div>
+                        <div onclick="show('Javascript')">Javascript</div>
+                        <div onclick="show('Figma')">Figma</div>
+                        <div onclick="show('ReactJS')">ReactJS</div>
+                    </div>
+                </div>
+                <script>
+                    function show(anything) {
+                        document.querySelector('.textBox').value = anything;
                     }
-                }
-            }
-        </script>
-    </main>
 
-    <footer>
-        <div class="search-wrapper">
-            <label for="search">Search Users</label>
-            <input type="search" id="search" data-search>
-        </div>
-        <div class="user-cards" data-user-cards-container></div>
-        <template data-user-template>
-            <div class="card">
-                <div class="header" data-header></div>
-                <div class="body" data-body></div>
+                    let dropdown = document.querySelector('.dropdown');
+                    dropdown.onclick = function () {
+                        dropdown.classList.toggle('active');
+                    }
+                </script>
             </div>
-        </template>
-    </footer>
 
+            <div class="catagory_container">
+                <h2>Description</h2>
+                <textarea class="textarea" placeholder="Enter a discription"></textarea>
+            </div>  
+            
+            <div class="catagory_container_container">
+                <h2>Add Attachment</h2>
+            </div>
+            
+        </main>
+        <footer>
+            <h2>Submit Here!</h2>
+        </footer>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>

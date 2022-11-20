@@ -1,3 +1,4 @@
+//script fo
 let names = [
     "this",
     "is",
@@ -38,6 +39,7 @@ input.addEventListener("keyup", (e) => {
     }
 });
 
+
 function displayNames(value) {
     input.value = value;
     removeElements();
@@ -48,4 +50,14 @@ function removeElements() {
     items.forEach((item) => {
         item.remove();
     });
+}
+
+//script for the dropdown button
+function show(anything) {
+    document.querySelector('.textBox').value = anything;
+}
+
+let dropdown = document.querySelector('.dropdown');
+dropdown.onclick = function () {
+    dropdown.classList.toggle('active');
 }

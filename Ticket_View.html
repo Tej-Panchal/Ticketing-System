@@ -34,11 +34,14 @@
 		.column {
 		  float: left;
 		  padding: 10px;
-		  height: 500px; /* Should be removed. Only for demonstration */
+		  height: 550px; /* Should be removed. Only for demonstration */
 		}
 
 		.left {
 		  width: 25%;
+		  margin:4px, 4px;
+		  overflow-x: hidden;
+          overflow-y: auto;
 		}
 		
 		.middle {
@@ -55,10 +58,20 @@
 		  display: table;
 		  clear: both;
 		}
+		
+		.table-style {
+		
+		display: flex;
+		
+		justify-content: center;
+		
+		}
 		</style>
 		
+		<script src="Ticket_View.js"></script>
+		
 		<!-- Interesting title --> 
-		<title>Fancify Shamcify</title>
+		<title>Ticket View</title>
 		
 	</head>
 
@@ -66,11 +79,11 @@
 	
 		<h1><center> Ticket Portal </center></h1>
 		
-		<div class="row">
+		<div class="row" >
 		
 		<!-- 1 -This is the first column; it contains the activity stream.-->
 		
-		  <div class="column left" style="background-color:#f0f8ff;">
+		  <div id="new" class="column left" style="background-color:#f0f8ff;">
 			
 			<!-- 1 -This is the header.-->
 			
@@ -80,26 +93,15 @@
 			
 			<fieldset> 
 			
-				<legend> @Jane Doe    - - - - - -  12-01-22 04:10:30 </legend><br>
+				<legend> @System - - - - - 12-01-22 @ 04:10:30 </legend><br>
 				
-				<textarea id="text_field" name="text_field" rows="5" cols="32" placeholder= "Action: 
-				Ticket Status = FULFILLED."></textarea>
+				<textarea id="text_field_1" name="text_field" rows="5" cols="32" placeholder= "Action: 
+				Ticket Status = Pending."></textarea>
 				
 			</fieldset>
 			<p>
 			
 			</p>
-			
-			<!-- 1 -This is another sample activity.-->
-			
-			<fieldset> 
-			
-				<legend> @John Doe    - - - - - -  12-01-22 03:22:22</legend><br>
-				
-				<textarea id="text_field" name="text_field" rows="5" wrap = "hard" cols="32" placeholder="Comment: 
-				This ticket is incredibly difficult to resolve - please help."></textarea>
-				
-			</fieldset>
 			
 		  </div>
 		  
@@ -112,6 +114,8 @@
 			<h2> <center> Request Summary </center> </h2>
 			
 			<!-- 2 -This is the first table data.-->
+			
+			<div class="button-style">
 				
 			<table width=30% cellpadding= 15 class=center style="background-color:grey; text-align:center">
 			<tr>
@@ -140,10 +144,15 @@
 			</tr>
 			</table>
 			
+			
+			</div>
+			
 			<p>
 			
 			
 			</p>
+			
+			<div class="table-style">
 			<table width=30% cellpadding= 15 class=center style="background-color:grey; text-align:center">
 			<tr>
 			
@@ -170,6 +179,8 @@
 				
 			</tr>
 			</table>
+			
+			</div>
 			
 			<p>
 			
@@ -203,7 +214,13 @@
 			<!-- 3 -Ticket status box.-->
 			
 			<label for="Status"> Ticket Status </label><br>
-			<input type="text" id="Status" size = "35" name="status">
+			
+			<select name="tech" id="Status" style="width: 282px">
+					<option value="Pending">Pending</option>
+					<option value="Open">Open</option>
+					<option value="Closed - Complete">Closed Complete</option>
+					<option value="Closed - Cancelled">Closed - Cancelled</option>		
+			</select>
 			
 			<p>
 			
@@ -213,7 +230,14 @@
 			<!-- 3 -Assigned technician box.-->
 			
 			<label for="technician">Assigned Techician</label><br>
-			<input type="text" id="technician" size = "35" name="tech">
+			
+			<select name="tech" id="technician" style="width: 282px">
+					<option value="Unassigned">Unassigned</option>
+					<option value="Tony Stark">Tony Stark</option>
+					<option value="Captain America">Captain American</option>
+					<option value="Napolean Dynamite">Napolean Dynamite</option>
+					<option value="Actual Napolean">Actual Napolean</option>
+			</select>
 			
 			<p>
 			
@@ -222,7 +246,7 @@
 			
 			<!-- 3 -Comments box.-->
 			
-			<label for="comments">Comments</label><br>
+			<label for="comments">Comment</label><br>
 			<input type="text" id="comments" size = "35" name="comment" style="height: 175px">
 			
 			<p>
@@ -243,7 +267,7 @@
 			<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>
 			
 			</div>
-			
+
 		  </div>
 		  
 		  

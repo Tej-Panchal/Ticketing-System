@@ -6,11 +6,9 @@
 	<meta charset="utf-8" />
 	<title>Ticket Dashboard</title>
 	
-	<meta name = "viewport" content="width=device-width, initial-scale=1">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="Ticket-Dashboard.css" />
-	
-	<!-- <script src="./Ticket-Dashboard-Filter.js"></script> -->
 	
     <script type="application/javascript">
         function deleteRow() {
@@ -94,36 +92,37 @@
 
 </head>
 
+
 <body>
 
     <div class="heading">
     <h1>Tickets</h1>
 	</div>	
 
+	
 	<div class="search-box">
 		<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search . . . ">
 	</div>
 	
-	<button class="top-buttons">
+	<button class="top-button1">
 		Create Ticket
 	</button>
 	
-	<button class="top-buttons">
-		Change Owner
-	</button>
-	
-	<button class="top-buttons" onclick="deleteRow();">
+	<button class="top-button2" onclick="deleteRow();">
 		Close Ticket
 	</button>
 
 	<button class="all-tickets-button">
 		All Tickets
 	</button>
+	
 
 	<button class="my-tickets-button">
 		Saved Tickets
 	</button>
+	
 
+	<div class="main"> 
     <div class="outer-wrapper">
     <div class="table-wrapper">
 	
@@ -134,7 +133,6 @@
 		<thead>
 		
 			<th></th>
-			
 			
 			<th onclick = "sortTable(1)">TICKET NAME</th>
 				
@@ -498,6 +496,7 @@
 	
 </div>
 </div>	
+</div>
 
 
 </body>

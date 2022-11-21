@@ -2,11 +2,29 @@
 	margin : 0px;
 	padding: 0px;
 	font-family: Helvetica;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: clip;
 }
+
+
+
+.main{
+    width: 88%;
+    float: left;
+    position: absolute;
+    left: 300px;
+    top: 255px;
+    
+}
+
 
 table {
 	width: 2050px;
-    
+    float: left;
+    border: 0px solid #000;
+	border-collapse: collapse;
+	border-color: #c2bebe;
 }
 
 h1 {
@@ -24,13 +42,6 @@ p{
 	padding : 0px;
 	margin: 0px 00px 20px 100px;
     
-}
-
-table{
-	border: 0px solid #000;
-	border-collapse: collapse;
-	border-color: #c2bebe;
-
 }
 
 tr{
@@ -68,9 +79,7 @@ table th, table td {
 */
 
 .outer-wrapper {
-    margin-top: 30px;
-    margin-left: 300px;
-    margin-right: 20px;
+    
     border: 1px solid #c2bebe;
     border-radius: 4px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9);
@@ -80,7 +89,6 @@ table th, table td {
     
 }
 .table-wrapper {
-
     overflow-y: scroll;
     overflow-x: scroll;
     height: fit-content;
@@ -88,7 +96,7 @@ table th, table td {
 
 }
 
-.top-buttons{
+.top-button1{
     font-size: 14px;
 	color: white;
     border: 1px solid #c2bebe;
@@ -100,16 +108,44 @@ table th, table td {
     background-color: teal;
 
     cursor: pointer;
-    
+
     position: relative;
-    left: 1930px;
+    top: 10px;
+    left: 300px;
 
     transition: color 0.15s,
         box-shadow 0.15s;
 
 }
 
-.top-buttons:hover{
+.top-button1:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.top-button2{
+    font-size: 14px;
+	color: white;
+    border: 1px solid #c2bebe;
+
+    height:36px;
+    width: 150px;
+
+    border-radius: 5px;
+    background-color: teal;
+
+    cursor: pointer;
+
+    position: relative;
+    top: 10px;
+    left: 300px;
+
+    transition: color 0.15s,
+        box-shadow 0.15s;
+
+}
+
+.top-button2:hover{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     font-weight: bold;
 }
@@ -126,11 +162,12 @@ table th, table td {
     border-radius: 5px;
     cursor: pointer;
 
-   position: relative;
-   right: 400px;
-   top: 75px;
+    position: relative;
+    top: 60px;
+    left: -235px;
+    
 
-   transition: 
+    transition: 
         background-color 0.15s,
         color 0.15s,
         box-shadow 0.15s;
@@ -164,13 +201,11 @@ table th, table td {
     border-radius: 5px;
     cursor: pointer;
 
-   position: relative;
-   right: 555px;
-   top: 125px;
+    position: relative;
+    top: 100px;
+    left: -390px;
 
-
-
-   transition: 
+    transition: 
         background-color 0.15s,
         color 0.15s,
         box-shadow 0.15s;
@@ -193,10 +228,9 @@ table th, table td {
 }
 
 .search-box{
-    position: relative;
-    left: 1670px;
-    top: 38px;
-
+    position:relative;
+    top: 50px;
+    left: 650px;
 }
 
 
@@ -207,7 +241,7 @@ table th, table td {
 	background-repeat: no-repeat;
     width: 10%;
 
-	font-size: 15px;
+	font-size: 14px;
 	padding: 12px 20px 12px 40px;
 	border: 1px solid #c2bebe;
 	box-sizing: border-box;

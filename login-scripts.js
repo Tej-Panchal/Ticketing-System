@@ -8,7 +8,7 @@ loginButton.addEventListener("click", (e) => {
     const password = loginForm.password.value;
 
     if (username === "user" && password === "pass") {
-        location.assign("./Ticket-Dashboard.html");
+        location.assign("./homepage.html");
     } else {
         loginErrorMsg.style.opacity = 1;
     }

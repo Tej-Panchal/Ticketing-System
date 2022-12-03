@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+	
+	div.scroll {
+		margin:4px, 4px;
+		width: 1900px;
+		height: 480px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		text-align:justify;
+		border: 2px solid #1A1D1B;
+	}
+	.navbar {
+		  overflow: hidden;
+		  background-color: #333;
+		  position: fixed;
+		  bottom: 0;
+		  padding: 10px;
+		}
+
+		.navbar a {
+		  float: left;
+		  display: block;
+		  color: #f2f2f2;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+
+		.navbar a:hover {
+		  background: #ddd;
+		  color: black;
+		}
+	  body 
+	  {
+			background-image:url('Nature_4.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+      #mySearch {
+        background-image: url('searchicon.png');
+        background-size: 20px;
+        background-position: 12px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 3px;
+		opacity: 0.9;
+        box-sizing: border-box;
+      }
+
+      h2{
+        font-size: 50px;
+        color: rgb(8, 8, 8);
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 25px;
+		margin-top: 23px;
+      }
+      #table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      }
+
+      table {
+        border: 2px solid rgba(30, 4, 107, 0.82);
+        border-collapse: collapse;
+        padding: 50%;
+		margin-left: auto; 
+		margin-right: auto;
+      }
+      td{
+        border: 1px solid rgba(30, 4, 107, 0.82);
+        border-collapse: collapse;
+        padding: 7px;
+		background-color: #A0F1C6;
+		opacity: 0.8;
+      }
+      th {
+        border: 2px solid rgba(30, 4, 107, 0.82);
+        background-color: #53BD85;
+        text-align: left;
+        padding: 15px;
+        text-transform: uppercase;
+        cursor: pointer;
+		opacity: 0.9;
+      }
+
+      tr:hover {background-color: #e6d492;}
+
+      .button{
+	    margin: auto;
+        border: none;
+        width: 100%;
+        padding: 15px 32px;
+        border-radius: 12px;
+        background-color: #236140;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        margin: 3px 2px;
+        cursor: pointer;
+		opacity: 0.9;
+      }
+      </style>
+      
+
+      <script>
+        function deleteRow() {
+        var table = document.getElementById("table");
+        var index = 1;
+        while (index < table.rows.length) {
+          var input = table.rows[index].cells[0].children[0];
+          if (input && input.checked) {
+            table.deleteRow(index);
+          } else {
+            index++;
+          }
+        }
+      } 
+      
+      function mySearchFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("mySearch");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+
+      function sortTable(n) {
+        var table,rows,switching,i,x,y,shouldSwitch,dir,switchcount = 0;
+        table = document.getElementById ("table");
+        switching = true;
+        dir = "asc";
+        while (switching) {
+          switching = false;
+          rows = table.getElementsByTagName("TR");
+          for (i = 1; i < rows.length - 1; i++) {   
+            shouldSwitch = false;     
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir == "asc") {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
+              } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
+            }
+          }
+          if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+          } else {
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+            }
+          }
+      }
+      
+      </script>
+
+    <title>System Accounts</title>
+
+    <h2> <center> Account Management </center> </h2>
+
+  </head>
+
+  <body style="background-color:rgb(204, 224, 238);">
+  
+
+
+    <input style="display: grid; justify-content: center;" type="text" id="mySearch" onkeyup="mySearchFunction()" placeholder="Search for user . . . " title="Type in">
+
+    <div class="AccountPage">
+            <div class="Table-select"> 
+
+              <button class="button" onclick="deleteRow();">Delete Item</button>
+			  
+	<div class="scroll">
+
+    <table id="table" style="width: 100%;">
+        <tr>
+          <th>Checkbox</th>
+          <th onclick="sortTable(1)">UserName</th>
+          <th>Permissions</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      <tbody>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Tiger Nixon</td>
+          <td>
+            <select type="1" id="row-1-permission" name="row-1-permission">
+                <option value="Customer" selected="selected">Customer</option>
+                <option value="Technician">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2000-05-05" >
+          </td>
+          <td>
+            <select size="1" id="row-1-office" name="row-1-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Garrett Winters</td>
+          <td>
+            <select type="1" id="row-2-permission" name="row-2-permission">
+                <option value="Customer" >Customer</option>
+                <option value="Technician" selected="selected">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2013-07-01" >
+          </td>
+          <td>
+            <select size="1" id="row-2-office" name="row-2-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending" selected="selected">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Ashton Cox</td>
+          <td>
+            <select type="1" id="row-3-permission" name="row-3-permission">
+                <option value="Customer" selected="selected">Customer</option>
+                <option value="Technician">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-01-15" >
+          </td>
+          <td>
+            <select size="1" id="row-3-office" name="row-3-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Cedric Kelly</td>
+          <td>
+            <select type="1" id="row-4-permission" name="row-4-permission">
+                <option value="Customer" selected="selected">Customer</option>
+                <option value="Technician">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2021-10-05" >
+          </td>
+          <td>
+            <select size="1" id="row-4-office" name="row-4-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending" selected="selected">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Airi Satou</td>
+          <td>
+            <select type="1" id="row-5-permission" name="row-5-permission">
+                <option value="Customer" selected="selected">Customer</option>
+                <option value="Technician">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-05-05" >
+          </td>
+          <td>
+            <select size="1" id="row-5-office" name="row-5-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Brielle Williamson</td>
+          <td>
+            <select type="1" id="row-6-permission" name="row-6-permission">
+                <option value="Customer" >Customer</option>
+                <option value="Technician" selected="selected">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2019-10-05" >
+          </td>
+          <td>
+            <select size="1" id="row-6-office" name="row-6-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive" selected="selected">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Herrod Chandler</td>
+          <td>
+            <select type="1" id="row-7-permission" name="row-7-permission">
+                <option value="Customer" selected="selected">Customer</option>
+                <option value="Technician">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-12-05" >
+          </td>
+          <td>
+            <select size="1" id="row-7-office" name="row-7-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Rhona Davidson</td>
+          <td>
+            <select type="1" id="row-8-permission" name="row-8-permission">
+                <option value="Customer" selected="selected">Customer</option>
+                <option value="Technician">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2018-07-24" >
+          </td>
+          <td>
+            <select size="1" id="row-8-office" name="row-8-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Colleen Hurst</td>
+          <td>
+            <select type="1" id="row-9-permission" name="row-1-permission">
+                <option value="Customer" >Customer</option>
+                <option value="Technician" selected="selected">Technician</option>
+            </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2000-05-05" >
+          </td>
+          <td>
+            <select size="1" id="row-9-office" name="row-9-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending" selected="selected">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Sonya Frost</td>
+          <td>
+            <select type="1" id="row-10-permission" name="row-10-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2021-03-05" >
+          </td>
+          <td>
+            <select size="1" id="row-10-office" name="row-10-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Jena Gaines</td>
+          <td>
+            <select type="1" id="row-11-permission" name="row-11-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-11-05" >
+          </td>
+          <td>
+            <select size="1" id="row-11-office" name="row-11-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending" selected="selected">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Quinn Flynn</td>
+          <td>
+            <select type="1" id="row-12-permission" name="row-12-permission">
+              <option value="Customer" >Customer</option>
+              <option value="Technician" selected="selected">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2012-01-23" >
+          </td>
+          <td>
+            <select size="1" id="row-12-office" name="row-12-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Charde Marshall</td>
+          <td>
+            <select type="1" id="row-13-permission" name="row-13-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-05-15" >
+          </td>
+          <td>
+            <select size="1" id="row-13-office" name="row-13-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive" selected="selected">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Haley Kennedy</td>
+          <td>
+            <select type="1" id="row-14-permission" name="row-14-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2021-12-05" >
+          </td>
+          <td>
+            <select size="1" id="row-14-office" name="row-14-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Tatyana Fitzpatrick</td>
+          <td>
+            <select type="1" id="row-15-permission" name="row-15-permission">
+              <option value="Customer" >Customer</option>
+              <option value="Technician" selected="selected">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-02-05" >
+          </td>
+          <td>
+            <select size="1" id="row-15-office" name="row-15-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive" selected="selected">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Michael Silva</td>
+          <td>
+            <select type="1" id="row-16-permission" name="row-16-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2021-05-15" >
+          </td>
+          <td>
+            <select size="1" id="row-16-office" name="row-16-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Paul Byrd</td>
+          <td>
+            <select type="1" id="row-17-permission" name="row-17-permission">
+              <option value="Customer" >Customer</option>
+              <option value="Technician" selected="selected">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2020-05-25" >
+          </td>
+          <td>
+            <select size="1" id="row-17-office" name="row-17-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending" selected="selected">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Gloria Little</td>
+          <td>
+            <select type="1" id="row-18-permission" name="row-18-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="20019-05-23" >
+          </td>
+          <td>
+            <select size="1" id="row-18-office" name="row-18-office">
+              <option value="Active" selected="selected">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Bradley Greer</td>
+          <td>
+            <select type="1" id="row-19-permission" name="row-19-permission">
+              <option value="Customer" selected="selected">Customer</option>
+              <option value="Technician">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2022-04-25" >
+          </td>
+          <td>
+            <select size="1" id="row-19-office" name="row-19-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending" selected="selected">Pending</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><input type="checkbox" id="select"> </td>
+          <td>Dai Rios</td>
+          <td>
+            <select type="1" id="row-20-permission" name="row-20-permission">
+              <option value="Customer" >Customer</option>
+              <option value="Technician" selected="selected">Technician</option>
+          </select>
+          </td>
+          <td>
+            <input type="date" id="myDate" value="2021-10-02" >
+          </td>
+          <td>
+            <select size="1" id="row-20-office" name="row-20-office">
+              <option value="Active" >Active</option>
+              <option value="Inactive" selected="selected">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </td>
+        </tr>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  </div>
+  		<div class="navbar" style="opacity: 0.95">
+		  <a href="#home"> <img style= "margin-left: 14px; height: 225px; width: 300px;" src="./Logo.png"> </a>
+		  <a href="#home"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
+		  <a href="#news"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
+		  <a href="#contact"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
+		  <a href="#contact"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
+		  <a href="#home"> <img style="margin-right: 10px; height: 225px; width: 300px;" src="./IT_Logo.png"> </a>
+		</div>
+
+  </body>
+</html>

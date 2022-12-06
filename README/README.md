@@ -55,7 +55,7 @@ The museum currently utilizes a third-party, online ticketing system, which allo
     - [x] Ticket request portal.
     - [x] Individual ticket views.
 - [x] Implement guis into webpages.
-- [x] Add fucntionality and cohesiveness to webpages
+- [x] Add functionality and cohesiveness to webpages
     - [x] Login mechanism.
     - [x] Search, sort, and filter options for data.
     - [x] Ticket activity tracking.
@@ -74,7 +74,7 @@ The Perot Museum of Nature and Science was officially selected as our client in 
 
 Basic project requirements were established in mid-October of 2022. A requirements document was assembled in Jira (this is a project management software) to track and manage all articulated requirements. The document is organized by the webpages needed for the ticketing system.
 
-### Develop GUI prototypes (Sprint 01 - completed in mid-October, 2022)
+### Develop GUI prototypes (Spring 01 - completed in late-October, 2022)
 
 Login page:
 
@@ -96,9 +96,41 @@ Individual ticket view:
 
 <img src="IMAGES/Ticket_View.JPG" alt="Logo" width="500" height="300">
 
-<!-- GETTING STARTED -->
+### Implement GUIs and functionality into web pages (Sprint 02 & 03 - completed in November, 2022)
 
-## Getting Started (Work In Progress)
+Login page (includes password/username functionality):
+
+<img src="IMAGES/Login.JPG" alt="Logo" width="500" height="300">
+
+Ticket dashboard (includes search and sort feature):
+
+<img src="IMAGES/Ticket Management.JPG" alt="Logo" width="500" height="300">
+
+Account management dashboard (includes search and sort features):
+
+<img src="IMAGES/Account Management.JPG" alt="Logo" width="500" height="300">
+
+Ticket request portal (includes functioning drop downs and fields):
+
+<img src="IMAGES/Ticket Request New.JPG" alt="Logo" width="500" height="300">
+
+Individual ticket view (includes functioning activity stream):
+
+<img src="IMAGES/Ticket Data.JPG" alt="Logo" width="500" height="300">
+
+General nav (this is the homepage - navbar included in other screen shots):
+
+<img src="IMAGES/Home Page.JPG" alt="Logo" width="500" height="300">
+
+### Assemble server and relevant database componenets (Work In Progress)
+
+### Connect webpages to server (Work In Progress)
+
+### Establish and perform system testing (Work In Progress)
+
+### Deploye to customer (Work In Progress)
+
+## Developer and customer guidance (Work in Progres)
 
 This section will be used to document guidance for developers and users.
 

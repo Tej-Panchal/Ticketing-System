@@ -104,7 +104,7 @@ Login page (includes password/username functionality):
 
 Ticket dashboard (includes search and sort feature):
 
-<img src="IMAGES/Ticket Management.JPG" alt="Logo" width="500" height="300">
+<img src="IMAGES/Ticket Mangement.JPG" alt="Logo" width="500" height="300">
 
 Account management dashboard (includes search and sort features):
 

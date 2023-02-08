@@ -66,7 +66,7 @@
 		.column {
 			float: left;
 			padding: 10px;
-			height: 550px; /* Should be removed. Only for demonstration */
+			height: 575px; /* Should be removed. Only for demonstration */
 		}
 
 		.left {
@@ -183,154 +183,159 @@
 
 		<div class="column middle" style="background-color:#6DA47F; opacity: 0.85;">
 
-			<!-- 3 -This is just the header.-->
+			<form>
+				<!-- 3 -This is just the header.-->
 
-			<h1> <center> Request A New Ticket </center> </h1>
+				<h1> <center> Request A New Ticket </center> </h1>
 
-			<!-- 3 Customer name box.-->
+				<!-- 3 Customer name box.-->
 
-			<div style="display: flex; justify-content: center;">
+				<div style="display: flex; justify-content: center;">
 
-				<label for="comments">Employee Name</label><br>
+					<label for="comments">Employee Name</label><br>
 
-			</div>
+				</div>
 
-			<div style="display: flex; justify-content: center;">
+				<div style="display: flex; justify-content: center;">
 
-				<input type="text" placeholder="Enter your name . . . " id="comments" size="35" name="comment" style="height: 30px; margin-bottom: 10px;">
+					<input type="text" placeholder="Enter your name . . . " id="comments" size="35" name="comment" style="height: 30px; margin-bottom: 10px;">
 
-			</div>
+				</div>
 
-			<!-- 3 -Ticket status box.-->
+				<!-- 3 -Ticket status box.-->
 
-			<div style="display: flex; justify-content: center;">
+				<div style="display: flex; justify-content: center;">
 
-				<label for="Status"> Ticket Priority </label><br>
+					<label for="Status"> Ticket Priority </label><br>
 
-			</div>
+				</div>
 
-			<div style="display: flex; justify-content: center;">
+				<div style="display: flex; justify-content: center;">
 
-				<select name="tech" id="Status" style="width: 282px; height: 30px">
-					<option value="Low">Low</option>
-					<option value="Urgent">Urgent</option>
-					<option value="Moderate">Moderate</option>
-				</select>
+					<select name="tech" id="Status" style="width: 282px; height: 30px">
+						<option value="Low">Low</option>
+						<option value="Urgent">Urgent</option>
+						<option value="Moderate">Moderate</option>
+					</select>
 
-			</div>
+				</div>
 
-			<p>
-
-
-			</p>
-
-			<!-- 3 -Assigned technician box.-->
-
-			<div style="display: flex; justify-content: center;">
-
-				<label for="technician">Category/Exhibity</label><br>
-
-			</div>
-
-			<div style="display: flex; justify-content: center;">
-
-				<select name="tech" id="technician" onchange="enableChoice(this)" style="width: 282px; height: 30px">
-					<option value="Software Installation">Software Installation</option>
-					<option value="Hardware Issue">Hardware Issue</option>
-					<option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
-					<option value="Outerspace Exhibit">Outerspace Exhibit</option>
-					<option value="Other Exhibit">Other Exhibit</option>
-				</select>
-
-			</div>
-
-			<p>
+				<p>
 
 
-			</p>
+				</p>
 
-			<div style="display: flex; justify-content: center;">
+				<!-- 3 -Assigned technician box.-->
 
-				<select name="tech" id="Software" class="d-none" style="width: 282px; height: 30px">
-					<option value="Corrupt Drivers">Corrupt Drivers</option>
-					<option value="Unable to Access">Unable to Access</option>
-					<option value="Blue Screen">Blue Screen</option>
-				</select>
+				<div style="display: flex; justify-content: center;">
 
-			</div>
+					<label for="technician">Category/Exhibity</label><br>
 
-			<div style="display: flex; justify-content: center;">
+				</div>
 
-				<select name="tech" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-					<option value="Wont Turn On">Wont Turn On</option>
-					<option value="Screen Freeze">Screen Freeze</option>
-					<option value="Insufficent Memory">Insufficent Memory</option>
-				</select>
+				<div style="display: flex; justify-content: center;">
 
-			</div>
+					<select name="tech" id="technician" onchange="enableChoice(this)" style="width: 282px; height: 30px">
+						<option value="Software Installation">Software Installation</option>
+						<option value="Hardware Issue">Hardware Issue</option>
+						<option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
+						<option value="Outerspace Exhibit">Outerspace Exhibit</option>
+						<option value="Other Exhibit">Other Exhibit</option>
+					</select>
 
-			<div style="display: flex; justify-content: center;">
+				</div>
 
-				<select name="tech" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-					<option value="Cleaning">Cleaning</option>
-					<option value="Repair">Repair</option>
-					<option value="Inspection">Inspection</option>
-				</select>
-
-			</div>
-
-			<div style="display: flex; justify-content: center;">
-
-				<select name="tech" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-					<option value="Cleaning">Cleaning</option>
-					<option value="Repair">Repair</option>
-					<option value="Broken Part">Broken Part</option>
-				</select>
-
-			</div>
-
-			<div style="display: flex; justify-content: center;">
-
-				<select name="tech" id="Other" class="d-none" style="width: 282px; height: 30px">
-					<option value="Spill">Spill</option>
-					<option value="Broken Part">Broken Part</option>
-					<option value="Crying Kid">Crying Kid</option>
-				</select>
-
-			</div>
-
-			<!-- 3 -Comments box.-->
-
-			<div style="display: flex; justify-content: center;">
-
-				<label for="comments">Comment</label><br>
-
-			</div>
-
-			<div style="display: flex; justify-content: center;">
-
-				<input type="text" id="comments" size="35" name="comment" style="height: 175px">
-
-			</div>
-
-			<p>
+				<p>
 
 
-			</p>
+				</p>
 
-			<p>
+				<div style="display: flex; justify-content: center;">
+
+					<select name="tech" id="Software" class="d-none" style="width: 282px; height: 30px">
+						<option value="Corrupt Drivers">Corrupt Drivers</option>
+						<option value="Unable to Access">Unable to Access</option>
+						<option value="Blue Screen">Blue Screen</option>
+					</select>
+
+				</div>
+
+				<div style="display: flex; justify-content: center;">
+
+					<select name="tech" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+						<option value="Wont Turn On">Wont Turn On</option>
+						<option value="Screen Freeze">Screen Freeze</option>
+						<option value="Insufficent Memory">Insufficent Memory</option>
+					</select>
+
+				</div>
+
+				<div style="display: flex; justify-content: center;">
+
+					<select name="tech" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+						<option value="Cleaning">Cleaning</option>
+						<option value="Repair">Repair</option>
+						<option value="Inspection">Inspection</option>
+					</select>
+
+				</div>
+
+				<div style="display: flex; justify-content: center;">
+
+					<select name="tech" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+						<option value="Cleaning">Cleaning</option>
+						<option value="Repair">Repair</option>
+						<option value="Broken Part">Broken Part</option>
+					</select>
+
+				</div>
+
+				<div style="display: flex; justify-content: center;">
+
+					<select name="tech" id="Other" class="d-none" style="width: 282px; height: 30px">
+						<option value="Spill">Spill</option>
+						<option value="Broken Part">Broken Part</option>
+						<option value="Crying Kid">Crying Kid</option>
+					</select>
+
+				</div>
+
+				<!-- 3 -Comments box.-->
+
+				<div style="display: flex; justify-content: center;">
+
+					<label for="comments">Comment</label><br>
+
+				</div>
+
+				<div style="display: flex; justify-content: center;">
+
+					<input type="text" id="comments" size="35" name="comment" style="height: 175px">
+
+				</div>
+
+				<p>
 
 
-			</p>
+				</p>
 
-			<!-- 3 -Submit changes button.-->
-			<div class="button-style">
+				<p>
 
-				<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Save Changes </button>
 
-				<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>
+				</p>
 
-			</div>
+				<!-- 3 -Submit changes button.-->
+				<div class="button-style">
+
+					<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Save Changes </button>
+
+					<input type="reset" value="Reset">
+
+					<!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
+
+				</div>
+
+			</form>
 
 		</div>
 

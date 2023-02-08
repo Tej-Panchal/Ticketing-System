@@ -115,48 +115,48 @@
 		function enableChoice(answer) {
 			console.log(answer.value);
 			if (answer.value == 'Software Installation') {
-                document.getElementById('Software').classList.remove('d-none');
-                document.getElementById('Hardware').classList.add('d-none');
-                document.getElementById('Dinosaur').classList.add('d-none');
-                document.getElementById('Outerspace').classList.add('d-none');
-                document.getElementById('Other').classList.add('d-none');
+				document.getElementById('Software').classList.remove('d-none');
+				document.getElementById('Hardware').classList.add('d-none');
+				document.getElementById('Dinosaur').classList.add('d-none');
+				document.getElementById('Outerspace').classList.add('d-none');
+				document.getElementById('Other').classList.add('d-none');
 			}
 			else if (answer.value == 'Hardware Issue') {
-                document.getElementById('Hardware').classList.remove('d-none');
-                document.getElementById('Software').classList.add('d-none');
-                document.getElementById('Dinosaur').classList.add('d-none');
-                document.getElementById('Outerspace').classList.add('d-none');
-                document.getElementById('Other').classList.add('d-none');
+				document.getElementById('Hardware').classList.remove('d-none');
+				document.getElementById('Software').classList.add('d-none');
+				document.getElementById('Dinosaur').classList.add('d-none');
+				document.getElementById('Outerspace').classList.add('d-none');
+				document.getElementById('Other').classList.add('d-none');
 			}
 			else if (answer.value == 'Dinosaur Exhibit') {
-                document.getElementById('Dinosaur').classList.remove('d-none');
-                document.getElementById('Software').classList.add('d-none');
-                document.getElementById('Hardware').classList.add('d-none');
-                document.getElementById('Outerspace').classList.add('d-none');
-                document.getElementById('Other').classList.add('d-none');
+				document.getElementById('Dinosaur').classList.remove('d-none');
+				document.getElementById('Software').classList.add('d-none');
+				document.getElementById('Hardware').classList.add('d-none');
+				document.getElementById('Outerspace').classList.add('d-none');
+				document.getElementById('Other').classList.add('d-none');
 			}
-            else if (answer.value == 'Outerspace Exhibit') {
-                document.getElementById('Outerspace').classList.remove('d-none');
-                document.getElementById('Software').classList.add('d-none');
-                document.getElementById('Hardware').classList.add('d-none');
-                document.getElementById('Dinosaur').classList.add('d-none');
-                document.getElementById('Other').classList.add('d-none');
+			else if (answer.value == 'Outerspace Exhibit') {
+				document.getElementById('Outerspace').classList.remove('d-none');
+				document.getElementById('Software').classList.add('d-none');
+				document.getElementById('Hardware').classList.add('d-none');
+				document.getElementById('Dinosaur').classList.add('d-none');
+				document.getElementById('Other').classList.add('d-none');
 			}
 			else if (answer.value == 'Other Exhibit') {
-                document.getElementById('Other').classList.remove('d-none');
-                document.getElementById('Software').classList.add('d-none');
-                document.getElementById('Hardware').classList.add('d-none');
-                document.getElementById('Dinosaur').classList.add('d-none');
-                document.getElementById('Outerspace').classList.add('d-none');
-            }
+				document.getElementById('Other').classList.remove('d-none');
+				document.getElementById('Software').classList.add('d-none');
+				document.getElementById('Hardware').classList.add('d-none');
+				document.getElementById('Dinosaur').classList.add('d-none');
+				document.getElementById('Outerspace').classList.add('d-none');
+			}
 			else {
 				document.getElementById('Software').classList.add('d-none');
 				document.getElementById('Hardware').classList.add('d-none');
 				document.getElementById('Dinosaur').classList.add('d-none');
 				document.getElementById('Outerspace').classList.add('d-none');
-                document.getElementById('Other').classList.add('d-none');
+				document.getElementById('Other').classList.add('d-none');
 
-            }
+			}
 		}
 	</script>
 
@@ -228,14 +228,13 @@
 
 			<div style="display: flex; justify-content: center;">
 
-				<label for="technician">Category/Exhibit</label><br>
+				<label for="technician">Category/Exhibity</label><br>
 
 			</div>
 
 			<div style="display: flex; justify-content: center;">
 
 				<select name="tech" id="technician" onchange="enableChoice(this)" style="width: 282px; height: 30px">
-					<option value="">Select Catagory</option>
 					<option value="Software Installation">Software Installation</option>
 					<option value="Hardware Issue">Hardware Issue</option>
 					<option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
@@ -283,7 +282,7 @@
 			<div style="display: flex; justify-content: center;">
 
 				<select name="tech" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-					<option value="Cleaning">Cleaingin</option>
+					<option value="Cleaning">Cleaning</option>
 					<option value="Repair">Repair</option>
 					<option value="Broken Part">Broken Part</option>
 				</select>
@@ -299,11 +298,6 @@
 				</select>
 
 			</div>
-
-			<p>
-
-
-			</p>
 
 			<!-- 3 -Comments box.-->
 
@@ -343,14 +337,14 @@
 	</div>
 
 
-	<!--<div class="navbar" style="opacity: 0.95">
+	<div class="navbar" style="opacity: 0.95">
 		<a href="#nothing"> <img style="margin-left: 14px; height: 225px; width: 300px;" src="./Logo.png"> </a>
-		<a href="/Ticket_System/Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
-		<a href="/Ticket_System/Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
-		<a href="/Ticket_System/Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
-		<a href="/Ticket_System/Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
+		<a href="../Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
+		<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
+		<a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
+		<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
 		<a href="#home"> <img style="margin-right: 10px; height: 225px; width: 300px;" src="./IT_Logo.png"> </a>
-	</div> -->
+	</div>
 
 </body>
 

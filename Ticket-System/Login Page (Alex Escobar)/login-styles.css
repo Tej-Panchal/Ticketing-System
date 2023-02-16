@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("./Nature_2.jpg") no-repeat center center fixed; 
+  background: url("../Images/Nature_2.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

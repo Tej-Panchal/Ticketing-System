@@ -31,7 +31,7 @@
     height: 1500px; /* Used in this example to enable scrolling */
 }
 body {
-    background-image:url('Nature_6.jpg');
+    background-image:url('../Images/Nature_6.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

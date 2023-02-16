@@ -7,6 +7,12 @@
 	<title>Ticket Dashboard</title>
 	
 	<style>
+
+	@media screen and (min-width: 100px){
+      table{
+        width: 100%;
+      }
+	}
 	
 	td{
         border: 1px solid rgba(30, 4, 107, 0.83);
@@ -36,9 +42,9 @@
 	div.scroll {
 		border: 2px solid #1A1D1B;
 		margin:4px, 4px;
-		margin-left: 20px;
-		width: 1875px;
-		height: 560px;
+		width: 100%;
+    	height: 100%;
+    	min-height: 1000px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		text-align:justify;
@@ -49,9 +55,10 @@
 		  background-color: #333;
 		  position: fixed;
 		  bottom: 0;
-		  padding: 10px;
-		  margin-left: 18px;
-		  margin-right: 10px;
+		  padding: 1vh;
+      	  width: 100%;
+      	  height: auto;
+      	  font-size: 1.5vw;
 	}
 
 	.navbar a {
@@ -59,9 +66,10 @@
 		  display: block;
 		  color: #f2f2f2;
 		  text-align: center;
-		  padding: 14px 16px;
+		  padding: 1vw;
 		  text-decoration: none;
-		  font-size: 17px;
+      	  font-size: 2em;
+    	  width: 14vw;
 	}
 
 	.navbar a:hover {
@@ -801,13 +809,13 @@
 </div>
 
 <div class="navbar" style="opacity: 0.95">
-	<a href="#home"> <img style= "margin-left: 0px; height: 200px; width: 295px;" src="./Logo.png"> </a>
-	<a href="../Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
-	<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
-	<a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
-	<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
-	<a href="#home"> <img style="margin-right: 10px; height: 200px; width: 295px;" src="./IT_Logo.png"> </a>
-</div>
+    <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="./Logo.png"> </a>
+    <a href="/Ticket_System/Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
+    <a href="/Ticket_System/Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
+    <a href="/Ticket_System/Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p> Accounts </p> </a>
+    <a href="/Ticket_System/Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p> Dashboard </p> </a>
+    <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="./IT_Logo.png"> </a>
+    </div>
 
 </body>
 </html>

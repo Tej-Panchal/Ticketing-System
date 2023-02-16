@@ -5,41 +5,6 @@
 		<!--- style stuff--> 
 		<style>
 		
-		.navbar {
-		  overflow: hidden;
-		  background-color: #333;
-		  position: fixed;
-		  bottom: 0;
-		  padding: 10px;
-		}
-
-		.navbar a {
-		  float: left;
-		  display: block;
-		  color: #f2f2f2;
-		  text-align: center;
-		  padding: 14px 16px;
-		  text-decoration: none;
-		  font-size: 17px;
-		}
-
-		.navbar a:hover {
-		  background: #ddd;
-		  color: black;
-		}
-
-		.main {
-		  padding: 16px;
-		  margin-bottom: 30px;
-		  height: 1500px; /* Used in this example to enable scrolling */
-		}
-		    body {
-			background-image:url('Nature_1.jpg');
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-			}
-		
 		.request-1{
 		
 		display: flex;	
@@ -101,16 +66,7 @@
 		justify-content: center;
 		
 		}
-		
-		.header {
-		  padding: 1px;
-		  text-align: center;
-		  background: #206740;
-		  color: black;
-		  font-size: 25px;
-		  opacity: 0.9;
-		}
-				</style>
+		</style>
 		
 		<script src="Ticket_View.js"></script>
 		
@@ -121,29 +77,26 @@
 
 	<body>
 	
-		<div class="header">
-		<h1><center> TICKET DATA PORTAL </center></h1>
-		</div>
+		<h1><center> Ticket Portal </center></h1>
 		
 		<div class="row" >
 		
 		<!-- 1 -This is the first column; it contains the activity stream.-->
 		
-		  <div id="new" class="column left" style="background-color:#5A8C71; opacity: 0.97;">
+		  <div id="new" class="column left" style="background-color:#f0f8ff;">
 			
 			<!-- 1 -This is the header.-->
 			
-			<h1> <center> Activity Stream </center> </h1>
+			<h2> <center> Activity Stream </center> </h2>
 			
 			<!-- 1 -This is a sample activity.-->
 			
 			<fieldset> 
 			
-				<legend> @System - - - - - - - - - - 12-01-22 @ 04:10:30 </legend><br>
+				<legend> @System - - - - - 12-01-22 @ 04:10:30 </legend><br>
 				
-				<textarea id="text_field_1" name="text_field" rows="5" cols="45" placeholder= "Action: 
-				
-Ticket Status = Pending."></textarea>
+				<textarea id="text_field_1" name="text_field" rows="5" cols="32" placeholder= "Action: 
+				Ticket Status = Pending."></textarea>
 				
 			</fieldset>
 			<p>
@@ -154,17 +107,17 @@ Ticket Status = Pending."></textarea>
 		  
 		  <!-- 2 -This is the second column; it contains the ticket summary.-->
 		  
-		  <div class="column middle" style="background-color:#A8F7CC; opacity: 0.965;">
+		  <div class="column middle" style="background-color:#bbb;">
 		  
 		    <!-- 2 -This is the header.-->
 		  
-			<h1> <center> Ticket Request Summary </center> </h1>
+			<h2> <center> Request Summary </center> </h2>
 			
 			<!-- 2 -This is the first table data.-->
 			
 			<div class="button-style">
 				
-			<table width=30% cellpadding= 15 class=center style="background-color:#CAD9D1; text-align:center">
+			<table width=30% cellpadding= 15 class=center style="background-color:grey; text-align:center">
 			<tr>
 			
 				<td>
@@ -200,7 +153,7 @@ Ticket Status = Pending."></textarea>
 			</p>
 			
 			<div class="table-style">
-			<table width=30% cellpadding= 15 class=center style="background-color:#CAD9D1; text-align:center">
+			<table width=30% cellpadding= 15 class=center style="background-color:grey; text-align:center">
 			<tr>
 			
 				<td>
@@ -233,52 +186,41 @@ Ticket Status = Pending."></textarea>
 			
 			
 			</p>
-			<div class="table-style"> 
 			
-			<table width=30% cellpadding= 15 class=center style="background-color:#CAD9D1; text-align: center;">
+			<table width=100% cellpadding= 15 style="background-color:grey; text-align: center;">
 			<tr>
 			
 				<td>
 				<div class="container">
 					<label for="Description">Description . . . </label><br>
-					<input type="text" wrap = "hard" id="Description" size = "100" name="Describe" placeholder = "The spacel shuttle is broken we desperately need help.Here's the situation: it's broken - it's completely busted." style="height: 150px;">
+					<input type="text" wrap = "hard" id="Description" size = "70" name="Describe" placeholder = "The spacel shuttle is broken we desperately need help." style="height: 150px;">
 				</div>
 				</td>
 				
 			</tr>
 			</table>
 			
-			</div>
-			
 		  </div>
 		  
 		  <!-- 3 - This is the third column; it contains the system control panel.-->
 		  
-		  <div class="column right" style="background-color:#5A8C71; opacity: 0.97;">
+		  <div class="column right" style="background-color:#f0f8ff;">
 			
 			
 			<!-- 3 -This is just the header.-->
 			
-			<h1> <center> Control Panel </center> </h1>
+			<h2> <center> Control Panel </center> </h2>
 			
 			<!-- 3 -Ticket status box.-->
 			
-			<div style="display: flex; justify-content: center;">
-			
 			<label for="Status"> Ticket Status </label><br>
 			
-			</div>
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<select name="tech" id="Status" style="width: 282px; height: 30px">
+			<select name="tech" id="Status" style="width: 282px">
 					<option value="Pending">Pending</option>
 					<option value="Open">Open</option>
 					<option value="Closed - Complete">Closed Complete</option>
 					<option value="Closed - Cancelled">Closed - Cancelled</option>		
 			</select>
-			
-			</div>
 			
 			<p>
 			
@@ -287,23 +229,15 @@ Ticket Status = Pending."></textarea>
 			
 			<!-- 3 -Assigned technician box.-->
 			
-			<div style="display: flex; justify-content: center;">
-			
 			<label for="technician">Assigned Techician</label><br>
 			
-			</div>
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<select name="tech" id="technician" style="width: 282px; height: 30px">
+			<select name="tech" id="technician" style="width: 282px">
 					<option value="Unassigned">Unassigned</option>
 					<option value="Tony Stark">Tony Stark</option>
 					<option value="Captain America">Captain American</option>
 					<option value="Napolean Dynamite">Napolean Dynamite</option>
 					<option value="Actual Napolean">Actual Napolean</option>
 			</select>
-			
-			</div>
 			
 			<p>
 			
@@ -312,17 +246,8 @@ Ticket Status = Pending."></textarea>
 			
 			<!-- 3 -Comments box.-->
 			
-			<div style="display: flex; justify-content: center;">
-			
 			<label for="comments">Comment</label><br>
-			
-			</div>
-			
-			<div style="display: flex; justify-content: center;">
-			
 			<input type="text" id="comments" size = "35" name="comment" style="height: 175px">
-			
-			</div>
 			
 			<p>
 			
@@ -346,15 +271,6 @@ Ticket Status = Pending."></textarea>
 		  </div>
 		  
 		  
-		</div>
-		
-		<div class="navbar" style="opacity: 0.95">
-		  <a href="#home"> <img style= "margin-left: 14px; height: 225px; width: 300px;" src="./Logo.png"> </a>
-		  <a href="#home"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
-		  <a href="#news"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
-		  <a href="#contact"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
-		  <a href="#contact"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
-		  <a href="#home"> <img style="margin-right: 10px; height: 225px; width: 300px;" src="./IT_Logo.png"> </a>
 		</div>
 
 	</body>

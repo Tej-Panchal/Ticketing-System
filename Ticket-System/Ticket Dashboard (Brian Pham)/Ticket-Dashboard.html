@@ -8,14 +8,15 @@
 	
 	<style>
 	
-	 td{
-        border: 1px solid rgba(30, 4, 107, 0.82);
+	td{
+        border: 1px solid rgba(30, 4, 107, 0.83);
         border-collapse: collapse;
         padding: 7px;
 		background-color: #A0F1C6;
 		opacity: 0.85;
       }
-     th {
+
+    th {
         border: 2px solid rgba(30, 4, 107, 0.82);
         background-color: #53BD85;
         text-align: left;
@@ -24,13 +25,14 @@
         cursor: pointer;
 		opacity: 0.9;
       }
-	body 
-	  {
+
+	body {
 			background-image:url('Nature_5.jpg');
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
-		}
+	}
+
 	div.scroll {
 		border: 2px solid #1A1D1B;
 		margin:4px, 4px;
@@ -40,7 +42,8 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 		text-align:justify;
-		}
+	}
+
 	.navbar {
 		  overflow: hidden;
 		  background-color: #333;
@@ -49,9 +52,9 @@
 		  padding: 10px;
 		  margin-left: 18px;
 		  margin-right: 10px;
-		}
+	}
 
-		.navbar a {
+	.navbar a {
 		  float: left;
 		  display: block;
 		  color: #f2f2f2;
@@ -59,33 +62,18 @@
 		  padding: 14px 16px;
 		  text-decoration: none;
 		  font-size: 17px;
-		}
+	}
 
-		.navbar a:hover {
+	.navbar a:hover {
 		  background: #ddd;
 		  color: black;
-		}
+	}
+		
 	</style>
 	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="Ticket-Dashboard.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="./Ticket-Dashboard.css" />
 	
-    <script type="application/javascript">
-        function deleteRow() {
-			var table = document.getElementById("ticket-table");
-			var index = 1;
-			while (index < table.rows.length) {
-				var input = table.rows[index].cells[0].children[0];
-				if (input && input.checked) {
-					table.deleteRow(index);
-				} else {
-            		index++;
-				}
-			}	
-        }   
-	
-	</script>
-
 	<script type="application/javascript">
 		function sortTable(n) {
     		var table,rows,switching,i,x,y,shouldSwitch,dir,switchcount = 0;
@@ -124,6 +112,46 @@
         	}
       	}
     </script>
+
+<script type="application/javascript">
+	function sortTable(n) {
+		var table,rows,switching,i,x,y,shouldSwitch,dir,switchcount = 0;
+		table = document.getElementById ("ticket-table2");
+		switching = true;
+		dir = "asc";
+		while (switching) {
+			  switching = false;
+			  rows = table.getElementsByTagName("tr");
+			  for (i = 1; i < rows.length - 1; i++) {   
+				shouldSwitch = false;     
+				x = rows[i].getElementsByTagName("td")[n];
+				y = rows[i + 1].getElementsByTagName("td")[n];
+				if (dir == "asc") {
+					if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+						shouldSwitch = true;
+						break;
+					  }	
+					  } else if (dir == "desc") {
+						if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+						shouldSwitch = true;
+						break;
+						  }
+					}
+			  }
+			  if (shouldSwitch) {
+				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				switching = true;
+				switchcount++;
+			  } else {
+				if (switchcount == 0 && dir == "asc") {
+					  dir = "desc";
+					  switching = true;
+				}
+				}
+		}
+	  }
+
+</script>
 	
 	<script type="application/javascript">
 		function tableSearch() {
@@ -148,7 +176,34 @@
 			}
 		}
 
-	</script>
+</script>
+
+</script>
+	
+<script type="application/javascript">
+	function tableSearch2() {
+		let input, filter, table, tr, td, td1, txtValue;
+
+		//Intialising Variables
+		input = document.getElementById("myInput2");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("ticket-table2");
+		tr = table.getElementsByTagName("tr");
+
+		for (let i = 1; i < tr.length; i++) {
+			td = tr[i];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+
+</script>
 
 </head>
 
@@ -159,37 +214,38 @@
     <h1>Ticket Dashboard</h1>
 	</div>	
 
-	
+	<div class="break">
+		<h2>Open Tickets</h2>
+	</div>	
+
 	<div class="search-box">
-		<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search table . . .  ">
+		<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search Open Tickets table . . .  ">
 	</div>
-	
+
+
 <div class="scroll">
 	
 	<table class="ticket-table" id="ticket-table" data-filter-control="true" 
 		data-show-search-clear-button="true">
 		<thead>
 		
-			<th></th>
-			
-			<th onclick = "sortTable(1)">TICKET NAME</th>
+			<th onclick = "sortTable(0)">TICKET NAME</th>
 				
-			<th onclick = "sortTable(2)">TICKET STATUS</th>
+			<th onclick = "sortTable(1)">TICKET STATUS</th>
 			
 			<th>CREATE DATE</th>
 			
-			<th onclick = "sortTable(4)">TICKET PRIORITY</th>
+			<th onclick = "sortTable(3)">TICKET PRIORITY</th>
 			
-			<th onclick = "sortTable(5)">TICKET OWNER</th>
+			<th onclick = "sortTable(4)">TICKET OWNER</th>
 			
 		</thead>
-		
+
 		<tbody>
 			
 			<tr>
 			
-				<td><input type="checkbox" id="select"> </td>
-				<td style ="color:purple"> <a href="/Ticket_System/Ticket View (Steve Nevins)/Ticket_View.html"> Space Shuttle Down </a> </td>
+				<td style ="color:purple"> <a href="../Ticket View (Steve Nevins)/Ticket_View.html"> Space Shuttle Down </a> </td>
 				<td>New</td>
 				<td>Sep 9, 2023</td>
 				<td>High</td>
@@ -199,7 +255,6 @@
 	
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Error Message</td>
 				<td>On Hold</td>
 				<td>Oct 4, 2022</td>
@@ -208,7 +263,6 @@
 			</tr>
 		
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Lights out</td>
 				<td>In Progress</td>
 				<td>Aug 5, 2022</td>
@@ -217,7 +271,6 @@
 			</tr>
 		
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Liquid Spill</td>
 				<td>On Hold</td>
 				<td>Oct 9, 2022</td>
@@ -226,7 +279,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Broken door</td>
 				<td>On Hold</td>
 				<td>June 16, 2022</td>
@@ -235,7 +287,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Broken Glass</td>
 				<td>New</td>
 				<td>May 16, 2022</td>
@@ -244,7 +295,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Create Account</td>
 				<td>New</td>
 				<td>Apr 16, 2022</td>
@@ -253,7 +303,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Unable to login</td>
 				<td>On Hold</td>
 				<td>Nov 16, 2022</td>
@@ -262,7 +311,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Incorrect Password</td>
 				<td>In Progress</td>
 				<td>Mar 16, 2022</td>
@@ -271,7 +319,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Door unable to be unlocked</td>
 				<td>In Progress</td>
 				<td>Feb 16, 2022</td>
@@ -280,7 +327,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Can't access webpage</td>
 				<td>On Hold</td>
 				<td>Jan 16, 2022</td>
@@ -289,7 +335,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Username/Password incorrect</td>
 				<td>On Hold</td>
 				<td>July 16, 2022</td>
@@ -298,7 +343,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Exhibit Locked</td>
 				<td>On Hold</td>
 				<td>Aug 16, 2022</td>
@@ -307,7 +351,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Exhibit Lights flashing</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -316,7 +359,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Exhibit Lights dim</td>
 				<td>In Progress</td>
 				<td>Aug 16, 2022</td>
@@ -325,7 +367,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Replacement wires</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -334,7 +375,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Replace motor</td>
 				<td>On Hold</td>
 				<td>Apr 16, 2022</td>
@@ -343,7 +383,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Security Breach</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -352,7 +391,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Account Breached</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -361,7 +399,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Access card denied</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -370,7 +407,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -379,7 +415,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Low energy</td>
 				<td>In Progress</td>
 				<td>Mar 16, 2022</td>
@@ -388,7 +423,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Login Ticket</td>
 				<td>New</td>
 				<td>Nov 16, 2022</td>
@@ -397,7 +431,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Broken webpage</td>
 				<td>New</td>
 				<td>Nov 16, 2022</td>
@@ -406,7 +439,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -415,7 +447,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -424,7 +455,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -433,7 +463,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -442,7 +471,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -451,7 +479,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -460,7 +487,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>New</td>
 				<td>Sep 16, 2022</td>
@@ -469,7 +495,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -478,7 +503,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -487,7 +511,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -496,7 +519,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -505,7 +527,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -514,7 +535,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>In Progress</td>
 				<td>Sep 16, 2022</td>
@@ -523,7 +543,6 @@
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" id="select"> </td>
 				<td style ="color:purple">Ticket Name Example</td>
 				<td>On Hold</td>
 				<td>Sep 16, 2022</td>
@@ -535,16 +554,260 @@
 		</tbody>
 		
 	</table>
+
+
 </div>
 
-  		<div class="navbar" style="opacity: 0.95">
-		  <a href="#home"> <img style= "margin-left: 0px; height: 200px; width: 295px;" src="./Logo.png"> </a>
-		  <a href="/Ticket_System/Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
-		  <a href="/Ticket_System/Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
-		  <a href="/Ticket_System/Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
-		  <a href="/Ticket_System/Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
-		  <a href="#home"> <img style="margin-right: 10px; height: 200px; width: 295px;" src="./IT_Logo.png"> </a>
-		</div>
+<div class="break">
+    <h2>Closed Tickets</h2>
+</div>	
+
+<div class="search-box">
+	<input type="text" id="myInput2" onkeyup='tableSearch2()' placeholder="Search Closed Tickets table . . .  ">
+</div>
+
+<div class="scroll">
+
+	<table class="ticket-table2" id="ticket-table2" data-filter-control="true" 
+			data-show-search-clear-button="true">
+		<thead>
+			<th onclick = "sortTable(0)">TICKET NAME</th>
+				
+			<th onclick = "sortTable(1)">TICKET STATUS</th>
+			
+			<th>CREATE DATE</th>
+			
+			<th onclick = "sortTable(3)">TICKET PRIORITY</th>
+			
+			<th onclick = "sortTable(4)">TICKET OWNER</th>
+		</thead>
+
+		<tbody>
+
+			<tr>
+				<td style ="color:purple"> <a href="../Ticket View (Steve Nevins)/Ticket_View.html"> Space Shuttle Down </a> </td>
+				<td>New</td>
+				<td>Sep 9, 2023</td>
+				<td>High</td>
+				<td style ="color:purple">Steve Nevins</td>
+			</tr>
+			
+	
+			
+			<tr>
+				<td style ="color:purple">Error Message</td>
+				<td>On Hold</td>
+				<td>Oct 4, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Pat Higgs</td>
+			</tr>
+
+			<tr>
+				<td style ="color:purple">Test</td>
+				<td>On Hold</td>
+				<td>Oct 4, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Pat Higgs</td>
+			</tr>
+
+			<tr>
+				<td style ="color:purple">abcde</td>
+				<td>On Hold</td>
+				<td>Oct 4, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Mike</td>
+			</tr>
+
+			<tr>
+				<td style ="color:purple">Liquid Spill</td>
+				<td>On Hold</td>
+				<td>Oct 9, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Bob Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Broken door</td>
+				<td>On Hold</td>
+				<td>June 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Mike Cobb</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Broken Glass</td>
+				<td>New</td>
+				<td>May 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Patt Higgs</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Create Account</td>
+				<td>New</td>
+				<td>Apr 16, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">John Smith</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Unable to login</td>
+				<td>On Hold</td>
+				<td>Nov 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Bob Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Incorrect Password</td>
+				<td>In Progress</td>
+				<td>Mar 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Mike Cobb</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Door unable to be unlocked</td>
+				<td>In Progress</td>
+				<td>Feb 16, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Mike Cobb</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Can't access webpage</td>
+				<td>On Hold</td>
+				<td>Jan 16, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Todd Thompson</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Username/Password incorrect</td>
+				<td>On Hold</td>
+				<td>July 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">James Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Exhibit Locked</td>
+				<td>On Hold</td>
+				<td>Aug 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">James Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Exhibit Lights flashing</td>
+				<td>On Hold</td>
+				<td>Sep 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">James Jones</td>
+			</tr>
+
+			<tr>
+				<td style ="color:purple">Liquid Spill</td>
+				<td>On Hold</td>
+				<td>Oct 9, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Bob Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Broken door</td>
+				<td>On Hold</td>
+				<td>June 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Mike Cobb</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Broken Glass</td>
+				<td>New</td>
+				<td>May 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Patt Higgs</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Create Account</td>
+				<td>New</td>
+				<td>Apr 16, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">John Smith</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Unable to login</td>
+				<td>On Hold</td>
+				<td>Nov 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Bob Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Incorrect Password</td>
+				<td>In Progress</td>
+				<td>Mar 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">Mike Cobb</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Door unable to be unlocked</td>
+				<td>In Progress</td>
+				<td>Feb 16, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Mike Cobb</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Can't access webpage</td>
+				<td>On Hold</td>
+				<td>Jan 16, 2022</td>
+				<td>Low</td>
+				<td style ="color:purple">Todd Thompson</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Username/Password incorrect</td>
+				<td>On Hold</td>
+				<td>July 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">James Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Exhibit Locked</td>
+				<td>On Hold</td>
+				<td>Aug 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">James Jones</td>
+			</tr>
+			
+			<tr>
+				<td style ="color:purple">Exhibit Lights flashing</td>
+				<td>On Hold</td>
+				<td>Sep 16, 2022</td>
+				<td>High</td>
+				<td style ="color:purple">James Jones</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>
+
+<div class="navbar" style="opacity: 0.95">
+	<a href="#home"> <img style= "margin-left: 0px; height: 200px; width: 295px;" src="./Logo.png"> </a>
+	<a href="../Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
+	<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
+	<a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
+	<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
+	<a href="#home"> <img style="margin-right: 10px; height: 200px; width: 295px;" src="./IT_Logo.png"> </a>
+</div>
 
 </body>
 </html>

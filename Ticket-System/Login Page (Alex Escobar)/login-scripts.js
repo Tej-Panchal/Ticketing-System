@@ -8,7 +8,7 @@ loginButton.addEventListener("click", (e) => {
     const password = loginForm.password.value;
 
     if (username === "user" && password === "pass") {
-        location.assign("/Ticket_System/Homepage (Steven Graham)/homepage.html");
+        location.assign("../Homepage (Steven Graham)/homepage.html");
     } else {
         loginErrorMsg.style.opacity = 1;
     }

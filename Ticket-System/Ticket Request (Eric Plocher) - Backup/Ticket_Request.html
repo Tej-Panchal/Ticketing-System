@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<!--- style stuff--> 
+		<style>
+		
+		.navbar {
+		  overflow: hidden;
+		  background-color: #333;
+		  position: fixed;
+		  bottom: 0;
+		  padding: 10px;
+		}
+
+		.navbar a {
+		  float: left;
+		  display: block;
+		  color: #f2f2f2;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+
+		.navbar a:hover {
+		  background: #ddd;
+		  color: black;
+		}
+
+		.main {
+		  padding: 16px;
+		  margin-bottom: 30px;
+		  height: 1500px; /* Used in this example to enable scrolling */
+		}
+		    body {
+			background-image:url('Nature_6.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			}
+		
+		.request-1{
+		
+		display: flex;	
+		
+		}
+		
+		.button-style {
+		
+		display: flex;
+		
+		justify-content: center;
+		
+		}
+		
+		textarea {
+		resize: none;
+		}
+		
+		body {
+			background-color: lightskyblue;
+			}
+		* {
+		box-sizing: border-box;
+		}
+
+		/* Create three unequal columns that floats next to each other */
+		.column {
+		  float: left;
+		  padding: 10px;
+		  height: 550px; /* Should be removed. Only for demonstration */
+		}
+
+		.left {
+		  width: 25%;
+		  margin:4px;
+		  overflow-x: hidden;
+          overflow-y: auto;
+		}
+		
+		.middle {
+		  width: 50%;
+		}
+
+		.right {
+		  width: 20%;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+		
+		.table-style {
+		
+		display: flex;
+		
+		justify-content: center;
+		
+		}
+		
+		.header {
+		  padding: 1px;
+		  text-align: center;
+		  color: Black;
+		  font-size: 25px;
+		  opacity: 0.9;
+		}
+				</style>
+		
+		<script src="Ticket_View.js"></script>
+		
+		<!-- Interesting title --> 
+		<title>Ticket Request</title>
+		
+	</head>
+
+	<body>
+	
+		<div class="header">
+		<h1><center> TICKET REQUEST PORTAL </center></h1>
+		</div>
+		
+		<div class="row" >
+		
+		<!-- 1 -This is the first column; it is just centering the middle area.-->
+		
+		  <div id="new" class="column left" style="background-color:#5A8C71; opacity: 0.0;">
+			
+		  </div>
+		  
+		  <!-- 2 -This is the second column; it contains the ticket summary.-->
+		  
+		  <div class="column middle" style="background-color:#6DA47F; opacity: 0.85;">
+		  
+<!-- 3 -This is just the header.-->
+			
+			<h1> <center> Request A New Ticket </center> </h1>
+			
+			<!-- 3 Customer name box.-->
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<label for="comments">Employee Name</label><br>
+			
+			</div>
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<input type="text" placeholder = "Enter your name . . . " id="comments" size = "35" name="comment" style="height: 30px; margin-bottom: 10px;" >
+			
+			</div>
+			
+			<!-- 3 -Ticket status box.-->
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<label for="Status"> Ticket Priority </label><br>
+			
+			</div>
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<select name="tech" id="Status" style="width: 282px; height: 30px">
+					<option value="Low">Low</option>	
+					<option value="Urgent">Urgent</option>
+					<option value="Moderate">Moderate</option>
+			</select>
+			
+			</div>
+			
+			<p>
+			
+			
+			</p>
+			
+			<!-- 3 -Assigned technician box.-->
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<label for="technician">Category/Exhibity</label><br>
+			
+			</div>
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<select name="tech" id="technician" style="width: 282px; height: 30px">
+					<option value="Software Installation">Software Installation</option>
+					<option value="Hardware Issue">Hardware Issue</option>
+					<option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
+					<option value="Outerspace Exhibit">Outerspace Exhibit</option>
+					<option value="Other Exhibit">Other Exhibit</option>
+			</select>
+			
+			</div>
+			
+			<p>
+			
+			
+			</p>
+			
+			<!-- 3 -Comments box.-->
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<label for="comments">Comment</label><br>
+			
+			</div>
+			
+			<div style="display: flex; justify-content: center;">
+			
+			<input type="text" id="comments" size = "35" name="comment" style="height: 175px">
+			
+			</div>
+			
+			<p>
+			
+			
+			</p>
+			
+			<p>
+			
+			
+			</p>
+			
+			<!-- 3 -Submit changes button.-->
+			<div class="button-style">
+			
+			<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Save Changes </button>
+			
+			<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>
+			
+			</div>
+
+		  </div>
+			
+		  </div>
+
+		
+		<div class="navbar" style="opacity: 0.95">
+		  <a href="#nothing"> <img style= "margin-left: 14px; height: 225px; width: 300px;" src="./Logo.png"> </a>
+		  <a href="/Ticket_System/Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
+		  <a href="/Ticket_System/Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
+		  <a href="/Ticket_System/Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
+		  <a href="/Ticket_System/Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
+		  <a href="#home"> <img style="margin-right: 10px; height: 225px; width: 300px;" src="./IT_Logo.png"> </a>
+		</div>
+
+	</body>
+	
+</html>

@@ -37,10 +37,9 @@ function update_status()
 	//Creating new elements. 
 	
 	var box = document.createElement("fieldset");
-	
+
 	var legend = document.createElement("legend");
-	var legend = document.createElement("legend");
-	
+
 	var space = document.createElement("p");
 	
 	var tag = document.createElement("textarea");

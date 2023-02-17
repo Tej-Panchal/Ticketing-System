@@ -1,362 +1,433 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		
-		<!--- style stuff--> 
-		<style>
-		
-		.navbar {
-		  overflow: hidden;
-		  background-color: #333;
-		  position: fixed;
-		  bottom: 0;
-		  padding: 10px;
-		}
+  <head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		.navbar a {
-		  float: left;
-		  display: block;
-		  color: #f2f2f2;
-		  text-align: center;
-		  padding: 14px 16px;
-		  text-decoration: none;
-		  font-size: 17px;
-		}
+    <!--- style stuff-->
+    <style>
+      @media screen and (min-width: 100px) {
+        table {
+          width: 100%;
+        }
+      }
 
-		.navbar a:hover {
-		  background: #ddd;
-		  color: black;
-		}
+      div.scroll {
+        margin: 4px, 4px;
+        width: 100%;
+        height: 100%;
+        min-height: 1000px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: justify;
+        border: 2px solid #1a1d1b;
+      }
 
-		.main {
-		  padding: 16px;
-		  margin-bottom: 30px;
-		  height: 1500px; /* Used in this example to enable scrolling */
-		}
-		    body {
-			background-image:url('Nature_1.jpg');
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-			}
-		
-		.request-1{
-		
-		display: flex;	
-		
-		}
-		
-		.button-style {
-		
-		display: flex;
-		
-		justify-content: center;
-		
-		}
-		
-		textarea {
-		resize: none;
-		}
-		
-		body {
-			background-color: lightskyblue;
-			}
-		* {
-		box-sizing: border-box;
-		}
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        bottom: 0;
+        padding: 1vh;
+        width: 100%;
+        height: auto;
+        font-size: 1.5vw;
+      }
 
-		/* Create three unequal columns that floats next to each other */
-		.column {
-		  float: left;
-		  padding: 10px;
-		  height: 550px; /* Should be removed. Only for demonstration */
-		}
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 1vw;
+        text-decoration: none;
+        font-size: 2em;
+        width: 16vw;
+      }
 
-		.left {
-		  width: 25%;
-		  margin:4px, 4px;
-		  overflow-x: hidden;
-          overflow-y: auto;
-		}
-		
-		.middle {
-		  width: 50%;
-		}
+      .navbar a:hover {
+        background: #ddd;
+        color: black;
+      }
 
-		.right {
-		  width: 25%;
-		}
+      .main {
+        padding: 16px;
+        margin-bottom: 30px;
+        height: 1500px; /* Used in this example to enable scrolling */
+      }
+      body {
+        background-image: url("Nature_1.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
 
-		/* Clear floats after the columns */
-		.row:after {
-		  content: "";
-		  display: table;
-		  clear: both;
-		}
-		
-		.table-style {
-		
-		display: flex;
-		
-		justify-content: center;
-		
-		}
-		
-		.header {
-		  padding: 1px;
-		  text-align: center;
-		  background: #206740;
-		  color: white;
-		  font-size: 25px;
-		  opacity: 0.9;
-		}
-				</style>
-		
-		<script src="Ticket_View.js"></script>
-		
-		<!-- Interesting title --> 
-		<title>Ticket View</title>
-		
-	</head>
+      .request-1 {
+        display: flex;
+      }
 
-	<body>
+      .button-style {
+        display: flex;
+
+        justify-content: center;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      body {
+        background-color: lightskyblue;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Create three unequal columns that floats next to each other */
+      .column {
+        float: left;
+        padding: 10px;
+        height: 550px; /* Should be removed. Only for demonstration */
+      }
+
+      .left {
+        width: 25%;
+        margin: 4px, 4px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .middle {
+        width: 50%;
+      }
+
+      .right {
+        width: 25%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .table-style {
+        display: flex;
+
+        justify-content: center;
+      }
+
+      .header {
+        padding: 1px;
+        text-align: center;
+        background: #206740;
+        color: white;
+        font-size: 25px;
+        opacity: 0.9;
+      }
+    </style>
+
+    <script src="Ticket_View.js"></script>
+
+    <!-- Interesting title -->
+    <title>Ticket View</title>
+  </head>
+
+  <body>
 	
-		<div class="header">
-		<h1><center> TICKET DATA PORTAL </center></h1>
-		</div>
-		
-		<div class="row" >
-		
-		<!-- 1 -This is the first column; it contains the activity stream.-->
-		
-		  <div id="new" class="column left" style="background-color:#5A8C71; opacity: 0.97;">
-			
-			<!-- 1 -This is the header.-->
-			
-			<h1> <center> Activity Stream </center> </h1>
-			
-			<!-- 1 -This is a sample activity.-->
-			
-			<fieldset> 
-			
-				<legend> @System - - - - - - - - - - 12-01-22 @ 04:10:30 </legend><br>
-				
-				<textarea id="text_field_1" name="text_field" rows="5" cols="45" placeholder= "Action: 
-				
-Ticket Status = Pending."></textarea>
-				
-			</fieldset>
-			<p>
-			
-			</p>
-			
-		  </div>
-		  
-		  <!-- 2 -This is the second column; it contains the ticket summary.-->
-		  
-		  <div class="column middle" style="background-color:#A8F7CC; opacity: 0.965;">
-		  
-		    <!-- 2 -This is the header.-->
-		  
-			<h1> <center> Ticket Request Summary </center> </h1>
-			
-			<!-- 2 -This is the first table data.-->
-			
-			<div class="button-style">
-				
-			<table width=30% cellpadding= 15 class=center style="background-color:#CAD9D1; text-align:center">
-			<tr>
-			
-				<td>
-				<div class="container">
-					<label for="Ticket">Ticket Number</label><br>
-					<input type="text" id="Ticket" size = "20" name="ticket_#" placeholder = "T13380" style="text-align: center; height: 30px;">
-				</div>
-				</td>
-				
-				<td>
-				<div class="container">
-					<label for="Customer">Customer</label><br>
-					<input type="text" id="Customer" size = "20" name="Customer_ID" placeholder = "John Jacob Jingle . . ." style="text-align: center; height: 30px;">
-				</div>
-				</td>
-				
-				<td>
-				<div class="container">
-					<label for="Date">Date Submitted</label><br>
-					<input type="text" id="Date" size = "20" name="Dated" placeholder = "09/22/23" style="text-align: center; height: 30px;">
-				</div>
-				</td>
-				
-			</tr>
-			</table>
-			
-			
-			</div>
-			
-			<p>
-			
-			
-			</p>
-			
-			<div class="table-style">
-			<table width=30% cellpadding= 15 class=center style="background-color:#CAD9D1; text-align:center">
-			<tr>
-			
-				<td>
-				<div class="container">
-					<label for="Exhibit">Category/Exhibit</label><br>
-					<input type="text" id="Exhibit" size = "20" name="Exhibit_#" placeholder = "Space Shuttle" style="text-align: center; height: 30px;">
-				</div>
-				</td>
-				
-				<td>
-				<div class="container">
-					<label for="Priority">Priority</label><br>
-					<input type="text" id="Priority" size = "20" name="Priority_#" placeholder = "High" style="text-align: center; height: 30px;">
-				</div>
-				</td>
-				
-				<td>
-				<div class="container">
-					<label for="Risk">Risk</label><br>
-					<input type="text" id="Risk" size = "20" name="Risky" placeholder = "Urgent: High Risk" style="text-align: center; height: 30px;">
-				</div>
-				</td>
-				
-			</tr>
-			</table>
-			
-			</div>
-			
-			<p>
-			
-			
-			</p>
-			<div class="table-style"> 
-			
-			<table width=30% cellpadding= 15 class=center style="background-color:#CAD9D1; text-align: center;">
-			<tr>
-			
-				<td>
-				<div class="container">
-					<label for="Description">Description . . . </label><br>
-					<input type="text" wrap = "hard" id="Description" size = "100" name="Describe" placeholder = "The spacel shuttle is broken we desperately need help.Here's the situation: it's broken - it's completely busted." style="height: 150px;">
-				</div>
-				</td>
-				
-			</tr>
-			</table>
-			
-			</div>
-			
-		  </div>
-		  
-		  <!-- 3 - This is the third column; it contains the system control panel.-->
-		  
-		  <div class="column right" style="background-color:#5A8C71; opacity: 0.97;">
-			
-			
-			<!-- 3 -This is just the header.-->
-			
-			<h1> <center> Control Panel </center> </h1>
-			
-			<!-- 3 -Ticket status box.-->
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<label for="Status"> Ticket Status </label><br>
-			
-			</div>
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<select name="tech" id="Status" style="width: 282px; height: 30px">
-					<option value="Pending">Pending</option>
-					<option value="Open">Open</option>
-					<option value="Closed - Complete">Closed Complete</option>
-					<option value="Closed - Cancelled">Closed - Cancelled</option>		
-			</select>
-			
-			</div>
-			
-			<p>
-			
-			
-			</p>
-			
-			<!-- 3 -Assigned technician box.-->
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<label for="technician">Assigned Techician</label><br>
-			
-			</div>
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<select name="tech" id="technician" style="width: 282px; height: 30px">
-					<option value="Unassigned">Unassigned</option>
-					<option value="Tony Stark">Tony Stark</option>
-					<option value="Captain America">Captain American</option>
-					<option value="Napolean Dynamite">Napolean Dynamite</option>
-					<option value="Actual Napolean">Actual Napolean</option>
-			</select>
-			
-			</div>
-			
-			<p>
-			
-			
-			</p>
-			
-			<!-- 3 -Comments box.-->
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<label for="comments">Comment</label><br>
-			
-			</div>
-			
-			<div style="display: flex; justify-content: center;">
-			
-			<input type="text" id="comments" size = "35" name="comment" style="height: 175px">
-			
-			</div>
-			
-			<p>
-			
-			
-			</p>
-			
-			<p>
-			
-			
-			</p>
-			
-			<!-- 3 -Submit changes button.-->
-			<div class="button-style">
-			
-			<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Save Changes </button>
-			
-			<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>
-			
-			</div>
+    <div class="header";>
+      <h1><center>TICKET DATA PORTAL</center></h1>
+    </div>
 
-		  </div>
-		  
-		  
-		</div>
+    <div class="row"; size="auto">
+      <!-- 1 -This is the first column; it contains the activity stream.-->
 		
-		<div class="navbar" style="opacity: 0.95">
-		  <a href="#nothing"> <img style= "margin-left: 14px; height: 225px; width: 300px;" src="./Logo.png"> </a>
-		  <a href="../Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
-		  <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
-		  <a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
-		  <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
-		  <a href="#home"> <img style="margin-right: 10px; height: 225px; width: 300px;" src="./IT_Logo.png"> </a>
-		</div>
+      <div
+        id="new"
+        class="column left"
+        style="background-color: #5a8c71; opacity: 0.97"
+      >
+        <!-- 1 -This is the header.-->
 
-	</body>
-	
+        <h1><center>Activity Stream</center></h1>
+
+        <!-- 1 -This is a sample activity.-->
+
+        <fieldset size="auto">
+          <legend>@System - - - - - - - - - - 12-01-22 @ 04:10:30</legend>
+          <br />
+
+          <textarea
+            id="text_field_1"
+            name="text_field"
+            rows="5"
+            cols="45"
+			style="text-align: center; height: 50px; width: 100%"
+            placeholder="Action: Ticket Status = Pending."
+			
+          ></textarea>
+        </fieldset>
+        <p></p>
+      </div>
+
+      <!-- 2 -This is the second column; it contains the ticket summary.-->
+
+      <div
+        class="column middle"
+        style="background-color: #a8f7cc; opacity: 0.965"
+		
+
+      >
+        <!-- 2 -This is the header.-->
+
+        <h1><center>Ticket Request Summary</center></h1>
+
+        <!-- 2 -This is the first table data.-->
+
+        <div class="container">
+          <table
+            width="30%"
+            cellpadding="15"
+            class="center"
+            style="background-color: #cad9d1; text-align: center"
+          >
+            <tr>
+              <td>
+                <div class="container">
+                  <label for="Ticket">Ticket Number</label><br />
+                  <input
+                    type="text"
+                    id="Ticket"
+                    size="20"
+                    name="ticket_#"
+                    placeholder="T13380"
+                    style="text-align: center; height: 30px; width: 100%"
+                  />
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <label for="Customer">Customer</label><br />
+                  <input
+                    type="text"
+                    id="Customer"
+                    size="20"
+                    name="Customer_ID"
+                    placeholder="John Jacob Jingle . . ."
+                    style="text-align: center; height: 30px; width: 100%"
+                  />
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <label for="Date">Date Submitted</label><br />
+                  <input
+                    type="text"
+                    id="Date"
+                    size="auto"
+                    name="Dated"
+                    placeholder="09/22/23"
+                    style="text-align: center; height: 30px; width: 100%"
+                  />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <p></p>
+
+        <div class="container">
+          <table
+            width="30%"
+            cellpadding="15"
+            class="center"
+            style="background-color: #cad9d1; text-align: center"
+          >
+            <tr>
+              <td>
+                <div class="container">
+                  <label for="Exhibit">Category/Exhibit</label><br />
+                  <input
+                    type="text"
+                    id="Exhibit"
+                    size="auto"
+                    name="Exhibit_#"
+                    placeholder="Space Shuttle"
+                    style="text-align: center; height: 30px; width: 100%"
+                  />
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <label for="Priority">Priority</label><br />
+                  <input
+                    type="text"
+                    id="Priority"
+                    size="auto"
+                    name="Priority_#"
+                    placeholder="High"
+                    style="text-align: center; height: 30px; width: 100%"
+                  />
+                </div>
+              </td>
+
+              <td>
+                <div class="container">
+                  <label for="Risk">Risk</label><br />
+                  <input
+                    type="text"
+                    id="Risk"
+                    size="auto"
+                    name="Risky"
+                    placeholder="Urgent: High Risk"
+                    style="text-align: center; height: 30px; width: 100%"
+                  />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <p></p>
+        <div class="table-style">
+          <table
+            width="50%"
+            cellpadding="auto"
+			size="auto"
+            class="center"
+            style="background-color: #cad9d1; text-align: center"
+          >
+            <tr>
+              <td>
+                <div class="container">
+                  <label for="Description">Description . . . </label><br />
+                  <input
+                    type="text"
+                    wrap="hard"
+                    id="Description"
+                    size="auto"
+                    name="Describe"
+                    placeholder="The spacel shuttle is broken we desperately need help.Here's the situation: it's broken - it's completely busted."
+                    style="height: 150px; width:90%"
+                  />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3 - This is the third column; it contains the system control panel.-->
+
+      <div
+        class="column right"
+        style="background-color: #5a8c71; opacity: 0.97"
+      >
+        <!-- 3 -This is just the header.-->
+
+        <h1><center>Control Panel</center></h1>
+
+        <!-- 3 -Ticket status box.-->
+
+        <div style="display: flex; justify-content: center">
+          <label for="Status"> Ticket Status </label><br />
+        </div>
+
+        <div style="display: flex; justify-content: center">
+          <select name="tech" id="Status" style="width: 90%; height: 30px; size:auto">
+            <option value="Pending">Pending</option>
+            <option value="Open">Open</option>
+            <option value="Closed - Complete">Closed Complete</option>
+            <option value="Closed - Cancelled">Closed - Cancelled</option>
+          </select>
+        </div>
+
+        <p></p>
+
+        <!-- 3 -Assigned technician box.-->
+
+        <div style="display: flex; justify-content: center">
+          <label for="technician">Assigned Techician</label><br />
+        </div>
+
+        <div style="display: flex; justify-content: center">
+          <select
+            name="tech"
+            id="technician"
+            style="width: 90%; height: 30px; size:auto"
+          >
+            <option value="Unassigned">Unassigned</option>
+            <option value="Tony Stark">Tony Stark</option>
+            <option value="Captain America">Captain American</option>
+            <option value="Napolean Dynamite">Napolean Dynamite</option>
+            <option value="Actual Napolean">Actual Napolean</option>
+          </select>
+        </div>
+
+        <p></p>
+
+        <!-- 3 -Comments box.-->
+
+        <div style="display: flex; justify-content: center">
+          <label for="comments">Comment</label><br />
+        </div>
+
+        <div style="display: flex; justify-content: center">
+          <input
+            type="text"
+            id="comments"
+            size="auto"
+            name="comment"
+            style="height: 175px; width: 80%;"
+          >
+        </div>
+
+        <p></p>
+
+        <p></p>
+
+        <!-- 3 -Submit changes button.-->
+        <div class="button-style">
+          <button
+            id="submit_button"
+            style="
+              margin-right: 20px;
+              width: 100px;
+              height: 50px;
+              background-color: lightblue;
+            "
+          >
+            Save Changes
+          </button>
+
+          <button
+            id="reset_button"
+            style="
+              margin-right: 20px;
+              width: 100px;
+              height: 50px;
+              background-color: lightblue;
+            "
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="navbar" style="opacity: 0.95">
+  <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="./Logo.png"> </a>
+  <a href="/Ticket_System/Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
+  <a href="/Ticket_System/Ticket Request (Eric Plocher)/Ticket_Request.html"> <p> New Ticket </p> </a>
+  <a href="/Ticket_System/Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"> <p> Accounts </p> </a>
+  <a href="/Ticket_System/Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"> <p> Dashboard </p> </a>
+  <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="./IT_Logo.png"> </a>
+  </div>
+    
+  </body>
 </html>

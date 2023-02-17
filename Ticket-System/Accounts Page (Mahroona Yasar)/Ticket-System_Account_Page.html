@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <style>
+
+    @media screen and (min-width: 100px) {
+      table{
+        width: 100%;
+      }
+    }
+
 	div.scroll {
 		margin:4px, 4px;
-		width: 1900px;
-		height: 480px;
+    width: 100%;
+    height: 100%;
+   /* min-width: 1000px;*/
+    min-height: 1000px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		text-align:justify;
@@ -18,7 +28,10 @@
 		  background-color: #333;
 		  position: fixed;
 		  bottom: 0;
-		  padding: 10px;
+		  padding: 1vh;
+      width: 100%;
+      height: auto;
+      font-size: 1.5vw;
 		}
 
 		.navbar a {
@@ -26,9 +39,10 @@
 		  display: block;
 		  color: #f2f2f2;
 		  text-align: center;
-		  padding: 14px 16px;
+      padding: 1vw;
 		  text-decoration: none;
-		  font-size: 17px;
+      font-size: 2em;
+      width: 14vw;
 		}
 
 		.navbar a:hover {
@@ -37,7 +51,7 @@
 		}
 	  body 
 	  {
-			background-image:url('Nature_4.jpg');
+			background-image:url('../Images/Nature_4.jpg');
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
@@ -52,18 +66,18 @@
         padding: 12px 20px 12px 40px;
         border: 1px solid #ddd;
         margin-bottom: 3px;
-		opacity: 0.9;
+		    opacity: 0.9;
         box-sizing: border-box;
       }
 
       h2{
-        font-size: 50px;
+        font-size: 5vw;
         color: rgb(8, 8, 8);
         text-transform: uppercase;
         font-weight: 300;
         text-align: center;
         margin-bottom: 25px;
-		margin-top: 23px;
+		    margin-top: 23px;
       }
       #table {
       font-family: Arial, Helvetica, sans-serif;
@@ -74,15 +88,18 @@
         border: 2px solid rgba(30, 4, 107, 0.82);
         border-collapse: collapse;
         padding: 50%;
-		margin-left: auto; 
-		margin-right: auto;
+        table-layout:fixed;
+       /* width: 100%;*/
+        overflow-x: auto;
+		    margin-left: auto; 
+		    margin-right: auto;
       }
       td{
         border: 1px solid rgba(30, 4, 107, 0.82);
         border-collapse: collapse;
         padding: 7px;
-		background-color: #A0F1C6;
-		opacity: 0.8;
+		    background-color: #A0F1C6;
+		    opacity: 0.8;
       }
       th {
         border: 2px solid rgba(30, 4, 107, 0.82);
@@ -91,13 +108,13 @@
         padding: 15px;
         text-transform: uppercase;
         cursor: pointer;
-		opacity: 0.9;
+		    opacity: 0.9;
       }
 
       tr:hover {background-color: #e6d492;}
 
       .button{
-	    margin: auto;
+	      margin: auto;
         border: none;
         width: 100%;
         padding: 15px 32px;
@@ -109,7 +126,7 @@
         font-size: 13px;
         margin: 3px 2px;
         cursor: pointer;
-		opacity: 0.9;
+		    opacity: 0.9;
       }
       </style>
       
@@ -188,7 +205,8 @@
 
     <title>System Accounts</title>
 
-    <h2> <center> Account Management </center> </h2>
+    </head>
+    </head><h2> <center> Account Management </center> </h2>
 
   </head>
 
@@ -203,9 +221,9 @@
 
               <button class="button" onclick="deleteRow();">Delete Item</button>
 			  
-	<div class="scroll">
+	<div class="scroll" >
 
-    <table id="table" style="width: 100%;">
+    <table id="table">
         <tr>
           <th>Checkbox</th>
           <th onclick="sortTable(1)">UserName</th>
@@ -640,14 +658,14 @@
   </div>
   
   </div>
-		<div class="navbar" style="opacity: 0.95">
-		  <a href="#nothing"> <img style= "margin-left: 14px; height: 225px; width: 300px;" src="./Logo.png"> </a>
-		  <a href="../Homepage (Steven Graham)/homepage.html"> <p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Home </p> </a>
-		  <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> New Ticket </p> </a>
-		  <a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Accounts </p> </a>
-		  <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p style="margin-left: 10px; margin-right: 10px; font-size: 65px;"> Dashboard </p> </a>
-		  <a href="#home"> <img style="margin-right: 10px; height: 225px; width: 300px;" src="./IT_Logo.png"> </a>
-		</div>
+  <div class="navbar" style="opacity: 0.95">
+    <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/Logo.jpg"> </a>
+    <a href="../Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
+    <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
+    <a href="./Ticket-System_Account_Page.html"><p> Accounts </p> </a>
+    <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p> Dashboard </p> </a>
+    <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
+    </div>
 
   </body>
 </html>

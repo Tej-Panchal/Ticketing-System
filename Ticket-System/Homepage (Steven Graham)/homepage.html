@@ -1,116 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/ff6fd0a655.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-  
-    body {
-      background-image:url('Nature_3.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      
-    }
-	
-		.column {
-		  float: left;
-		  padding: 10px;
-		  height: 550px; /* Should be removed. Only for demonstration */
-		}
+  <html lang="en">
 
-		.left {
-		  width: 30%;
-		  margin-left: 25px;
-		  margin:4px, 4px;
-		  overflow-x: hidden;
-          overflow-y: auto;
-		}
-		
-		.middle {
-		  width: 32%;
-		}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Homepage</title>
+      <link rel="stylesheet" href="./styles.css">
+    </head>
 
-		.right {
-		  width: 32%;
-		}
-
-		/* Clear floats after the columns */
-		.row:after {
-		  content: "";
-		  display: table;
-		  clear: both;
-		}
-		
-		.table-style 
-		{
-		display: flex;
-		justify-content: center; 
-		}
-		
-		h1 {
-			text-align: center;
-			font-family: 'Dancing Script';
-			font-size: 40px;
-			color: black;
-		}
-    
-    </style>
-  </head>
-
-<body>	
-		<p style="margin: 50px;">
-		
-		</p>
-
-   <!-- This is just adding the logos to the bottom of the screen -->
-   
-   <img style="position: absolute; right: 38px; bottom: 25px; height: 215px; width: 500px; opacity: .8;" src="./IT_Logo.png">
-   <img style="position: absolute; left: 38px; bottom: 25px; height: 215px; width: 500px; opacity: .75;" src="./Logo.png">
-
-   <!-- These are containers for the buttons -->
-   
-   		<div class="row" >
-		
-		<!-- 1 -This is the first column; it contains the "Manage Accounts" button.-->
-		
-		  <div id="new" class="column left" style="background-color:#125A33; opacity: .8;">
-			
-			<!-- 1 -This is the header.-->
-			
-			<h1> <center> Manage Accounts </center> </h1>
-			
-			<a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"> <img style="height: 400px; width: 350px; display: block; margin-right: auto; margin-left: auto;" src="./Accounts.JPG"> </a>
-			
-		  </div>
-		  
-		  <!-- 2 -This is the second column; it contains "View Existing Tickets" button.-->
-		  
-		  <div class="column middle" style="background-color:#C1EE9E; opacity: .75;">
-		  
-		    <!-- 2 -This is the header.-->
-		  
-			<h1> <center> View Existing Tickets </center> </h1>
-			
-			<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"> <img style="height: 400px; width: 350px; display: block; margin-right: auto; margin-left: auto;" src="./Dashboard_View.png"> </a>
-			
-		  </div>
-		  
-		  <!-- 3 - This is the third column; it contains the "Create A New Ticket" Button.-->
-		  
-		  <div class="column right" style="background-color:#125A33; opacity: .8;">
-			
-			
-			<!-- 3 -This is just the header.-->
-			
-			<h1> <center> Create A New Ticket </center> </h1>
-			
-			<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"> <img style="height: 400px; width: 350px; display: block; margin-right: auto; margin-left: auto;" src="./New_Ticket.png"> </a>
-			
-		  </div>
-		  
-		</div>
- 
-</body>
-</html>
+    <body>
+        <div class="navbar">
+            <a href="javascript:void(0)"> <img class="logo" src="../Images/Logo.jpg"> </a>
+            <a href="./homepage.html"> <p> Home </p> </a>
+            <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
+            <a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p> Accounts </p> </a>
+            <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p> Dashboard </p> </a>
+            <a href="javascript:void(0)"> <img class="it-logo" src="../Images/IT_Logo.jpg"> </a>
+        </div>
+    </body>
+  </html>

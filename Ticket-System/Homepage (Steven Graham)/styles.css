@@ -1,31 +1,55 @@
-/* Style the navigation bar */
+/*Navigation bar*/
 .navbar {
-  width: auto;
-  background-color: transparent;
-  overflow: hidden;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    padding: 1vh;
+    width: 100%;
+    height: auto;
+    font-size: 1.5vw;
+    opacity: 0.95;
   }
 
-/* Navbar links */
-.navbar a {
-  
-  float: left;
-  text-align: center;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 80px;
-}
-
-/* Navbar links on mouse-over */
-.navbar a:hover {
-  background-color: #df23b6;
-}
-
-/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
-@media screen and (max-width: 500px) {
   .navbar a {
-    float: none;
+    float: left;
     display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1vw;
+    text-decoration: none;
+    font-size: 2em;
+    width: 14vw;
   }
-  
-}
+
+  .navbar a:hover {
+    background: #ddd;
+    color: black;
+  }
+
+  /*navbar images*/
+  /*Common attributes*/
+  .logo, .it-logo{ 
+    height: auto; 
+    width: 15vw
+  }
+
+  /*Left logo*/
+  .logo{
+    float: left;
+  }
+
+  /*Right logo*/
+  .it-logo{
+    float: right;
+  }
+
+  /*Background image*/
+  body{
+    margin: 0;
+    background: url("../Images/Nature_3.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

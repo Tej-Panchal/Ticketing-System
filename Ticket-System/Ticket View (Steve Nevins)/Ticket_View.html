@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--- style stuff-->
     <style>
@@ -23,7 +23,6 @@
         border: 2px solid #1a1d1b;
       }
 
-HEAD
       .navbar {
         overflow: hidden;
         background-color: #333;
@@ -34,44 +33,6 @@ HEAD
         height: auto;
         font-size: 1.5vw;
       }
-
-		.main {
-		  padding: 16px;
-		  margin-bottom: 30px;
-		  height: 1500px; /* Used in this example to enable scrolling */
-		}
-		    body {
-			background-image:url('../Images/Nature_1.jpg');
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-			}
-		
-		.request-1{
-		
-		display: flex;	
-		
-		}
-		
-		.button-style {
-		
-		display: flex;
-		
-		justify-content: center;
-		
-		}
-		
-		textarea {
-		resize: none;
-		}
-		
-		body {
-			background-color: lightskyblue;
-			}
-		* {
-		box-sizing: border-box;
-		}
-
 
       .navbar a {
         float: left;
@@ -89,38 +50,37 @@ HEAD
         color: black;
       }
 
-      .main {
-        padding: 16px;
-        margin-bottom: 30px;
-        height: 1500px; /* Used in this example to enable scrolling */
-      }
-      body {
-        background-image: url("Nature_1.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-      }
-
-      .request-1 {
-        display: flex;
-      }
-
-      .button-style {
-        display: flex;
-
-        justify-content: center;
-      }
-
-      textarea {
-        resize: none;
-      }
-
-      body {
-        background-color: lightskyblue;
-      }
-      * {
-        box-sizing: border-box;
-      }
+		.main {
+		  padding: 16px;
+		  margin-bottom: 30px;
+		  height: 1500px; /* Used in this example to enable scrolling */
+		}
+		body {
+			background-image:url('../Images/Nature_1.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			}
+		
+		.request-1 {
+		  display: flex;	
+		}
+		
+		.button-style {
+		  display: flex;
+		  justify-content: center;
+		}
+		
+		textarea {
+		  resize: none;
+		}
+		
+		body {
+			background-color: lightskyblue;
+		}
+		* {
+		box-sizing: border-box;
+		}
 
       /* Create three unequal columns that floats next to each other */
       .column {
@@ -153,7 +113,6 @@ HEAD
 
       .table-style {
         display: flex;
-
         justify-content: center;
       }
 
@@ -179,8 +138,13 @@ HEAD
       <h1><center>TICKET DATA PORTAL</center></h1>
     </div>
 
-    <div class="row"; size="auto">
+    <div class="row"; /*size="auto"*/>
       <!-- 1 -This is the first column; it contains the activity stream.-->
+
+      <div id="new" 
+        class="column left" 
+        style="background-color: #5a8c71; opacity: 0.97">
+        <!-- 1 -This is the header.-->
 
         <h1><center>Activity Stream</center></h1>
 
@@ -195,10 +159,8 @@ HEAD
             name="text_field"
             rows="5"
             cols="45"
-			style="text-align: center; height: 50px; width: 100%"
-            placeholder="Action: Ticket Status = Pending."
-			
-          ></textarea>
+			      style="text-align: center; height: 50px; width: 100%"
+            placeholder="Action: Ticket Status = Pending."> </textarea>
         </fieldset>
         <p></p>
       </div>
@@ -207,10 +169,7 @@ HEAD
 
       <div
         class="column middle"
-        style="background-color: #a8f7cc; opacity: 0.965"
-		
-
-      >
+        style="background-color: #a8f7cc; opacity: 0.965">
         <!-- 2 -This is the header.-->
 
         <h1><center>Ticket Request Summary</center></h1>
@@ -453,12 +412,12 @@ HEAD
     </div>
 </div>
 <div class="navbar" style="opacity: 0.95">
-  <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="./Logo.png"> </a>
+  <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/Logo.jpg"> </a>
   <a href="/Ticket_System/Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
   <a href="/Ticket_System/Ticket Request (Eric Plocher)/Ticket_Request.html"> <p> New Ticket </p> </a>
   <a href="/Ticket_System/Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"> <p> Accounts </p> </a>
   <a href="/Ticket_System/Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"> <p> Dashboard </p> </a>
-  <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="./IT_Logo.png"> </a>
+  <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
   </div>
     
   </body>

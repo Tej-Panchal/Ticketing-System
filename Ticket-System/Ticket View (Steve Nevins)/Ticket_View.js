@@ -1,6 +1,5 @@
 window.onload = function ()
 {
-
 //This is my code for dynamically adding shit. 
 	
 var comment = "";
@@ -22,6 +21,8 @@ function reset_all()
 
 function update_status()
 {
+	callAPI("Steven Nevins",document.getElementById('Status').value, "Action", "Status Change", "3");
+		
 	//Formatting time stamp. 
 	
 	var date = new Date();
@@ -75,6 +76,7 @@ function update_status()
 
 function update_tech()
 {
+	callAPI("Steven Nevins",document.getElementById('technician').value, "Action", "Tech Change", "2");
 	//Formatting time stamp. 
 	
 	var date = new Date();
@@ -127,6 +129,8 @@ function update_tech()
 
 function update_comments()
 {
+	callAPI("Steven Nevins",document.getElementById('comments').value, "Comment", "N/A", "1");
+	
 	//Formatting time stamp. 
 	
 	var date = new Date();

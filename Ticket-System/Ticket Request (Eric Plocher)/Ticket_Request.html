@@ -1,338 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--- style stuff-->
     <style>
-      @media screen and (min-width: 100px) {
-        table {
-          width: 100%;
+        @media screen and (min-width: 100px) {
+            table {
+                width: 100%;
+            }
         }
-      }
 
-      div.scroll {
-        margin: 4px, 4px;
-        width: 100%;
-        height: 100%;
-        min-height: 1000px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        text-align: justify;
-        border: 2px solid #1a1d1b;
-      }
+        div.scroll {
+            margin: 4px, 4px;
+            width: 100%;
+            height: 100%;
+            min-height: 1000px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align: justify;
+            border: 2px solid #1a1d1b;
+        }
 
-      .navbar {
-        overflow: hidden;
-        background-color: #333;
-        position: fixed;
-        bottom: 0;
-        padding: 1vh;
-        width: 100%;
-        height: auto;
-        font-size: 1.5vw;
-      }
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            padding: 1vh;
+            width: 100%;
+            height: auto;
+            font-size: 1.5vw;
+        }
 
-      .navbar a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 1vw;
-        text-decoration: none;
-        font-size: 2em;
-        width: 16vw;
-      }
+            .navbar a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 1vw;
+                text-decoration: none;
+                font-size: 2em;
+                width: 16vw;
+            }
 
-      .navbar a:hover {
-        background: #ddd;
-        color: black;
-      }
+                .navbar a:hover {
+                    background: #ddd;
+                    color: black;
+                }
 
-      .main {
-        padding: 16px;
-        margin-bottom: 30px;
-        height: 1500px; /* Used in this example to enable scrolling */
-      }
-      body {
-        background-image: url("../Images/Nature_6.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-      }
+        .main {
+            padding: 16px;
+            margin-bottom: 30px;
+            height: 1500px; /* Used in this example to enable scrolling */
+        }
 
-      .request-1 {
-        display: flex;
-      }
+        body {
+            background-image: url("../Images/Nature_6.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-      .button-style {
-        display: flex;
+        .request-1 {
+            display: flex;
+        }
 
-        justify-content: center;
-      }
+        .button-style {
+            display: flex;
+            justify-content: center;
+        }
 
-      textarea {
-        resize: none;
-      }
+        textarea {
+            resize: none;
+        }
 
-      body {
-        background-color: lightskyblue;
-      }
+        body {
+            background-color: lightskyblue;
+        }
 
-      * {
-        box-sizing: border-box;
-      }
+        * {
+            box-sizing: border-box;
+        }
 
-      /* Create three unequal columns that floats next to each other */
-      .column {
-        float: left;
-        padding: 10px;
-        height: 550px; /* Should be removed. Only for demonstration */
-      }
+        /* Create three unequal columns that floats next to each other */
+        .column {
+            float: left;
+            padding: 10px;
+            height: 550px; /* Should be removed. Only for demonstration */
+        }
 
-      .left {
-        width: 25%;
-        margin: 4px, 4px;
-        overflow-x: hidden;
-        overflow-y: auto;
-      }
+        .left {
+            width: 25%;
+            margin: 4px, 4px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
 
-      .middle {
-        width: 50%;
-      }
+        .middle {
+            width: 50%;
+        }
 
-      .right {
-        width: 20%;
-      }
+        .right {
+            width: 20%;
+        }
 
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
-      .table-style {
-        display: flex;
+        .table-style {
+            display: flex;
+            justify-content: center;
+        }
 
-        justify-content: center;
-      }
+        .header {
+            padding: 1px;
+            text-align: center;
+            color: Black;
+            font-size: 25px;
+            opacity: 0.9;
+        }
 
-      .header {
-        padding: 1px;
-        text-align: center;
-        color: Black;
-        font-size: 25px;
-        opacity: 0.9;
-      }
-
-      .d-none {
-        display: none;
-      }
+        .d-none {
+            display: none;
+        }
     </style>
 
     <script src="Ticket_View.js"></script>
 
     <script type="text/javascript">
-      function enableChoice(answer) {
-        console.log(answer.value);
-        if (answer.value == "Software Installation") {
-          document.getElementById("Software").classList.remove("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Hardware Issue") {
-          document.getElementById("Hardware").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Dinosaur Exhibit") {
-          document.getElementById("Dinosaur").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Outerspace Exhibit") {
-          document.getElementById("Outerspace").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Other Exhibit") {
-          document.getElementById("Other").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-        } else {
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
+        function enableChoice(answer) {
+            console.log(answer.value);
+            if (answer.value == "Software Installation") {
+                document.getElementById("Software").classList.remove("d-none");
+                document.getElementById("Hardware").classList.add("d-none");
+                document.getElementById("Dinosaur").classList.add("d-none");
+                document.getElementById("Outerspace").classList.add("d-none");
+                document.getElementById("Other").classList.add("d-none");
+            } else if (answer.value == "Hardware Issue") {
+                document.getElementById("Hardware").classList.remove("d-none");
+                document.getElementById("Software").classList.add("d-none");
+                document.getElementById("Dinosaur").classList.add("d-none");
+                document.getElementById("Outerspace").classList.add("d-none");
+                document.getElementById("Other").classList.add("d-none");
+            } else if (answer.value == "Dinosaur Exhibit") {
+                document.getElementById("Dinosaur").classList.remove("d-none");
+                document.getElementById("Software").classList.add("d-none");
+                document.getElementById("Hardware").classList.add("d-none");
+                document.getElementById("Outerspace").classList.add("d-none");
+                document.getElementById("Other").classList.add("d-none");
+            } else if (answer.value == "Outerspace Exhibit") {
+                document.getElementById("Outerspace").classList.remove("d-none");
+                document.getElementById("Software").classList.add("d-none");
+                document.getElementById("Hardware").classList.add("d-none");
+                document.getElementById("Dinosaur").classList.add("d-none");
+                document.getElementById("Other").classList.add("d-none");
+            } else if (answer.value == "Other Exhibit") {
+                document.getElementById("Other").classList.remove("d-none");
+                document.getElementById("Software").classList.add("d-none");
+                document.getElementById("Hardware").classList.add("d-none");
+                document.getElementById("Dinosaur").classList.add("d-none");
+                document.getElementById("Outerspace").classList.add("d-none");
+            } else {
+                ``
+                document.getElementById("Software").classList.add("d-none");
+                document.getElementById("Hardware").classList.add("d-none");
+                document.getElementById("Dinosaur").classList.add("d-none");
+                document.getElementById("Outerspace").classList.add("d-none");
+                document.getElementById("Other").classList.add("d-none");
+            }
         }
-      }
     </script>
 
     <!-- Interesting title -->
     <title>Ticket Request</title>
-  </head>
+</head>
 
-  <body>
+<body>
+
     <div class="header">
-      <h1><center>TICKET REQUEST PORTAL</center></h1>
+        <h1><center> TICKET REQUEST PORTAL </center></h1>
     </div>
 
     <div class="row">
-      <!-- 1 -This is the first column; it is just centering the middle area.-->
 
-      <div
-        id="new"
-        class="column left"
-        style="background-color: #5a8c71; opacity: 0"
-      ></div>
+        <!-- 1 -This is the first column; it is just centering the middle area.-->
 
-      <!-- 2 -This is the second column; it contains the ticket summary.-->
+        <div id="new" class="column left" style="background-color:#5A8C71; opacity: 0.0;">
 
-      <div
-        class="column middle"
-        style="background-color: #6da47f; opacity: 0.85"
-      >
-        <!-- 3 -This is just the header.-->
-
-        <h1><center>Request A New Ticket</center></h1>
-
-        <!-- 3 Customer name box.-->
-
-        <div style="display: flex; justify-content: center">
-          <label for="comments">Employee Name</label><br />
         </div>
 
-        <div style="display: flex; justify-content: center">
-          <input
-            type="text"
-            placeholder="Enter your name . . . "
-            id="comments"
-            size="35"
-            name="comment"
-            style="height: 30px; margin-bottom: 10px"
-          />
+        <!-- 2 -This is the second column; it contains the ticket summary.-->
+
+        <div class="column middle" style="background-color:#6DA47F; opacity: 0.85;">
+
+            <form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">
+                <!--<form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
+                <!-- 3 -This is just the header.-->
+
+                <h1> <center> Request A New Ticket </center> </h1>
+
+                <!-- 3 Customer name box.-->
+
+                <div style="display: flex; justify-content: center;">
+
+                    <label for="comments">Employee Name</label><br>
+
+                </div>
+
+                <div name="Technician_Name" style="display: flex; justify-content: center;">
+
+                    <input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">
+
+                </div>
+
+                <!-- 3 -Ticket status box.-->
+
+                <div style="display: flex; justify-content: center;">
+
+                    <label for="Status"> Ticket Priority </label><br>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <select name="Priority" id="Priority" style="width: 282px; height: 30px">
+                        <option value="Low">Low</option>
+                        <option value="Urgent">Urgent</option>
+                        <option value="Moderate">Moderate</option>
+                    </select>
+
+                </div>
+
+                <p>
+
+
+                </p>
+
+                <!-- 3 -Assigned technician box.-->
+
+                <div style="display: flex; justify-content: center;">
+
+                    <label for="technician">Category/Exhibity</label><br>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Type" id="Issue_Type" onchange="enableChoice(this)" style="width: 282px; height: 30px">
+                        <option>Select Issue Type</option>
+                        <option value="Software Installation">Software Installation</option>
+                        <option value="Hardware Issue">Hardware Issue</option>
+                        <option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
+                        <option value="Outerspace Exhibit">Outerspace Exhibit</option>
+                        <option value="Other Exhibit">Other Exhibit</option>
+                    </select>
+
+                </div>
+
+                <p>
+
+
+                </p>
+
+                <!--<div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Corrupt Drivers">Corrupt Drivers</option>
+                        <option value="Unable to Access">Unable to Access</option>
+                        <option value="Blue Screen">Blue Screen</option>
+                    </select>
+
+                    <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Wont Turn On">Wont Turn On</option>
+                        <option value="Screen Freeze">Screen Freeze</option>
+                        <option value="Insufficent Memory">Insufficent Memory</option>
+                    </select>
+
+                    <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Inspection">Inspection</option>
+                    </select>
+
+                    <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Broken Part">Broken Part</option>
+                    </select>
+
+                    <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Spill">Spill</option>
+                        <option value="Broken Part">Broken Part</option>
+                        <option value="Crying Kid">Crying Kid</option>
+                    </select>
+
+                </div>-->
+                <!--<div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Corrupt Drivers">Corrupt Drivers</option>
+                        <option value="Unable to Access">Unable to Access</option>
+                        <option value="Blue Screen">Blue Screen</option>
+                    </select>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Wont Turn On">Wont Turn On</option>
+                        <option value="Screen Freeze">Screen Freeze</option>
+                        <option value="Insufficent Memory">Insufficent Memory</option>
+                    </select>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Inspection">Inspection</option>
+                    </select>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Broken Part">Broken Part</option>
+                    </select>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
+                        <option value="Spill">Spill</option>
+                        <option value="Broken Part">Broken Part</option>
+                        <option value="Crying Kid">Crying Kid</option>
+                    </select>
+
+                </div> -->
+                <!-- 3 -Comments box.-->
+
+                <div style="display: flex; justify-content: center;">
+
+                    <label for="comments">Comment</label><br>
+
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <input type="text" id="Description" size="35" name="Description" style="height: 175px">
+
+                </div>
+
+                <p>
+
+
+                </p>
+
+                <p>
+
+
+                </p>
+
+                <!-- 3 -Submit changes button.-->
+                <div class="button-style">
+
+                    <button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm()"> Save Changes </button>
+
+                    <input type="reset" value="Reset" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;">
+
+                    <!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
+
+                </div>
+
+            </form>
+
         </div>
 
-        <!-- 3 -Ticket status box.-->
-
-        <div style="display: flex; justify-content: center">
-          <label for="Status"> Ticket Priority </label><br />
-        </div>
-
-        <div style="display: flex; justify-content: center">
-          <select name="tech" id="Status" style="width: 282px; height: 30px">
-            <option value="Low">Low</option>
-            <option value="Urgent">Urgent</option>
-            <option value="Moderate">Moderate</option>
-          </select>
-        </div>
-
-        <p></p>
-
-        <!-- 3 -Assigned technician box.-->
-
-        <div style="display: flex; justify-content: center">
-          <label for="technician">Category/Exhibity</label><br />
-        </div>
-
-        <div style="display: flex; justify-content: center">
-          <select
-            name="tech"
-            id="technician"
-            style="width: 282px; height: 30px"
-          >
-            <option value="Software Installation">Software Installation</option>
-            <option value="Hardware Issue">Hardware Issue</option>
-            <option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
-            <option value="Outerspace Exhibit">Outerspace Exhibit</option>
-            <option value="Other Exhibit">Other Exhibit</option>
-          </select>
-        </div>
-
-        <p></p>
-
-        <!-- 3 -Comments box.-->
-
-        <div style="display: flex; justify-content: center">
-          <label for="comments">Comment</label><br />
-        </div>
-
-        <div style="display: flex; justify-content: center">
-          <input
-            type="text"
-            id="comments"
-            size="35"
-            name="comment"
-            style="height: 175px"
-          />
-        </div>
-
-        <p></p>
-
-        <p></p>
-
-        <!-- 3 -Submit changes button.-->
-        <div class="button-style">
-          <button
-            id="submit_button"
-            style="
-              margin-right: 20px;
-              width: 100px;
-              height: 50px;
-              background-color: lightblue;
-            "
-          >
-            Save Changes
-          </button>
-
-          <button
-            id="reset_button"
-            style="
-              margin-right: 20px;
-              width: 100px;
-              height: 50px;
-              background-color: lightblue;
-            "
-          >
-            Reset
-          </button>
-        </div>
-      </div>
     </div>
 
     <div class="navbar" style="opacity: 0.95">
-      <a href="#nothing">
-        <img
-          style="float: left; height: auto; width: 15vw"
-          src="../Images/Logo.jpg"
-        />
-      </a>
-      <a href="../Homepage (Steven Graham)/homepage.html">
-        <p>Home</p>
-      </a>
-      <a href="./Ticket_Request.html"><p>New Ticket</p> </a>
-      <a
-        href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"
-        ><p>Accounts</p>
-      </a>
-      <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"
-        ><p>Dashboard</p>
-      </a>
-      <a href="#home">
-        <img
-          style="float: right; height: auto; width: 15vw"
-          src="../Images/IT_Logo.jpg"
-        />
-      </a>
+        <a href="#nothing">
+            <img style="float: left; height: auto; width: 15vw"
+                 src="../Images/Logo.jpg" />
+        </a>
+        <a href="../Homepage (Steven Graham)/homepage.html">
+            <p>Home</p>
+        </a>
+        <a href="./Ticket_Request.html"><p>New Ticket</p> </a>
+        <a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html">
+            <p>Accounts</p>
+        </a>
+        <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html">
+            <p>Dashboard</p>
+        </a>
+        <a href="#home">
+            <img style="float: right; height: auto; width: 15vw"
+                 src="../Images/IT_Logo.jpg" />
+        </a>
     </div>
-  </body>
+
+</body>
 </html>

@@ -177,6 +177,18 @@
         }
     </script>
 
+    <script>
+        function submitForm() {
+            if (typeof (localStorage) != "undefined") {
+                localStorage.Technician_Name = document.getElementById("Technician_Name").value;
+                localStorage.Issue_Type = document.getElementById("Issue_Type").value;
+                localStorage.Priority = document.getElementById("Priority").value;
+                localStorage.Description = document.getElementById("Description").value;
+            }
+            document.getElementById("form").submit();
+        }
+    </script>
+
     <!-- Interesting title -->
     <title>Ticket Request</title>
 </head>
@@ -200,7 +212,7 @@
         <div class="column middle" style="background-color:#6DA47F; opacity: 0.85;">
 
             <form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">
-                <!--<form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
+            <!--<form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
                 <!-- 3 -This is just the header.-->
 
                 <h1> <center> Request A New Ticket </center> </h1>
@@ -270,86 +282,86 @@
 
                 <!--<div style="display: flex; justify-content: center;">
 
-                    <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Corrupt Drivers">Corrupt Drivers</option>
-                        <option value="Unable to Access">Unable to Access</option>
-                        <option value="Blue Screen">Blue Screen</option>
-                    </select>
+            <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
+                <option value="Corrupt Drivers">Corrupt Drivers</option>
+                <option value="Unable to Access">Unable to Access</option>
+                <option value="Blue Screen">Blue Screen</option>
+            </select>
 
-                    <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Wont Turn On">Wont Turn On</option>
-                        <option value="Screen Freeze">Screen Freeze</option>
-                        <option value="Insufficent Memory">Insufficent Memory</option>
-                    </select>
+            <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+                <option value="Wont Turn On">Wont Turn On</option>
+                <option value="Screen Freeze">Screen Freeze</option>
+                <option value="Insufficent Memory">Insufficent Memory</option>
+            </select>
 
-                    <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Cleaning">Cleaning</option>
-                        <option value="Repair">Repair</option>
-                        <option value="Inspection">Inspection</option>
-                    </select>
+            <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+                <option value="Cleaning">Cleaning</option>
+                <option value="Repair">Repair</option>
+                <option value="Inspection">Inspection</option>
+            </select>
 
-                    <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Cleaning">Cleaning</option>
-                        <option value="Repair">Repair</option>
-                        <option value="Broken Part">Broken Part</option>
-                    </select>
+            <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+                <option value="Cleaning">Cleaning</option>
+                <option value="Repair">Repair</option>
+                <option value="Broken Part">Broken Part</option>
+            </select>
 
-                    <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Spill">Spill</option>
-                        <option value="Broken Part">Broken Part</option>
-                        <option value="Crying Kid">Crying Kid</option>
-                    </select>
+            <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
+                <option value="Spill">Spill</option>
+                <option value="Broken Part">Broken Part</option>
+                <option value="Crying Kid">Crying Kid</option>
+            </select>
 
-                </div>-->
+        </div>-->
                 <!--<div style="display: flex; justify-content: center;">
 
-                    <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Corrupt Drivers">Corrupt Drivers</option>
-                        <option value="Unable to Access">Unable to Access</option>
-                        <option value="Blue Screen">Blue Screen</option>
-                    </select>
+            <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
+                <option value="Corrupt Drivers">Corrupt Drivers</option>
+                <option value="Unable to Access">Unable to Access</option>
+                <option value="Blue Screen">Blue Screen</option>
+            </select>
 
-                </div>
+        </div>
 
-                <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center;">
 
-                    <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Wont Turn On">Wont Turn On</option>
-                        <option value="Screen Freeze">Screen Freeze</option>
-                        <option value="Insufficent Memory">Insufficent Memory</option>
-                    </select>
+            <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+                <option value="Wont Turn On">Wont Turn On</option>
+                <option value="Screen Freeze">Screen Freeze</option>
+                <option value="Insufficent Memory">Insufficent Memory</option>
+            </select>
 
-                </div>
+        </div>
 
-                <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center;">
 
-                    <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Cleaning">Cleaning</option>
-                        <option value="Repair">Repair</option>
-                        <option value="Inspection">Inspection</option>
-                    </select>
+            <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+                <option value="Cleaning">Cleaning</option>
+                <option value="Repair">Repair</option>
+                <option value="Inspection">Inspection</option>
+            </select>
 
-                </div>
+        </div>
 
-                <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center;">
 
-                    <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Cleaning">Cleaning</option>
-                        <option value="Repair">Repair</option>
-                        <option value="Broken Part">Broken Part</option>
-                    </select>
+            <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+                <option value="Cleaning">Cleaning</option>
+                <option value="Repair">Repair</option>
+                <option value="Broken Part">Broken Part</option>
+            </select>
 
-                </div>
+        </div>
 
-                <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center;">
 
-                    <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
-                        <option value="Spill">Spill</option>
-                        <option value="Broken Part">Broken Part</option>
-                        <option value="Crying Kid">Crying Kid</option>
-                    </select>
+            <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
+                <option value="Spill">Spill</option>
+                <option value="Broken Part">Broken Part</option>
+                <option value="Crying Kid">Crying Kid</option>
+            </select>
 
-                </div> -->
+        </div> -->
                 <!-- 3 -Comments box.-->
 
                 <div style="display: flex; justify-content: center;">

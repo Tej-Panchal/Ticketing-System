@@ -125,6 +125,17 @@
         opacity: 0.9;
       }
     </style>
+	
+	<script>
+        function setData() {
+            if (typeof (localStorage) != "undefined") {
+                document.getElementById("Customer").value = localStorage.getItem("Technician_Name");
+                document.getElementById("Priority").value = localStorage.getItem("Priority");
+                document.getElementById("Exhibit").value = localStorage.getItem("Issue_Type");
+                document.getElementById("Description").value = localStorage.getItem("Description");
+            }
+        }
+    </script>
 
     <script>
         // define the callAPI function that takes a first name and last name as parameters
@@ -155,7 +166,7 @@
     <title>Ticket View</title>
   </head>
 
-  <body>
+  <body onload="setData()">
     <div class="header";>
       <h1><center>TICKET DATA PORTAL</center></h1>
     </div>

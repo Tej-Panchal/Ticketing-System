@@ -213,6 +213,79 @@
 
 </script>
 
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.819.0.min.js"></script>
+	<script>
+		//AWS Access//
+		// Initialize the AWS SDK with your credentials
+		AWS.config.update({
+			accessKeyId: 'AKIA55I43ICW54M4YVUB',
+			secretAccessKey: 'F2TCJJq7c6o8NZlj/NmUeWkSGqZdZLxM0VPZ9Lpz',
+			region: 'us-west-2'
+		});
+
+		// Create a DynamoDB client object
+		var docClient = new AWS.DynamoDB.DocumentClient();
+
+		// Define the OpenTickets DynamoDB table 
+		var openParams = {
+			TableName: 'OpenTickets'
+		};
+
+		//Define the ClosedTickets DynamoDB table
+		var closedParams = {
+			TableName: 'ClosedTickets'
+		};
+
+		// Execute the scan operation for OpenTickets
+		docClient.scan(openParams, function(err, data) {
+			if (err) {
+				console.log('Error retrieving data: ', err);
+			} else {
+				console.log('Data retrieved successfully: ', data);
+
+				// Loop through the retrieved data and create table rows
+				var tableBody = document.querySelector('#ticket-table tbody');
+				data.Items.forEach(function(item) {
+					var row = document.createElement('tr');
+					row.innerHTML = `
+						<td>${item.TicketName}</td>
+						<td>${item.TicketStatus}</td>
+						<td>${item.CreateDate}</td>
+						<td>${item.TicketPriority}</td>
+						<td>${item.TicketOwner}</td>
+					`;
+					tableBody.appendChild(row);
+				});
+			}
+		});
+
+		//Execute the scan operation for ClosedTickets
+		docClient.scan(closedParams, function(err, data){
+			if(err){
+				console.log('Error retrieving data: ', err);
+			}
+			else{
+				console.log('Data retrieved successfully: ', data);
+
+				//loop through the data and create table rows for ClosedTickets
+				var tableBody = document.querySelector('#ticket-table2 tbody');
+				data.Items.forEach(function(item){
+					var row = document.createElement('tr');
+					row.innerHTML = `
+						<td>${item.TicketName}</td>
+						<td>${item.TicketStatus}</td>
+						<td>${item.CreateDate}</td>
+						<td>${item.TicketPriority}</td>
+						<td>${item.TicketOwner}</td>
+					`;
+					tableBody.appendChild(row);
+				});
+			}
+		});
+
+	</script>
+
 </head>
 
 
@@ -233,337 +306,23 @@
 
 <div class="scroll">
 	
+	<!--Open Ticket Table-->
 	<table class="ticket-table" id="ticket-table" data-filter-control="true" 
 		data-show-search-clear-button="true">
 		<thead>
-		
-			<th onclick = "sortTable(0)">TICKET NAME</th>
-				
-			<th onclick = "sortTable(1)">TICKET STATUS</th>
-			
-			<th>CREATE DATE</th>
-			
-			<th onclick = "sortTable(3)">TICKET PRIORITY</th>
-			
+			<th onclick = "sortTable(0)">TICKET NAME</th>		
+			<th onclick = "sortTable(1)">TICKET STATUS</th>		
+			<th>CREATE DATE</th>	
+			<th onclick = "sortTable(3)">TICKET PRIORITY</th>	
 			<th onclick = "sortTable(4)">TICKET OWNER</th>
-			
 		</thead>
 
 		<tbody>
-			
-			<tr>
-			
-				<td style ="color:purple"> <a href="../Ticket View (Steve Nevins)/Ticket_View.html"> Space Shuttle Down </a> </td>
-				<td>New</td>
-				<td>Sep 9, 2023</td>
-				<td>High</td>
-				<td style ="color:purple">Steve Nevins</td>
-			</tr>
-			
-	
-			
-			<tr>
-				<td style ="color:purple">Error Message</td>
-				<td>On Hold</td>
-				<td>Oct 4, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Pat Higgs</td>
-			</tr>
-		
-			<tr>
-				<td style ="color:purple">Lights out</td>
-				<td>In Progress</td>
-				<td>Aug 5, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">John Smith</td>
-			</tr>
-		
-			<tr>
-				<td style ="color:purple">Liquid Spill</td>
-				<td>On Hold</td>
-				<td>Oct 9, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Bob Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken door</td>
-				<td>On Hold</td>
-				<td>June 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken Glass</td>
-				<td>New</td>
-				<td>May 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Patt Higgs</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Create Account</td>
-				<td>New</td>
-				<td>Apr 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">John Smith</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Unable to login</td>
-				<td>On Hold</td>
-				<td>Nov 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Bob Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Incorrect Password</td>
-				<td>In Progress</td>
-				<td>Mar 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Door unable to be unlocked</td>
-				<td>In Progress</td>
-				<td>Feb 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Can't access webpage</td>
-				<td>On Hold</td>
-				<td>Jan 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Todd Thompson</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Username/Password incorrect</td>
-				<td>On Hold</td>
-				<td>July 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights dim</td>
-				<td>In Progress</td>
-				<td>Aug 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Todd Thompson</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Replacement wires</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Todd Thompson</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Replace motor</td>
-				<td>On Hold</td>
-				<td>Apr 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Security Breach</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Account Breached</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Access card denied</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Low energy</td>
-				<td>In Progress</td>
-				<td>Mar 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Login Ticket</td>
-				<td>New</td>
-				<td>Nov 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken webpage</td>
-				<td>New</td>
-				<td>Nov 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>New</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>In Progress</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Ticket Name Example</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Unassigned</td>
-			</tr>
-			
-			
+			<!--Data should be populated by OpenTicket-->
 		</tbody>
-		
+
 	</table>
-
-
+	<!--End of Open Ticket Table-->
 </div>
 
 <div class="break">
@@ -576,6 +335,7 @@
 
 <div class="scroll">
 
+	<!--Closed Ticket Table-->
 	<table class="ticket-table2" id="ticket-table2" data-filter-control="true" 
 			data-show-search-clear-button="true">
 		<thead>
@@ -591,281 +351,6 @@
 		</thead>
 
 		<tbody>
-
-			<tr>
-				<td style ="color:purple"> <a href="../Ticket View (Steve Nevins)/Ticket_View.html"> Space Shuttle Down </a> </td>
-				<td>New</td>
-				<td>Sep 9, 2023</td>
-				<td>High</td>
-				<td style ="color:purple">Steve Nevins</td>
-			</tr>
-			
-	
-			
-			<tr>
-				<td style ="color:purple">Error Message</td>
-				<td>On Hold</td>
-				<td>Oct 4, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Pat Higgs</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Test</td>
-				<td>On Hold</td>
-				<td>Oct 4, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Pat Higgs</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">abcde</td>
-				<td>On Hold</td>
-				<td>Oct 4, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Mike</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Liquid Spill</td>
-				<td>On Hold</td>
-				<td>Oct 9, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Bob Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken door</td>
-				<td>On Hold</td>
-				<td>June 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken Glass</td>
-				<td>New</td>
-				<td>May 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Patt Higgs</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Create Account</td>
-				<td>New</td>
-				<td>Apr 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">John Smith</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Unable to login</td>
-				<td>On Hold</td>
-				<td>Nov 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Bob Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Incorrect Password</td>
-				<td>In Progress</td>
-				<td>Mar 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Door unable to be unlocked</td>
-				<td>In Progress</td>
-				<td>Feb 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Can't access webpage</td>
-				<td>On Hold</td>
-				<td>Jan 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Todd Thompson</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Username/Password incorrect</td>
-				<td>On Hold</td>
-				<td>July 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Liquid Spill</td>
-				<td>On Hold</td>
-				<td>Oct 9, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Bob Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken door</td>
-				<td>On Hold</td>
-				<td>June 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Broken Glass</td>
-				<td>New</td>
-				<td>May 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Patt Higgs</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Create Account</td>
-				<td>New</td>
-				<td>Apr 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">John Smith</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Unable to login</td>
-				<td>On Hold</td>
-				<td>Nov 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Bob Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Incorrect Password</td>
-				<td>In Progress</td>
-				<td>Mar 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Door unable to be unlocked</td>
-				<td>In Progress</td>
-				<td>Feb 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Mike Cobb</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Can't access webpage</td>
-				<td>On Hold</td>
-				<td>Jan 16, 2022</td>
-				<td>Low</td>
-				<td style ="color:purple">Todd Thompson</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Username/Password incorrect</td>
-				<td>On Hold</td>
-				<td>July 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-
-			<tr>
-				<td style ="color:purple">Exhibit Locked</td>
-				<td>On Hold</td>
-				<td>Aug 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-			
-			<tr>
-				<td style ="color:purple">Exhibit Lights flashing</td>
-				<td>On Hold</td>
-				<td>Sep 16, 2022</td>
-				<td>High</td>
-				<td style ="color:purple">James Jones</td>
-			</tr>
-
 		</tbody>
 
 	</table>

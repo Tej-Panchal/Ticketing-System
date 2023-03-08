@@ -213,79 +213,6 @@
 
 </script>
 
-
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.819.0.min.js"></script>
-	<script>
-		//AWS Access//
-		// Initialize the AWS SDK with your credentials
-		AWS.config.update({
-			accessKeyId: 'AKIA55I43ICW54M4YVUB',
-			secretAccessKey: 'F2TCJJq7c6o8NZlj/NmUeWkSGqZdZLxM0VPZ9Lpz',
-			region: 'us-west-2'
-		});
-
-		// Create a DynamoDB client object
-		var docClient = new AWS.DynamoDB.DocumentClient();
-
-		// Define the OpenTickets DynamoDB table 
-		var openParams = {
-			TableName: 'OpenTickets'
-		};
-
-		//Define the ClosedTickets DynamoDB table
-		var closedParams = {
-			TableName: 'ClosedTickets'
-		};
-
-		// Execute the scan operation for OpenTickets
-		docClient.scan(openParams, function(err, data) {
-			if (err) {
-				console.log('Error retrieving data: ', err);
-			} else {
-				console.log('Data retrieved successfully: ', data);
-
-				// Loop through the retrieved data and create table rows
-				var tableBody = document.querySelector('#ticket-table tbody');
-				data.Items.forEach(function(item) {
-					var row = document.createElement('tr');
-					row.innerHTML = `
-						<td>${item.TicketName}</td>
-						<td>${item.TicketStatus}</td>
-						<td>${item.CreateDate}</td>
-						<td>${item.TicketPriority}</td>
-						<td>${item.TicketOwner}</td>
-					`;
-					tableBody.appendChild(row);
-				});
-			}
-		});
-
-		//Execute the scan operation for ClosedTickets
-		docClient.scan(closedParams, function(err, data){
-			if(err){
-				console.log('Error retrieving data: ', err);
-			}
-			else{
-				console.log('Data retrieved successfully: ', data);
-
-				//loop through the data and create table rows for ClosedTickets
-				var tableBody = document.querySelector('#ticket-table2 tbody');
-				data.Items.forEach(function(item){
-					var row = document.createElement('tr');
-					row.innerHTML = `
-						<td>${item.TicketName}</td>
-						<td>${item.TicketStatus}</td>
-						<td>${item.CreateDate}</td>
-						<td>${item.TicketPriority}</td>
-						<td>${item.TicketOwner}</td>
-					`;
-					tableBody.appendChild(row);
-				});
-			}
-		});
-
-	</script>
-
 </head>
 
 
@@ -303,10 +230,8 @@
 		<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search Open Tickets table . . .  ">
 	</div>
 
-
+<!--Open Ticket Table-->
 <div class="scroll">
-	
-	<!--Open Ticket Table-->
 	<table class="ticket-table" id="ticket-table" data-filter-control="true" 
 		data-show-search-clear-button="true">
 		<thead>
@@ -316,13 +241,9 @@
 			<th onclick = "sortTable(3)">TICKET PRIORITY</th>	
 			<th onclick = "sortTable(4)">TICKET OWNER</th>
 		</thead>
-
 		<tbody>
-			<!--Data should be populated by OpenTicket-->
 		</tbody>
-
 	</table>
-	<!--End of Open Ticket Table-->
 </div>
 
 <div class="break">
@@ -333,9 +254,8 @@
 	<input type="text" id="myInput2" onkeyup='tableSearch2()' placeholder="Search Closed Tickets table . . .  ">
 </div>
 
-<div class="scroll">
-
 	<!--Closed Ticket Table-->
+<div class="scroll">
 	<table class="ticket-table2" id="ticket-table2" data-filter-control="true" 
 			data-show-search-clear-button="true">
 		<thead>
@@ -354,6 +274,44 @@
 		</tbody>
 
 	</table>
+	<script>
+		const API_ENDPOINT = "https://s4gwg59i2i.execute-api.us-east-2.amazonaws.com/dev";
+		
+		fetch(API_ENDPOINT)
+		.then(response => response.json())
+		.then(data => {
+		const openTableData = [];
+		const closedTableData = [];
+
+		data.forEach(item => {
+			if (item.TicketStatus.toLowerCase() === 'new') {
+			openTableData.push(`
+				<tr>
+				<td>${item.TicketName}</td>
+				<td>${item.TicketStatus}</td>
+				<td>${item.CreateDate}</td>
+				<td>${item.TicketPriority}</td>
+				<td>${item.TicketOwner}</td>
+				</tr>
+			`);
+			} else if (item.TicketStatus.toLowerCase() === 'closed') {
+			closedTableData.push(`
+				<tr>
+				<td>${item.TicketName}</td>
+				<td>${item.TicketStatus}</td>
+				<td>${item.CreateDate}</td>
+				<td>${item.TicketPriority}</td>
+				<td>${item.TicketOwner}</td>
+				</tr>
+			`);
+			}
+		});
+
+		document.querySelector('#ticket-table tbody').innerHTML = openTableData.join('');
+		document.querySelector('#ticket-table2 tbody').innerHTML = closedTableData.join('');
+		});
+</script>
+	
 
 </div>
 

@@ -1,5 +1,8 @@
 window.onload = function ()
 {
+
+setData();
+	
 //This is my code for dynamically adding shit. 
 	
 var comment = "";

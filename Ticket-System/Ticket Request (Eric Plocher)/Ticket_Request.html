@@ -189,6 +189,30 @@
         }
     </script>
 
+    <script>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (Employee, Exhibit, Priority) => {
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({ "Employee": Employee, "Exhibit": Exhibit, "Priority": Priority });
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://6k3xiuvppd.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+                .then(response => response.text())
+                .then(result => alert(JSON.parse(result).body))
+                .catch(error => console.log('error', error));
+        }
+    </script>
+
     <!-- Interesting title -->
     <title>Ticket Request</title>
 </head>
@@ -202,37 +226,33 @@
     <div class="row">
 
         <!-- 1 -This is the first column; it is just centering the middle area.-->
-
         <div id="new" class="column left" style="background-color:#5A8C71; opacity: 0.0;">
 
         </div>
 
         <!-- 2 -This is the second column; it contains the ticket summary.-->
-
         <div class="column middle" style="background-color:#6DA47F; opacity: 0.85;">
 
-            <form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">
-            <!--<form id="form" method="GET" action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
-                <!-- 3 -This is just the header.-->
+            <form id="form" method="GET" ><!--action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
 
+                <!-- 3 -This is just the header.-->
                 <h1> <center> Request A New Ticket </center> </h1>
 
                 <!-- 3 Customer name box.-->
-
                 <div style="display: flex; justify-content: center;">
 
-                    <label for="comments">Employee Name</label><br>
+                    <label>Employee Name</label><br>
 
                 </div>
 
-                <div name="Technician_Name" style="display: flex; justify-content: center;">
+                <div name="Employee" style="display: flex; justify-content: center;">
 
-                    <input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">
+                    <input type="text" placeholder="Enter your name . . . " id="Employee" size="35" name="Employee" style="height: 30px; margin-bottom: 10px;">
+                    <!--<input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">-->
 
                 </div>
 
                 <!-- 3 -Ticket status box.-->
-
                 <div style="display: flex; justify-content: center;">
 
                     <label for="Status"> Ticket Priority </label><br>
@@ -255,10 +275,9 @@
                 </p>
 
                 <!-- 3 -Assigned technician box.-->
-
                 <div style="display: flex; justify-content: center;">
 
-                    <label for="technician">Category/Exhibity</label><br>
+                    <label>Category/Exhibity</label><br>
 
                 </div>
 
@@ -389,7 +408,9 @@
                 <!-- 3 -Submit changes button.-->
                 <div class="button-style">
 
-                    <button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm()"> Save Changes </button>
+                    <!--<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm(), callAPI(document.getElementById('Employee').value, document.getElementById('Exhibit').value, document.getElementById('Priority').value)""> Save Changes </button> -->
+
+                    <button type="button" id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Issue_Type').value, document.getElementById('Priority').value)"> Save Changes </button>
 
                     <input type="reset" value="Reset" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;">
 

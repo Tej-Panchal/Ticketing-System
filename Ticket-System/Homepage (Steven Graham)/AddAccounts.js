@@ -1,0 +1,38 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+const form = document.querySelector('#add-account-form');
+const API_ENDPOINT = 'https://xvdovsios7.execute-api.us-west-1.amazonaws.com/default/AccountsConnection';
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const username = form.elements.Username.value;
+  const date = form.elements.Date.value;
+  const permissions = form.elements.Permissions.value;
+  const status = form.elements.Status.value;
+
+  const payload = {
+    "Username": username,
+    "Date": date,
+    "Permissions": permissions,
+    "Status": status
+  };
+
+  try {
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = await response.json();
+
+    console.log('Success:', JSON.stringify(data));
+  } catch (error) {
+    console.error('Error:', error);
+  }
+});
+
+});

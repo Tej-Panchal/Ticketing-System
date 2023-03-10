@@ -1,33 +1,23 @@
 const API_ENDPOINT = "https://xvdovsios7.execute-api.us-west-1.amazonaws.com/default/AccountsConnection";
-
+		
 fetch(API_ENDPOINT)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Failed to fetch data: ${response.status}`);
-    }
-    return response.json();
-  })
+  .then(response => response.json())
   .then(data => {
-    if (!Array.isArray(data)) {
-      throw new Error(`Invalid data format: expected an array, received ${typeof data}`);
-    }
-
-    const accountsTableData = [];
+    const tableData = [];
 
     data.forEach(item => {
-      accountsTableData.push(`
+      const checkbox = `<input type="checkbox" name="row-${item.id}">`;
+      const rowData = `
         <tr>
+          <td>${checkbox}</td>
           <td>${item.Username}</td>
           <td>${item.Date}</td>
           <td>${item.Permission}</td>
           <td>${item.Status}</td>
         </tr>
-      `);
+      `;
+      tableData.push(rowData);
     });
 
-    document.querySelector('#accounts-table tbody').innerHTML = accountsTableData.join('');
-  })
-  .catch(error => {
-    console.error(error);
-    // display an error message to the user, if desired
+    document.querySelector('#accounts-table tbody').innerHTML = tableData.join('');
   });

@@ -12,7 +12,7 @@ fetch(API_ENDPOINT)
           <td>${checkbox}</td>
           <td>${item.Username}</td>
           <td>${item.Date}</td>
-          <td>${item.Permission}</td>
+          <td>${item.Permissions}</td>
           <td>${item.Status}</td>
         </tr>
       `;

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 const form = document.querySelector('#add-account-form');
-const API_ENDPOINT = 'https://xvdovsios7.execute-api.us-west-1.amazonaws.com/default/AccountsConnection';
+const API_ENDPOINT = 'https://pgikxejuh9.execute-api.us-west-2.amazonaws.com/default/AccountsConnectionFunction';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();

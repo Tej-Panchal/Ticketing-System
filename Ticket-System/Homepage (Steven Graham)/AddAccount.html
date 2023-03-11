@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Page</title>
+  <title>Add Accounts</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="AddAccount.css">
   <script src="AddAccounts.js"></script>
 </head>
 <body>
@@ -16,15 +19,30 @@
     </div>
     <div>
       <label for="permissions">Permissions:</label>
-      <input type="text" id="permissions" name="Permissions">
+      <select id="permissions" name="Permissions">
+        <option value="">Select Permission</option>
+        <option value="Customer">Customer</option>
+        <option value="Technician">Technician</option>
+      </select>
     </div>
     <div>
       <label for="status">Status:</label>
-      <input type="text" id="status" name="Status">
+      <select id="status" name="Status">
+        <option value="">Select Status</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Active">Active</option>
+        <option value="Pending">Pending</option>
+      </select>
     </div>
     <div>
-      <button type="submit">Add Account</button>
+      <button type="submit" onclick="submit(); resetForm();">Add Account</button>
+      <button class="close-button" onclick="window.history.back()">Close</button>
     </div>
   </form>
+  <script>
+    function resetForm() {
+      document.getElementById("add-account-form").reset();
+    }
+  </script>
 </body>
 </html>

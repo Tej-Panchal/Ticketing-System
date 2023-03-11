@@ -1,4 +1,4 @@
-const API_ENDPOINT = "https://xvdovsios7.execute-api.us-west-1.amazonaws.com/default/AccountsConnection";
+const API_ENDPOINT = "https://pgikxejuh9.execute-api.us-west-2.amazonaws.com/default/AccountsConnectionFunction";
 		
 fetch(API_ENDPOINT)
   .then(response => response.json())

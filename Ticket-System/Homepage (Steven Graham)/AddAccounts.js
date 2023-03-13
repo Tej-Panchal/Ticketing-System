@@ -30,9 +30,12 @@ form.addEventListener('submit', async (e) => {
     const data = await response.json();
 
     console.log('Success:', JSON.stringify(data));
+
+        
   } catch (error) {
     console.error('Error:', error);
   }
+  form.reset();
 });
 
 });

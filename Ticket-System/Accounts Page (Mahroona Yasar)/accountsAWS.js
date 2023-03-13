@@ -21,3 +21,17 @@ fetch(API_ENDPOINT)
 
     document.querySelector('#accounts-table tbody').innerHTML = tableData.join('');
   });
+
+  var addAccountPopup = null;
+
+  function openAddAccountPopup() {
+    addAccountPopup = window.open('../Homepage (Steven Graham)/AddAccount.html', 'Add Account', 'width=600,height=400');
+  }
+  
+  window.addEventListener('unload', function() {
+    if (addAccountPopup && addAccountPopup.closed) {
+      window.location.reload();
+    }
+  });
+  
+   

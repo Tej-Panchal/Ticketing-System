@@ -155,11 +155,9 @@
             };
             // make API call with parameters and use promises to get response
             fetch("https://5bgfb36ez1.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
-            .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
-            .catch(error => console.log('error', error));
         }
     </script>
+	
     <script src="Ticket_View.js"></script>
 
     <!-- Interesting title -->
@@ -180,22 +178,9 @@
         <!-- 1 -This is the header.-->
 
         <h1><center>Activity Stream</center></h1>
-
-        <!-- 1 -This is a sample activity.-->
-
-        <fieldset size="auto">
-          <legend>@System - - - - - - - - - - 12-01-22 @ 04:10:30</legend>
-          <br />
-
-          <textarea
-            id="text_field_1"
-            name="text_field"
-            rows="5"
-            cols="45"
-			      style="text-align: center; height: 50px; width: 100%"
-            placeholder="Action: Ticket Status = Pending."> </textarea>
-        </fieldset>
         <p></p>
+		<div id="thread"> 
+		</div>
       </div>
 
       <!-- 2 -This is the second column; it contains the ticket summary.-->

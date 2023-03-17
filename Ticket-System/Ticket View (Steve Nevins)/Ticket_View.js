@@ -1,38 +1,113 @@
 window.onload = function ()
 {
 
+//This is a function that loads the temp data from the ticket request; it will be removed later. 
 setData();
 	
-//This is my code for dynamically adding shit. 
+//Prepping header for API call to obtain most recent tech and status.
+
+var tech_2;
+var status_2;
+var comment;
+var status_1;
+var assigned_tech;
+
+
+function load_thread()
+{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"firstName":"Steven","lastName":"Nevins"});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://ea1qb9r20b.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+			.then(response => response.json())
+			.then(data => {
+				dataarray = JSON.parse(data);
+				
+				dataarray.forEach(obj => {
+					if(obj.Subtype === "Comment")
+					{
+						update_comments(obj.Date, obj.Info);
+					}
+					if(obj.Subtype === "Status Change")
+					{
+						update_status(obj.Date, obj.Info);
+					}
+					if(obj.Subtype === "Tech Change")
+					{
+						update_tech(obj.Date, obj.Info);
+					}
+				});
+			})
+			.catch(error => console.log('error', error));
+}
+
+
+
+function load_state()
+{
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: '',
+		redirect: 'follow'
+	};
 	
-var comment = "";
-var status_1 = "Pending";
-var assigned_tech = "Unassigned";
+// make API call with parameters and use promises to get response
+fetch("https://uaysrnlktj.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+.then(response => response.json())
+.then(data => {
+		tech_2 = data.tech;
+		status_2 = data.status;
+		
+		document.getElementById("Status").value = status_2;
+	
+		document.getElementById("technician").value = tech_2;
+		
+		loadInitial(tech_2, status_2);
+
+})
+.catch(error => console.log('error', error));
+}
+
+load_thread();
+load_state();
+
+function loadInitial(t, s)
+{
+comment = "";
+status_1 = s;
+assigned_tech = t;
+}
 
 document.getElementById("reset_button").addEventListener("click", reset_all);
 
 function reset_all()
 {	
-	document.getElementById("Status").value = "Pending";
+	document.getElementById("Status").value = status_1;
 	
-	document.getElementById("technician").value = "Unassigned";
+	document.getElementById("technician").value = assigned_tech;
 	
 	document.getElementById("comments").value = "";
 }
 
 //Code to update status section after change is validated. 
 
-function update_status()
+function update_status(date, input)
 {
-	callAPI("Steven Nevins",document.getElementById('Status').value, "Action", "Status Change", "3");
-		
-	//Formatting time stamp. 
-	
-	var date = new Date();
-	
-	var timestamp = date.getFullYear() + "/" + + (date.getMonth()+1)  + "/" + date.getDate() + " "  + date.getHours() + ":"  + date.getMinutes() + ":" + date.getSeconds();
-	
-	//Grabbing input data.
+	var timestamp = date;
 	
 	input = document.getElementById("Status").value;
 	
@@ -49,7 +124,7 @@ function update_status()
 	
 	var tag = document.createElement("textarea");
 	
-	var element = document.getElementById("new");
+	var element = document.getElementById("thread");
 	
 	//Formatting new elements. 
 	
@@ -65,9 +140,9 @@ function update_status()
 	
 	//Adding elements to file.
 	
-	element.appendChild(space);
+	element.prepend(space);
 	
-	element.appendChild(box);
+	element.prepend(box);
 	
 	box.appendChild(legend);
 	
@@ -77,20 +152,11 @@ function update_status()
 
 //Code to update technician section after change is validated. 
 
-function update_tech()
+function update_tech(date, input)
 {
-	callAPI("Steven Nevins",document.getElementById('technician').value, "Action", "Tech Change", "2");
-	//Formatting time stamp. 
-	
-	var date = new Date();
-	
-	var timestamp = date.getFullYear() + "/" + + (date.getMonth()+1)  + "/" + date.getDate() + " "  + date.getHours() + ":"  + date.getMinutes() + ":" + date.getSeconds();
-	
-	//Grabbing input data.
-	
-	input = document.getElementById("technician").value;
-	
 	assigned_tech = input;
+	
+	var timestamp = date;
 	
 	//Creating new elements. 
 	
@@ -102,7 +168,7 @@ function update_tech()
 	
 	var tag = document.createElement("textarea");
 	
-	var element = document.getElementById("new");
+	var element = document.getElementById("thread");
 	
 	//Formatting new elements. 
 	
@@ -118,9 +184,9 @@ function update_tech()
 	
 	//Adding elements to file.
 	
-	element.appendChild(space);
+	element.prepend(space);
 	
-	element.appendChild(box);
+	element.prepend(box);
 	
 	box.appendChild(legend);
 	
@@ -130,19 +196,9 @@ function update_tech()
 
 //Code to update comments section after change is validated. 
 
-function update_comments()
+function update_comments(date, input)
 {
-	callAPI("Steven Nevins",document.getElementById('comments').value, "Comment", "N/A", "1");
-	
-	//Formatting time stamp. 
-	
-	var date = new Date();
-	
-	var timestamp = date.getFullYear() + "/" + + (date.getMonth()+1)  + "/" + date.getDate() + " "  + date.getHours() + ":"  + date.getMinutes() + ":" + date.getSeconds();
-	
-	//Grabbing input data.
-	
-	input = document.getElementById("comments").value;
+	var timestamp = date;
 	
 	comment = input;
 	
@@ -156,7 +212,7 @@ function update_comments()
 	
 	var tag = document.createElement("textarea");
 	
-	var element = document.getElementById("new");
+	var element = document.getElementById("thread");
 	
 	//Formatting new elements. 
 	
@@ -172,9 +228,9 @@ function update_comments()
 	
 	//Adding elements to file.
 	
-	element.appendChild(space);
+	element.prepend(space);
 	
-	element.appendChild(box);
+	element.prepend(box);
 	
 	box.appendChild(legend);
 	
@@ -198,12 +254,20 @@ function handleClick()
 //TICKET STATUS SECTION//
 
 function check_status()
-{	
+{
+	//Formatting time stamp. 
+	
+	var date = new Date();
+	
+	var timestamp = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear()} @ ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}`;
+	
 	input = document.getElementById("Status").value;
 	
 	if(input != status_1)
 	{
-		update_status();
+		callAPI("Steven Nevins",document.getElementById('Status').value, "Action", "Status Change", "3");
+		
+		update_status(timestamp, input);
 	}
 	
 }	
@@ -211,11 +275,19 @@ function check_status()
 //ASSIGNED TECH SECTION//
 function check_tech()
 {
+	//Formatting time stamp. 
+	
+	var date = new Date();
+	
+	var timestamp = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear()} @ ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}`;
+	
 	input = document.getElementById("technician").value;
 	
 	if(input != assigned_tech)
 	{
-		update_tech();
+		callAPI("Steven Nevins",document.getElementById('technician').value, "Action", "Tech Change", "2");
+		
+		update_tech(timestamp, input);
 	}
 	
 }
@@ -223,11 +295,21 @@ function check_tech()
 //COMMENTS SECTION//
 function check_comment()
 {
-    input = document.getElementById("comments").value;
+	//Formatting time stamp. 
+	
+	var date = new Date();
+	
+	var timestamp = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear()} @ ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}`;
+	
+	//Grabbing input data.
+	
+	input = document.getElementById("comments").value;
 	
 	if((input != comment) && (input != ""))
 	{
-		update_comments();
+		callAPI("Steven Nevins",document.getElementById('comments').value, "Comment", "Comment", "1");
+		
+		update_comments(timestamp, input);
 	}
 }
 

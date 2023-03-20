@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Page</title>
+  <title>Add Accounts Page</title>
   <script src="AddAccounts.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="./AddAccount.css" />
 </head>
+
 <body>
-  <form id="add-account-form">
+    <form id="add-account-form">
+    <div class="background-image"></div>
+
+    <h1 class="new-font">Add Accounts</h1>
+
     <div>
-      <label for="username">Username:</label>
+      <label class="label" label for="username">Username:</label>
       <input type="text" id="username" name="Username">
     </div>
+
     <div>
-      <label for="date">Date:</label>
+      <label class="label" label for="date">Date:</label>
       <input type="date" id="date" name="Date">
     </div>
+
     <div>
-      <label for="permissions">Permissions:</label>
+      <label class="label" label for="permissions">Permissions:</label>
       <input type="text" id="permissions" name="Permissions">
     </div>
+
     <div>
-      <label for="status">Status:</label>
+      <label class="label" label for="status">Status:</label>
       <input type="text" id="status" name="Status">
     </div>
+
     <div>
-      <button type="submit">Add Account</button>
+      <button type="submit" button class="submit">Submit</button>
     </div>
   </form>
 </body>

@@ -275,7 +275,8 @@
 
 	</table>
 	<script>
-		const API_ENDPOINT = "https://s4gwg59i2i.execute-api.us-east-2.amazonaws.com/dev";
+		const API_ENDPOINT = "https://iol6fw0pfe.execute-api.us-west-2.amazonaws.com/default/TicketFunction";
+		
 		
 		fetch(API_ENDPOINT)
 		.then(response => response.json())
@@ -286,22 +287,23 @@
 		data.forEach(item => {
 			if (item.TicketStatus.toLowerCase() === 'new') {
 			openTableData.push(`
-				<tr>
-				<td>${item.TicketName}</td>
+			<tr>
+				<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
 				<td>${item.TicketStatus}</td>
 				<td>${item.CreateDate}</td>
-				<td>${item.TicketPriority}</td>
+				<td>${item.Priority}</td>
 				<td>${item.TicketOwner}</td>
-				</tr>
+</tr>
+
 			`);
 			} else if (item.TicketStatus.toLowerCase() === 'closed') {
 			closedTableData.push(`
 				<tr>
-				<td>${item.TicketName}</td>
-				<td>${item.TicketStatus}</td>
-				<td>${item.CreateDate}</td>
-				<td>${item.TicketPriority}</td>
-				<td>${item.TicketOwner}</td>
+					<td>${item.ID}</td>
+					<td>${item.TicketStatus}</td>
+					<td>${item.CreateDate}</td>
+					<td>${item.Priority}</td>
+					<td>${item.TicketOwner}</td>
 				</tr>
 			`);
 			}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Accounts</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="EditAccount.css">
+  <script src="EditAccounts.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="./EditAccount.css" />
+</head>
+
+<body>
+    <form id="edit-account-form">
+    <div class="background-image"></div>
+    
+    <div class ="content">
+    <h1 class="new-font">Edit Accounts</h1>
+
+    <div>
+      <label class="label" label for="username">Username:</label>
+      <input type="text" id="username" name="Username">
+    </div>
+
+    <div>
+      <label class="label" label for="date">Date:</label>
+      <input type="date" id="date" name="Date">
+    </div>
+
+    <div>
+      <label class="label" label for="permissions">Permissions:</label>
+      <select id="permissions" name="Permissions">
+        <option value="">Select Permission</option>
+        <option value="Customer">Customer</option>
+        <option value="Technician">Technician</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label" label for="status">Status:</label>
+      <select id="status" name="Status">
+        <option value="">Select Status</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Active">Active</option>
+        <option value="Pending">Pending</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit" button class="submit">Apply</button>
+      
+    </div>
+
+    <div>
+      <button class="close-button" onclick="window.location.href='..\\Accounts Page (Mahroona Yasar)\\Ticket-System_Account_Page.html'">Close</button>
+
+    </div>
+  </form>
+  </div>
+</body>
+</html>

@@ -12,7 +12,7 @@ fetch(API_ENDPOINT)
       const rowData = `
         <tr>
           <td>${checkbox}</td>
-          <td>${item.Username}</td>
+          <td><a href="..\\Homepage (Steven Graham)\\EditAccount.html?id=${item.Username}">${item.Username}</a></td>
           <td>${item.Date}</td>
           <td>${item.Permissions}</td>
           <td>${item.Status}</td>
@@ -35,7 +35,7 @@ fetch(API_ENDPOINT)
           const rowData = `
             <tr>
               <td>${checkbox}</td>
-              <td>${item.Username}</td>
+              <td><a href="..\\Homepage (Steven Graham)\EditAccount.html?id=${item.Username}">${item.Username}</a></td>
               <td>${item.Date}</td>
               <td>${item.Permissions}</td>
               <td>${item.Status}</td>
@@ -53,6 +53,11 @@ fetch(API_ENDPOINT)
 
 function openAddAccountPopup() {
   addAccountPopup = window.open('../Homepage (Steven Graham)/AddAccount.html', 'Add Account', 'width=600,height=400');
+  return false;
+}
+
+function openEditAccountPopup() {
+  addAccountPopup = window.open('../Homepage (Steven Graham)/EditAccount.html', 'Edit Account', 'width=600,height=400');
   return false;
 }
 

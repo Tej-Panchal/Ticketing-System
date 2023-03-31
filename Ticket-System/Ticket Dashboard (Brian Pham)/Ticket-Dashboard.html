@@ -283,12 +283,12 @@
 		.then(data => {
 		const openTableData = [];
 		const closedTableData = [];
-
+			//<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
 		data.forEach(item => {
 			if (item.TicketStatus.toLowerCase() === 'new') {
 			openTableData.push(`
 			<tr>
-				<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
+				<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.CreateDate}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
 				<td>${item.TicketStatus}</td>
 				<td>${item.CreateDate}</td>
 				<td>${item.Priority}</td>

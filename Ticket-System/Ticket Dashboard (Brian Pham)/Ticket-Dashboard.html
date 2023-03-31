@@ -290,7 +290,7 @@
 			<tr>
 				<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.CreateDate}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
 				<td>${item.TicketStatus}</td>
-				<td>${item.CreateDate}</td>
+				<td>${item.LatestGreetingTime.substring(0,10)}</td>
 				<td>${item.Priority}</td>
 				<td>${item.TicketOwner}</td>
 </tr>
@@ -298,10 +298,10 @@
 			`);
 			} else if (item.TicketStatus.toLowerCase() === 'closed') {
 			closedTableData.push(`
-				<tr>
-					<td>${item.ID}</td>
+			tr>
+					<td>${item.Exhibit}</td>
 					<td>${item.TicketStatus}</td>
-					<td>${item.CreateDate}</td>
+					<td>${item.LatestGreetingTime.substring(0,10)}</td>
 					<td>${item.Priority}</td>
 					<td>${item.TicketOwner}</td>
 				</tr>

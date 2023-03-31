@@ -121,18 +121,72 @@
         text-align: center;
         background: #206740;
         color: white;
-        font-size: 25px;
+        font-size: 25px;``
         opacity: 0.9;
       }
     </style>
-	
-	<script>
+
+    <script>
+        //function to pull parameters from url to add to page fields
         function setData() {
-            if (typeof (localStorage) != "undefined") {
-                document.getElementById("Customer").value = localStorage.getItem("Technician_Name");
-                document.getElementById("Priority").value = localStorage.getItem("Priority");
-                document.getElementById("Exhibit").value = localStorage.getItem("Issue_Type");
-                document.getElementById("Description").value = localStorage.getItem("Description");
+            //obtain the url
+            var url = window.location.href;
+            //substring to be only the parameters
+            var parameters = url.substring(url.indexOf('?'));
+            var paramArray = [];
+            var index = 0;
+            var str = "";
+            //continues until there is no '&' left, indexOf() will return -1
+            do {
+                //incroment index to remove '&'
+                index += 1;
+                //if there is no '&' (other perameters) left ie. final parameter
+                if (parameters.indexOf('&', index) == -1) {
+                    str = parameters.substring(index);
+                }
+                else {
+                    //substring from index to next instance of '&'
+                    str = parameters.substring(index, parameters.indexOf('&', index));
+                }
+                //all ' ' are %20 in url, changing them back
+                if (str.indexOf("%20") != -1) {
+                    str = str.replaceAll("%20", " ");
+                }
+                //array to contain all values of parameter
+                paramArray.push(str);
+                //make index the new location of the next '&'
+                index = parameters.indexOf('&', index);
+            // indexOf() will return -1 when it does not find variable
+            } while (index != -1);
+
+            //store variable into page elements
+            var size = paramArray.length;
+            for (var i = 0; i < size; i++) {
+                str = paramArray.pop();
+                //Ticket ID
+                if (str.includes("id")) {
+                    //removes variable name
+                    str = str.substring(str.indexOf('=') + 1);
+                    document.getElementById("Ticket").value = str;
+                }
+                //Date Created
+                else if (str.includes("date")) {
+                    //removes variable name
+                    str = str.substring(str.indexOf('=') + 1);
+                    document.getElementById("Date").value = str;
+                }
+                //Priority
+                else if (str.includes("priority")) {
+                    //removes variable name
+                    str = str.substring(str.indexOf('=') + 1);
+                    document.getElementById("Priority").value = str;
+                }
+                //Ticket Owner
+                else if (str.includes("owner")) {
+                    //removes variable name
+                    str = str.substring(str.indexOf('=') + 1);
+                    document.getElementById("Customer").value = str;
+                }
             }
         }
     </script>

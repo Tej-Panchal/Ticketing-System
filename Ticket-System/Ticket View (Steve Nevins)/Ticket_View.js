@@ -12,6 +12,11 @@ var comment;
 var status_1;
 var assigned_tech;
 
+//Obtaining url for ticket ID number:
+var url = window.location.href;
+var parameters = url.substring(url.indexOf('?'));
+var ticket_number = parameters.charAt(4);
+
 
 function load_thread()
 {
@@ -35,17 +40,23 @@ function load_thread()
 				dataarray = JSON.parse(data);
 				
 				dataarray.forEach(obj => {
-					if(obj.Subtype === "Comment")
+					if(obj.Ticket_Number === ticket_number)
 					{
-						update_comments(obj.Date, obj.Info);
+						if(obj.Subtype === "Comment")
+						{
+							update_comments(obj.Date, obj.Info);
+						}
+						if(obj.Subtype === "Status Change")
+						{
+							update_status(obj.Date, obj.Info);
+						}
+						if(obj.Subtype === "Tech Change")
+						{
+							update_tech(obj.Date, obj.Info);
+						}
 					}
-					if(obj.Subtype === "Status Change")
-					{
-						update_status(obj.Date, obj.Info);
-					}
-					if(obj.Subtype === "Tech Change")
-					{
-						update_tech(obj.Date, obj.Info);
+					else{
+						console.log("not 9");
 					}
 				});
 			})
@@ -90,6 +101,7 @@ function loadInitial(t, s)
 comment = "";
 status_1 = s;
 assigned_tech = t;
+console.log("Here's the ticket ID: " + ticket_number);
 }
 
 document.getElementById("reset_button").addEventListener("click", reset_all);

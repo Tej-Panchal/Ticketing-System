@@ -194,12 +194,16 @@
     <script>
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (user,information, type, subtype, val)=>{
+			//Obtaining ticket ID number:
+			var url = window.location.href;
+			var parameters = url.substring(url.indexOf('?'));
+			var ticket_number = parameters.charAt(4);
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"User":user,"information":information, "type": type, "subtype": subtype, "value": val});
+            var raw = JSON.stringify({"User":user,"information":information, "type": type, "subtype": subtype, "value": val, "ticket_number": ticket_number});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',

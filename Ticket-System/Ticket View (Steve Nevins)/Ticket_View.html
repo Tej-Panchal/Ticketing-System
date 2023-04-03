@@ -39,10 +39,10 @@
         display: block;
         color: #f2f2f2;
         text-align: center;
-        padding: 1vw;
+        padding: 0vw;
         text-decoration: none;
-        font-size: 2em;
-        width: 16vw;
+        font-size: 1.5em;
+        width: 14vw;
       }
 
       .navbar a:hover {
@@ -121,7 +121,7 @@
         text-align: center;
         background: #206740;
         color: white;
-        font-size: 25px;``
+        font-size: 25px;
         opacity: 0.9;
       }
     </style>
@@ -194,12 +194,16 @@
     <script>
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (user,information, type, subtype, val)=>{
+			//Obtaining ticket ID number:
+			var url = window.location.href;
+			var parameters = url.substring(url.indexOf('?'));
+			var ticket_number = parameters.charAt(4);
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"User":user,"information":information, "type": type, "subtype": subtype, "value": val});
+            var raw = JSON.stringify({"User":user,"information":information, "type": type, "subtype": subtype, "value": val, "ticket_number": ticket_number});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -489,6 +493,7 @@
   <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"> <p> New Ticket </p> </a>
   <a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"> <p> Accounts </p> </a>
   <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"> <p> Dashboard </p> </a>
+  <a href="../index.html"><p> Sign out </p> </a>
   <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
   </div>
     

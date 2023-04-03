@@ -18,6 +18,8 @@
 			.then(response => response.json())
 			.then(data => {
 				const output = data.Result;
+                const permissions = data.Permissions;
+
 				if(output == 0)
 				{
 					document.getElementById("login-error-msg").innerHTML = "Username Not Found.";
@@ -30,7 +32,8 @@
 				}
 				else if (output == 1)
 				{
-					location.assign("Homepage (Steven Graham)/homepage.html");
+					localStorage.permissions = data.Permissions;
+                    location.assign("Homepage (Steven Graham)/homepage.html");
 				}
 				})
             .catch(error => console.log('error', error));

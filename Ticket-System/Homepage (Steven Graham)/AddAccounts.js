@@ -15,7 +15,8 @@ form.addEventListener('submit', async (e) => {
     "Username": username,
     "Date": date,
     "Permissions": permissions,
-    "Status": status
+    "Status": status,
+    "Password": "Password123"
   };
 
   try {

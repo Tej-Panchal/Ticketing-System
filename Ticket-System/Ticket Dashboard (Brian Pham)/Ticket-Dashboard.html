@@ -5,328 +5,135 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Ticket Dashboard</title>
-	
+	<script>
+		window.addEventListener('load', function () {
+			var navbarHeight = document.querySelector('.navbar').offsetHeight;
+			document.querySelector('.main').style.marginBottom = navbarHeight + 'px';
+		});
+	</script>
+
 	<style>
 
-	@media screen and (min-width: 100px){
-      table{
-        width: 100%;
-      }
-	}
-	
-	td{
-        border: 1px solid rgba(30, 4, 107, 0.83);
-        border-collapse: collapse;
-        padding: 7px;
-		background-color: #A0F1C6;
-		opacity: 0.85;
-      }
-
-    th {
-        border: 2px solid rgba(30, 4, 107, 0.82);
-        background-color: #53BD85;
-        text-align: left;
-        padding: 15px;
-        text-transform: uppercase;
-        cursor: pointer;
-		opacity: 0.9;
-      }
-
-	body {
-			background-image:url('../Images/Nature_5.jpg');
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-	}
-
-	div.scroll {
-		border: 2px solid #1A1D1B;
-		margin:4px, 4px;
-		width: 100%;
-    	height: 480px;
-    	min-height: 1000px;
-		overflow-x: hidden;
-		overflow-y: auto;
-		text-align:justify;
-	}
-
-	.navbar {
-		  overflow: hidden;
-		  background-color: #333;
-		  position: fixed;
-		  bottom: 0;
-		  padding: 1vh;
-      	  width: 100%;
-      	  height: auto;
-      	  font-size: 1.5vw;
-	}
-
-	.navbar a {
-		  float: left;
-		  display: block;
-		  color: #f2f2f2;
-		  text-align: center;
-		  padding: 0vw;
-		  text-decoration: none;
-      	  font-size: 1.5em;
-    	  width: 14vw;
-	}
-
-	.navbar a:hover {
-		  background: #ddd;
-		  color: black;
-	}
-		
 	</style>
-	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="stylesheet" type="text/css" media="screen" href="./Ticket-Dashboard.css" />
-	
-	<script type="application/javascript">
-		function sortTable(n) {
-    		var table,rows,switching,i,x,y,shouldSwitch,dir,switchcount = 0;
-        	table = document.getElementById ("ticket-table");
-        	switching = true;
-        	dir = "asc";
-        	while (switching) {
-          		switching = false;
-          		rows = table.getElementsByTagName("tr");
-          		for (i = 1; i < rows.length - 1; i++) {   
-            		shouldSwitch = false;     
-            		x = rows[i].getElementsByTagName("td")[n];
-            		y = rows[i + 1].getElementsByTagName("td")[n];
-            		if (dir == "asc") {
-            			if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                			shouldSwitch = true;
-                			break;
-              			}	
-              			} else if (dir == "desc") {
-                			if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                			shouldSwitch = true;
-                			break;
-              				}
-            			}
-          		}
-          		if (shouldSwitch) {
-            		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            		switching = true;
-            		switchcount++;
-          		} else {
-            		if (switchcount == 0 && dir == "asc") {
-              			dir = "desc";
-              			switching = true;
-            		}
-            		}
-        	}
-      	}
-    </script>
-
-<script type="application/javascript">
-	function sortTable1(n) {
-		var table,rows,switching,i,x,y,shouldSwitch,dir,switchcount = 0;
-		table = document.getElementById ("ticket-table2");
-		switching = true;
-		dir = "asc";
-		while (switching) {
-			  switching = false;
-			  rows = table.getElementsByTagName("tr");
-			  for (i = 1; i < rows.length - 1; i++) {   
-				shouldSwitch = false;     
-				x = rows[i].getElementsByTagName("td")[n];
-				y = rows[i + 1].getElementsByTagName("td")[n];
-				if (dir == "asc") {
-					if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-						shouldSwitch = true;
-						break;
-					  }	
-					  } else if (dir == "desc") {
-						if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-						shouldSwitch = true;
-						break;
-						  }
-					}
-			  }
-			  if (shouldSwitch) {
-				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-				switching = true;
-				switchcount++;
-			  } else {
-				if (switchcount == 0 && dir == "asc") {
-					  dir = "desc";
-					  switching = true;
-				}
-				}
-		}
-	  }
-
-</script>
-	
-	<script type="application/javascript">
-		function tableSearch() {
-			let input, filter, table, tr, td, td1, txtValue;
-	
-			//Intialising Variables
-			input = document.getElementById("myInput");
-			filter = input.value.toUpperCase();
-			table = document.getElementById("ticket-table");
-			tr = table.getElementsByTagName("tr");
-	
-			for (let i = 1; i < tr.length; i++) {
-				td = tr[i];
-				if (td) {
-					txtValue = td.textContent || td.innerText;
-					if (txtValue.toUpperCase().indexOf(filter) > -1) {
-						tr[i].style.display = "";
-					} else {
-						tr[i].style.display = "none";
-					}
-				}
-			}
-		}
-
-</script>
-
-</script>
-	
-<script type="application/javascript">
-	function tableSearch2() {
-		let input, filter, table, tr, td, td1, txtValue;
-
-		//Intialising Variables
-		input = document.getElementById("myInput2");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("ticket-table2");
-		tr = table.getElementsByTagName("tr");
-
-		for (let i = 1; i < tr.length; i++) {
-			td = tr[i];
-			if (td) {
-				txtValue = td.textContent || td.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = "";
-				} else {
-					tr[i].style.display = "none";
-				}
-			}
-		}
-	}
-
-</script>
+	<script src="script.js"></script>
 
 </head>
 
 
 <body>
+	<div class="main">
+		<div class="heading">
+			<h1>Ticket Dashboard</h1>
+		</div>
 
-    <div class="heading">
-    <h1>Ticket Dashboard</h1>
-	</div>	
+		<div class="break">
+			<h2>Open Tickets</h2>
+		</div>
 
-	<div class="break">
-		<h2>Open Tickets</h2>
-	</div>	
+		<div class="search-box">
+			<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search Open Tickets table . . .  ">
+		</div>
 
-	<div class="search-box">
-		<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search Open Tickets table . . .  ">
+		<!--Open Ticket Table-->
+		<div class="scroll">
+			<table class="ticket-table" id="ticket-table" data-filter-control="true"
+				data-show-search-clear-button="true">
+				<thead>
+					<th onclick="sortTable(0)">TICKET NAME</th>
+					<th onclick="sortTable(1)">TICKET STATUS</th>
+					<th>CREATE DATE</th>
+					<th onclick="sortTable(3)">TICKET PRIORITY</th>
+					<th onclick="sortTable(4)">TICKET OWNER</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="break">
+			<h2>Closed Tickets</h2>
+		</div>
+
+		<div class="search-box">
+			<input type="text" id="myInput2" onkeyup='tableSearch2()' placeholder="Search Closed Tickets table . . .  ">
+		</div>
+
+		<!--Closed Ticket Table-->
+		<div class="scroll">
+			<table class="ticket-table2" id="ticket-table2" data-filter-control="true"
+				data-show-search-clear-button="true">
+				<thead>
+					<th onclick="sortTable1(0)">TICKET NAME</th>
+
+					<th onclick="sortTable1(1)">TICKET STATUS</th>
+
+					<th>CREATE DATE</th>
+
+					<th onclick="sortTable1(3)">TICKET PRIORITY</th>
+
+					<th onclick="sortTable1(4)">TICKET OWNER</th>
+				</thead>
+
+				<tbody>
+				</tbody>
+
+			</table>
+			<script>
+				const API_ENDPOINT = "https://iol6fw0pfe.execute-api.us-west-2.amazonaws.com/default/TicketFunction";
+
+
+				fetch(API_ENDPOINT)
+					.then(response => response.json())
+					.then(data => {
+						const openTableData = [];
+						const closedTableData = [];
+						//<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
+
+						data.forEach(item => {
+							if (item.TicketStatus.toLowerCase() === 'new') {
+								openTableData.push(`
+								<tr>
+									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
+									<td>${item.TicketStatus}</td>
+									<td>${item.LatestGreetingTime.substring(0, 10)}</td>
+									<td>${item.Priority}</td>
+									<td>${item.TicketOwner}</td>
+								</tr>`);
+							} else if (item.TicketStatus.toLowerCase() === 'closed') {
+								closedTableData.push(`
+								<tr>
+										<td>${item.Exhibit}</td>
+										<td>${item.TicketStatus}</td>
+										<td>${item.LatestGreetingTime.substring(0, 10)}</td>
+										<td>${item.Priority}</td>
+										<td>${item.TicketOwner}</td>
+									</tr>
+								`);
+							}
+						});
+
+						document.querySelector('#ticket-table tbody').innerHTML = openTableData.join('');
+						document.querySelector('#ticket-table2 tbody').innerHTML = closedTableData.join('');
+					});
+			</script>
+
+
+		</div>
 	</div>
 
-<!--Open Ticket Table-->
-<div class="scroll">
-	<table class="ticket-table" id="ticket-table" data-filter-control="true" 
-		data-show-search-clear-button="true">
-		<thead>
-			<th onclick = "sortTable(0)">TICKET NAME</th>		
-			<th onclick = "sortTable(1)">TICKET STATUS</th>		
-			<th>CREATE DATE</th>	
-			<th onclick = "sortTable(3)">TICKET PRIORITY</th>	
-			<th onclick = "sortTable(4)">TICKET OWNER</th>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-</div>
-
-<div class="break">
-    <h2>Closed Tickets</h2>
-</div>	
-
-<div class="search-box">
-	<input type="text" id="myInput2" onkeyup='tableSearch2()' placeholder="Search Closed Tickets table . . .  ">
-</div>
-
-	<!--Closed Ticket Table-->
-<div class="scroll">
-	<table class="ticket-table2" id="ticket-table2" data-filter-control="true" 
-			data-show-search-clear-button="true">
-		<thead>
-			<th onclick = "sortTable1(0)">TICKET NAME</th>
-				
-			<th onclick = "sortTable1(1)">TICKET STATUS</th>
-			
-			<th>CREATE DATE</th>
-			
-			<th onclick = "sortTable1(3)">TICKET PRIORITY</th>
-			
-			<th onclick = "sortTable1(4)">TICKET OWNER</th>
-		</thead>
-
-		<tbody>
-		</tbody>
-
-	</table>
-	<script>
-		const API_ENDPOINT = "https://iol6fw0pfe.execute-api.us-west-2.amazonaws.com/default/TicketFunction";
-		
-		
-		fetch(API_ENDPOINT)
-		.then(response => response.json())
-		.then(data => {
-		const openTableData = [];
-		const closedTableData = [];
-		//<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
-
-		data.forEach(item => {
-			if (item.TicketStatus.toLowerCase() === 'new') {
-			openTableData.push(`
-			<tr>
-				<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0,10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
-				<td>${item.TicketStatus}</td>
-				<td>${item.LatestGreetingTime.substring(0,10)}</td>
-				<td>${item.Priority}</td>
-				<td>${item.TicketOwner}</td>
-</tr>
-
-			`);
-			} else if (item.TicketStatus.toLowerCase() === 'closed') {
-			closedTableData.push(`
-			<tr>
-					<td>${item.Exhibit}</td>
-					<td>${item.TicketStatus}</td>
-					<td>${item.LatestGreetingTime.substring(0,10)}</td>
-					<td>${item.Priority}</td>
-					<td>${item.TicketOwner}</td>
-				</tr>
-			`);
-			}
-		});
-
-		document.querySelector('#ticket-table tbody').innerHTML = openTableData.join('');
-		document.querySelector('#ticket-table2 tbody').innerHTML = closedTableData.join('');
-		});
-</script>
-	
-
-</div>
-
-<div class="navbar" style="opacity: 0.95">
-    <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/Logo.jpg"> </a>
-    <a href="../Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
-    <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
-    <a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p> Accounts </p> </a>
-    <a href="./Ticket-Dashboard.html"><p> Dashboard </p> </a>
-	<a href="../index.html"><p> Sign out </p> </a>
-    <a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
-    </div>
+	<div class="navbar" style="opacity: 0.95">
+		<a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/Logo.jpg"> </a>
+		<a href="../Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
+		<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
+		<a href="./Ticket-System_Account_Page.html"><p> Accounts </p> </a>
+		<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p> Dashboard </p> </a>
+		<a href="../index.html"><p> Sign out </p> </a>
+		<a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
+		</div>
 
 </body>
+
 </html>

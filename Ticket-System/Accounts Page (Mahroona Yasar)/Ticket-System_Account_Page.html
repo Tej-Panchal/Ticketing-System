@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    
+    <script>
+      window.addEventListener('load', function () {
+        var navbarHeight = document.querySelector('.navbar').offsetHeight;
+        document.querySelector('.main').style.marginBottom = navbarHeight + 'px';
+      });
+    </script>
 
     
   <style>
@@ -26,6 +31,10 @@
 		text-align:justify;
 		border: 2px solid #1A1D1B;
 	}
+  
+  .main{
+    padding-bottom: 8%;
+  }
   
 	.navbar {
 		  overflow: hidden;
@@ -213,6 +222,7 @@
     </head><h2> <center> Account Management </center> </h2>
 
   </head>
+  <div class="main">
 
   <body style="background-color:rgb(204, 224, 238);">
   
@@ -257,6 +267,7 @@
   </div>
   
   </div>
+</div>
   <div class="navbar" style="opacity: 0.95">
     <a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/Logo.jpg"> </a>
     <a href="../Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>

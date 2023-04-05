@@ -1,3 +1,8 @@
+window.onload = function ()
+{
+	localStorage.permissions = null;
+}
+
 // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName,lastName)=>{
             // instantiate a headers object

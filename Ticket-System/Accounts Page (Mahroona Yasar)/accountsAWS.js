@@ -15,7 +15,7 @@ fetch(API_ENDPOINT)
           <td><a href="..\\Homepage (Steven Graham)\\EditAccount.html?id=${item.Username}">${item.Username}</a></td>
           <td>${item.Date}</td>
           <td>${item.Permissions}</td>
-          <td>${item.Status}</td>
+          
         </tr>
       `;
       tableData.push(rowData);
@@ -38,7 +38,7 @@ fetch(API_ENDPOINT)
               <td><a href="..\\Homepage (Steven Graham)\EditAccount.html?id=${item.Username}">${item.Username}</a></td>
               <td>${item.Date}</td>
               <td>${item.Permissions}</td>
-              <td>${item.Status}</td>
+              
             </tr>
           `;
           tableData.push(rowData);

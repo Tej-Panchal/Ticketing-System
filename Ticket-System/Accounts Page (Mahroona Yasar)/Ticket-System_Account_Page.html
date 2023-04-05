@@ -62,13 +62,12 @@
 		  background: #ddd;
 		  color: black;
 		}
-	  body 
-	  {
+	    body {
 			background-image:url('../Images/Nature_4.jpg');
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
-		}
+		  }
       #mySearch {
         background-image: url('../Images/searchicon.jpg');
         background-size: 20px;
@@ -162,7 +161,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("mySearch");
         filter = input.value.toUpperCase();
-        table = document.getElementById("table");
+        table = document.getElementById("accounts-table");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
           td = tr[i].getElementsByTagName("td")[1];
@@ -179,16 +178,16 @@
 
       function sortTable(n) {
         var table,rows,switching,i,x,y,shouldSwitch,dir,switchcount = 0;
-        table = document.getElementById ("table");
+        table = document.getElementById ("accounts-table");
         switching = true;
         dir = "asc";
         while (switching) {
           switching = false;
-          rows = table.getElementsByTagName("TR");
+          rows = table.getElementsByTagName("tr");
           for (i = 1; i < rows.length - 1; i++) {   
             shouldSwitch = false;     
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
+            x = rows[i].getElementsByTagName("td")[n];
+            y = rows[i + 1].getElementsByTagName("td")[n];
             if (dir == "asc") {
               if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                 shouldSwitch = true;
@@ -212,8 +211,7 @@
             }
             }
           }
-      }
-      
+        }
       </script>
 
     <title>System Accounts</title>
@@ -234,28 +232,18 @@
             <div class="Table-select"> 
 
               <button class="button" onclick="deleteRow();">Delete Item</button>
-
-  
-              
-              <button onclick="openAddAccountPopup()">Add Account</button>
-              
-              <button id="delete-button">Delete Selected Rows</button>
-              
-
-
-
-    
-  </div>            
+              <button class ="button" onclick="openAddAccountPopup()">Add Account</button>
+    </div>            
 			  
 	<div> 
-    <table id="accounts-table">
+    <table class="accounts-table" id="accounts-table" data-filter-control="true">
       <thead>
         <tr>
           <th>Delete</th>
-          <th>Username</th>
+          <th onclick="sortTable(1)">Username</th>
           <th>Date</th>
-          <th>Permissions</th>
-          <th>Status</th>
+          <th onclick="sortTable(2)">Permissions</th>
+          <th onclick="sortTable(3)">Status</th>
         </tr>
       </thead>
       <tbody></tbody>

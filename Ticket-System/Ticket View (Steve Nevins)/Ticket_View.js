@@ -1,5 +1,11 @@
 window.onload = function ()
 {
+	
+if(String(localStorage.permissions) !== '"Technician"')
+	{
+	 alert("Access Denied!");
+	 window.location.href = "error.html";
+	}
 
 //This is a function that loads the temp data from the ticket request; it will be removed later. 
 setData();

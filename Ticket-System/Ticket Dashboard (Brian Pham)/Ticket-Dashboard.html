@@ -89,7 +89,7 @@
 						//<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
 
 						data.forEach(item => {
-							if (item.TicketStatus.toLowerCase() === 'new') {
+							if ((item.TicketStatus.toLowerCase() === 'new') || (item.TicketStatus.toLowerCase() === 'pending') || (item.TicketStatus.toLowerCase() === 'open')){
 								openTableData.push(`
 								<tr>
 									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
@@ -98,7 +98,7 @@
 									<td>${item.Priority}</td>
 									<td>${item.TicketOwner}</td>
 								</tr>`);
-							} else if (item.TicketStatus.toLowerCase() === 'closed') {
+							} else if ((item.TicketStatus.toLowerCase() === 'closed') || (item.TicketStatus.toLowerCase() === 'cancelled') || (item.TicketStatus.toLowerCase() === 'complete')){
 								closedTableData.push(`
 								<tr>
 										<td>${item.Exhibit}</td>

@@ -1,3 +1,13 @@
+window.onload = function(){
+
+	if(String(localStorage.permissions) !== '"Technician"')
+	{
+	 alert("Access Denied!");
+	 window.location.href = "error.html";
+	}
+}
+
+
 const API_ENDPOINT = "https://pgikxejuh9.execute-api.us-west-2.amazonaws.com/default/AccountsConnectionFunction";
 AWS.config.update({region: 'us-west-2'});
 

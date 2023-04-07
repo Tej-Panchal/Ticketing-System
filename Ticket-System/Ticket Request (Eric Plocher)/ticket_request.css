@@ -1,124 +1,129 @@
-
-    @media screen and (min-width: 100px) {
-        table {
-            width: 100%;
-        }
-    }
-
-    div.scroll {
-        margin: 4px, 4px;
+@media screen and (min-width: 100px) {
+    table {
         width: 100%;
-        height: 100%;
-        min-height: 1000px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        text-align: justify;
-        border: 2px solid #1a1d1b;
     }
+}
 
-    .navbar {
-        overflow: hidden;
-        background-color: #333;
-        position: fixed;
-        bottom: 0;
-        padding: 1vh;
-        width: 100%;
-        height: auto;
-        font-size: 1.5vw;
-    }
+div.scroll {
+    margin: 4px, 4px;
+    width: 100%;
+    height: 100%;
+    min-height: 1000px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+    border: 2px solid #1a1d1b;
+}
 
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 0vw;
-            text-decoration: none;
-            font-size: 1.5em;
-            width: 14vw;
-        }
+.main-content{
+    padding-bottom: 13%;
+}
 
-            .navbar a:hover {
-                background: #ddd;
-                color: black;
-            }
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed ;
+    bottom: 0;
+    padding: 1vh;
+    width: 100%;
+    height: auto;
+    font-size: 1.5vw;
+}
 
-    .main {
-        padding: 16px;
-        margin-bottom: 30px;
-        height: 1500px; /* Used in this example to enable scrolling */
-    }
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0vw;
+    text-decoration: none;
+    font-size: 1.5em;
+    width: 14vw;
+}
 
-    body {
-        background-image: url("../Images/Nature_6.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
 
-    .request-1 {
-        display: flex;
-    }
+.main {
+    padding: 16px;
+    margin-bottom: 30px;
+    height: 1500px;
+    /* Used in this example to enable scrolling */
+}
 
-    .button-style {
-        display: flex;
-        justify-content: center;
-    }
+body {
+    background-image: url("../Images/Nature_6.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
-    textarea {
-        resize: none;
-    }
+.request-1 {
+    display: flex;
+}
 
-    body {
-        background-color: lightskyblue;
-    }
+.button-style {
+    display: flex;
+    justify-content: center;
+}
 
-    * {
-        box-sizing: border-box;
-    }
+textarea {
+    resize: none;
+}
 
-    /* Create three unequal columns that floats next to each other */
-    .column {
-        float: left;
-        padding: 10px;
-        height: 550px; /* Should be removed. Only for demonstration */
-    }
+body {
+    background-color: lightskyblue;
+}
 
-    .left {
-        width: 25%;
-        margin: 4px, 4px;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    .middle {
-        width: 50%;
-    }
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 550px;
+    /* Should be removed. Only for demonstration */
+}
 
-    .right {
-        width: 20%;
-    }
+.left {
+    width: 25%;
+    margin: 4px, 4px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+.middle {
+    width: 50%;
+}
 
-    .table-style {
-        display: flex;
-        justify-content: center;
-    }
+.right {
+    width: 20%;
+}
 
-    .header {
-        padding: 1px;
-        text-align: center;
-        color: Black;
-        font-size: 25px;
-        opacity: 0.9;
-    }
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-    .d-none {
-        display: none;
-    }
+.table-style {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    padding: 1px;
+    text-align: center;
+    color: Black;
+    font-size: 25px;
+    opacity: 0.9;
+}
+
+.d-none {
+    display: none;
+}

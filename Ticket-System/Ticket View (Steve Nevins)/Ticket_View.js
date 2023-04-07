@@ -122,10 +122,12 @@ function load_state()
 {
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
+// using built in JSON utility package turn object to string and store in a variable
+var raw = JSON.stringify({"id":ticket_number});
 var requestOptions = {
 		method: 'POST',
 		headers: myHeaders,
-		body: '',
+		body: raw,
 		redirect: 'follow'
 	};
 	

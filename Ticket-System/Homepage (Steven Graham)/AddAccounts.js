@@ -9,13 +9,12 @@ form.addEventListener('submit', async (e) => {
   const username = form.elements.Username.value;
   const date = form.elements.Date.value;
   const permissions = form.elements.Permissions.value;
-  const status = form.elements.Status.value;
+  
 
   const payload = {
     "Username": username,
     "Date": date,
     "Permissions": permissions,
-    "Status": status,
     "Password": "Password123"
   };
 

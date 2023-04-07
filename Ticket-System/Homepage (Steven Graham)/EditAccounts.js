@@ -21,7 +21,7 @@ if (id) {
     form.elements.Username.value = account.Username;
     form.elements.Date.value = account.Date;
     form.elements.Permissions.value = account.Permissions;
-    form.elements.Status.value = account.Status;
+    
   });
 }
 
@@ -39,7 +39,7 @@ form.addEventListener('submit', async (e) => {
     "Username": username,
     "Date": date,
     "Permissions": permissions,
-    "Status": status
+    
   };
 
   const requestMethod = id ? 'PUT' : 'POST'; // Use PUT for updating if id exists, otherwise use POST for creating

@@ -39,6 +39,13 @@ tr:hover {
 
 
 th {
+    border: 2px solid rgba(30, 4, 107, 0.82);
+    background-color: #53BD85;
+    text-align: left;
+    padding: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.9;
     border-left: 1px solid #c2bebe;
     border-right: 1px solid #c2bebe;
     border-top: 1px solid #c2bebe;
@@ -52,6 +59,14 @@ table td {
     padding-top: 5px;
     padding-bottom: 5px;
 
+}
+
+td {
+    border: 1px solid rgba(30, 4, 107, 0.83);
+    border-collapse: collapse;
+    padding: 7px;
+    background-color: #A0F1C6;
+    opacity: 0.85;
 }
 
 #myInput {
@@ -92,26 +107,8 @@ table td {
     padding-bottom: 8%;
 }
 
-td {
-    border: 1px solid rgba(30, 4, 107, 0.83);
-    border-collapse: collapse;
-    padding: 7px;
-    background-color: #A0F1C6;
-    opacity: 0.85;
-}
-
-th {
-    border: 2px solid rgba(30, 4, 107, 0.82);
-    background-color: #53BD85;
-    text-align: left;
-    padding: 15px;
-    text-transform: uppercase;
-    cursor: pointer;
-    opacity: 0.9;
-}
 
 body {
-
     background-image: url('../Images/Nature_5.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./welcome-msg.js"></script>
+    <style>
+      /* Set position and style for the welcome message */
+      #welcome-message {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+    </style>
   </head>
 
   <body>
@@ -23,9 +35,8 @@
       <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"
         ><p>Dashboard</p>
       </a>
-      <a href="../index.html"><p>Sign out</p> </a>
+      <a href="../index.html" onclick="signOut()"><p>Sign out</p> </a>
       <a href="../ChangePassword.html"><p>Password reset?</p> </a>
-     
     </div>
   </body>
 </html>

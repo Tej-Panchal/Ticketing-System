@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Ticket Dashboard</title>
+	<script src="../script/signout.js"></script>
 	<script>
 		window.addEventListener('load', function () {
 			var navbarHeight = document.querySelector('.navbar').offsetHeight;
@@ -90,7 +91,7 @@
 						//<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
 
 						data.forEach(item => {
-							if (item.TicketStatus.toLowerCase() === 'new') {
+							if ((item.TicketStatus.toLowerCase() === 'new') || (item.TicketStatus.toLowerCase() === 'pending') || (item.TicketStatus.toLowerCase() === 'open')){
 								openTableData.push(`
 								<tr>
 									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
@@ -99,10 +100,10 @@
 									<td>${item.Priority}</td>
 									<td>${item.TicketOwner}</td>
 								</tr>`);
-							} else if (item.TicketStatus.toLowerCase() === 'closed') {
+							} else if ((item.TicketStatus.toLowerCase() === 'closed') || (item.TicketStatus.toLowerCase() === 'cancelled') || (item.TicketStatus.toLowerCase() === 'complete')){
 								closedTableData.push(`
 								<tr>
-										<td>${item.Exhibit}</td>
+										<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
 										<td>${item.TicketStatus}</td>
 										<td>${item.LatestGreetingTime.substring(0, 10)}</td>
 										<td>${item.Priority}</td>
@@ -122,13 +123,12 @@
 	</div>
 
 	<div class="navbar" style="opacity: 0.95">
-		<a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/Logo.jpg"> </a>
+		<a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
 		<a href="../Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
 		<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
 		<a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p> Accounts </p> </a>
 		<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p> Dashboard </p> </a>
-		<a href="../index.html"><p> Sign out </p> </a>
-		<a href="#home"> <img style="float: right; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
+		<a href="../index.html" onclick="signOut()"><p> Sign out </p> </a>
 		</div>
 
 </body>

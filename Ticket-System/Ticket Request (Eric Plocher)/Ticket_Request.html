@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="Ticket_Request.css" />
     <script src="Ticket_Request.js"></script>
+    <script src="../script/signout.js"></script>
 
     <script type="text/javascript">
       function enableChoice(answer) {
@@ -66,7 +67,7 @@
 
     <script>
       // define the callAPI function that takes a first name and last name as parameters
-      var callAPI = (Employee, Exhibit, Priority) => {
+        var callAPI = (Employee, Exhibit, Priority, Description) => {
         // instantiate a headers object
         var myHeaders = new Headers();
         // add content type header to object
@@ -76,7 +77,8 @@
           Employee: Employee,
           Exhibit: Exhibit,
           Priority: Priority,
-        });
+          Description: Description,
+        });``
         // create a JSON object with parameters for API call and store in a variable
         var requestOptions = {
           method: "POST",
@@ -90,7 +92,6 @@
           requestOptions
         )
           .then((response) => response.text())
-          .then((result) => alert(JSON.parse(result).body))
           .catch((error) => console.log("error", error));
       };
     </script>
@@ -100,6 +101,7 @@
   </head>
 
   <body>
+    <div class="main-content">
     <div class="header">
       <h1><center>TICKET REQUEST PORTAL</center></h1>
     </div>
@@ -117,215 +119,206 @@
         class="column middle"
         style="background-color: #6da47f; opacity: 0.85"
       >
-        <form id="form" method="GET">
-          <!--action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
+          <form id="form" method="GET">
+              <!--action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
+              <!-- 3 -This is just the header.-->
+              <h1><center>Request A New Ticket</center></h1>
 
-          <!-- 3 -This is just the header.-->
-          <h1><center>Request A New Ticket</center></h1>
+              <!-- 3 Customer name box.-->
+              <div style="display: flex; justify-content: center">
+                  <label>Employee Name</label><br />
+              </div>
 
-          <!-- 3 Customer name box.-->
-          <div style="display: flex; justify-content: center">
-            <label>Employee Name</label><br />
-          </div>
+              <div name="Employee" style="display: flex; justify-content: center">
+                  <input type="text"
+                         placeholder="Enter your name . . . "
+                         id="Employee"
+                         size="35"
+                         name="Employee"
+                         style="height: 30px; margin-bottom: 10px" />
+                  <!--<input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">-->
+              </div>
 
-          <div name="Employee" style="display: flex; justify-content: center">
-            <input
-              type="text"
-              placeholder="Enter your name . . . "
-              id="Employee"
-              size="35"
-              name="Employee"
-              style="height: 30px; margin-bottom: 10px"
-            />
-            <!--<input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">-->
-          </div>
+              <!-- 3 -Ticket status box.-->
+              <div style="display: flex; justify-content: center">
+                  <label for="Status"> Ticket Priority </label><br />
+              </div>
 
-          <!-- 3 -Ticket status box.-->
-          <div style="display: flex; justify-content: center">
-            <label for="Status"> Ticket Priority </label><br />
-          </div>
+              <div style="display: flex; justify-content: center">
+                  <select name="Priority"
+                          id="Priority"
+                          style="width: 282px; height: 30px">
+                      <option value="Low">Low</option>
+                      <option value="Urgent">Urgent</option>
+                      <option value="Moderate">Moderate</option>
+                  </select>
+              </div>
 
-          <div style="display: flex; justify-content: center">
-            <select
-              name="Priority"
-              id="Priority"
-              style="width: 282px; height: 30px"
-            >
-              <option value="Low">Low</option>
-              <option value="Urgent">Urgent</option>
-              <option value="Moderate">Moderate</option>
-            </select>
-          </div>
+              <p></p>
 
-          <p></p>
+              <!-- 3 -Assigned technician box.-->
+              <div style="display: flex; justify-content: center">
+                  <label>Category/Exhibity</label><br />
+              </div>
 
-          <!-- 3 -Assigned technician box.-->
-          <div style="display: flex; justify-content: center">
-            <label>Category/Exhibity</label><br />
-          </div>
+              <div style="display: flex; justify-content: center">
+                  <select name="Issue_Type"
+                          id="Issue_Type"
+                          onchange="enableChoice(this)"
+                          style="width: 282px; height: 30px">
+                      <option>Select Issue Type</option>
+                      <option value="Software Installation">
+                          Software Installation
+                      </option>
+                      <option value="Hardware Issue">Hardware Issue</option>
+                      <option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
+                      <option value="Outerspace Exhibit">Outerspace Exhibit</option>
+                      <option value="Other Exhibit">Other Exhibit</option>
+                  </select>
+              </div>
 
-          <div style="display: flex; justify-content: center">
-            <select
-              name="Issue_Type"
-              id="Issue_Type"
-              onchange="enableChoice(this)"
-              style="width: 282px; height: 30px"
-            >
-              <option>Select Issue Type</option>
-              <option value="Software Installation">
-                Software Installation
-              </option>
-              <option value="Hardware Issue">Hardware Issue</option>
-              <option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
-              <option value="Outerspace Exhibit">Outerspace Exhibit</option>
-              <option value="Other Exhibit">Other Exhibit</option>
-            </select>
-          </div>
+              <p></p>
 
-          <p></p>
+              <!--<div style="display: flex; justify-content: center;">
 
-          <!--<div style="display: flex; justify-content: center;">
+        <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
+            <option value="Corrupt Drivers">Corrupt Drivers</option>
+            <option value="Unable to Access">Unable to Access</option>
+            <option value="Blue Screen">Blue Screen</option>
+        </select>
 
-            <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
-                <option value="Corrupt Drivers">Corrupt Drivers</option>
-                <option value="Unable to Access">Unable to Access</option>
-                <option value="Blue Screen">Blue Screen</option>
-            </select>
+        <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+            <option value="Wont Turn On">Wont Turn On</option>
+            <option value="Screen Freeze">Screen Freeze</option>
+            <option value="Insufficent Memory">Insufficent Memory</option>
+        </select>
 
-            <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-                <option value="Wont Turn On">Wont Turn On</option>
-                <option value="Screen Freeze">Screen Freeze</option>
-                <option value="Insufficent Memory">Insufficent Memory</option>
-            </select>
+        <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+            <option value="Cleaning">Cleaning</option>
+            <option value="Repair">Repair</option>
+            <option value="Inspection">Inspection</option>
+        </select>
 
-            <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-                <option value="Cleaning">Cleaning</option>
-                <option value="Repair">Repair</option>
-                <option value="Inspection">Inspection</option>
-            </select>
+        <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+            <option value="Cleaning">Cleaning</option>
+            <option value="Repair">Repair</option>
+            <option value="Broken Part">Broken Part</option>
+        </select>
 
-            <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-                <option value="Cleaning">Cleaning</option>
-                <option value="Repair">Repair</option>
-                <option value="Broken Part">Broken Part</option>
-            </select>
+        <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
+            <option value="Spill">Spill</option>
+            <option value="Broken Part">Broken Part</option>
+            <option value="Crying Kid">Crying Kid</option>
+        </select>
 
-            <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
-                <option value="Spill">Spill</option>
-                <option value="Broken Part">Broken Part</option>
-                <option value="Crying Kid">Crying Kid</option>
-            </select>
+    </div>-->
+              <!--<div style="display: flex; justify-content: center;">
 
-        </div>-->
-          <!--<div style="display: flex; justify-content: center;">
+        <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
+            <option value="Corrupt Drivers">Corrupt Drivers</option>
+            <option value="Unable to Access">Unable to Access</option>
+            <option value="Blue Screen">Blue Screen</option>
+        </select>
 
-            <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
-                <option value="Corrupt Drivers">Corrupt Drivers</option>
-                <option value="Unable to Access">Unable to Access</option>
-                <option value="Blue Screen">Blue Screen</option>
-            </select>
+    </div>
 
-        </div>
+    <div style="display: flex; justify-content: center;">
 
-        <div style="display: flex; justify-content: center;">
+        <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
+            <option value="Wont Turn On">Wont Turn On</option>
+            <option value="Screen Freeze">Screen Freeze</option>
+            <option value="Insufficent Memory">Insufficent Memory</option>
+        </select>
 
-            <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-                <option value="Wont Turn On">Wont Turn On</option>
-                <option value="Screen Freeze">Screen Freeze</option>
-                <option value="Insufficent Memory">Insufficent Memory</option>
-            </select>
+    </div>
 
-        </div>
+    <div style="display: flex; justify-content: center;">
 
-        <div style="display: flex; justify-content: center;">
+        <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
+            <option value="Cleaning">Cleaning</option>
+            <option value="Repair">Repair</option>
+            <option value="Inspection">Inspection</option>
+        </select>
 
-            <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-                <option value="Cleaning">Cleaning</option>
-                <option value="Repair">Repair</option>
-                <option value="Inspection">Inspection</option>
-            </select>
+    </div>
 
-        </div>
+    <div style="display: flex; justify-content: center;">
 
-        <div style="display: flex; justify-content: center;">
+        <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
+            <option value="Cleaning">Cleaning</option>
+            <option value="Repair">Repair</option>
+            <option value="Broken Part">Broken Part</option>
+        </select>
 
-            <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-                <option value="Cleaning">Cleaning</option>
-                <option value="Repair">Repair</option>
-                <option value="Broken Part">Broken Part</option>
-            </select>
+    </div>
 
-        </div>
+    <div style="display: flex; justify-content: center;">
 
-        <div style="display: flex; justify-content: center;">
+        <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
+            <option value="Spill">Spill</option>
+            <option value="Broken Part">Broken Part</option>
+            <option value="Crying Kid">Crying Kid</option>
+        </select>
 
-            <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
-                <option value="Spill">Spill</option>
-                <option value="Broken Part">Broken Part</option>
-                <option value="Crying Kid">Crying Kid</option>
-            </select>
+    </div> -->
+              <!-- 3 -Comments box.-->
 
-        </div> -->
-          <!-- 3 -Comments box.-->
+              <div style="display: flex; justify-content: center">
+                  <label>Comment</label><br />
+              </div>
 
-          <div style="display: flex; justify-content: center">
-            <label for="comments">Comment</label><br />
-          </div>
+              <div name="Description" style="display: flex; justify-content: center">
+                  <input type="text"
+                         placeholder="Enter your name . . . "
+                         id="Description"
+                         size="35"
+                         name="Description"
+                         style="height: 175px" 
+                    />
+                </div>
 
-          <div style="display: flex; justify-content: center">
-            <input
-              type="text"
-              id="Description"
-              size="35"
-              name="Description"
-              style="height: 175px"
-            />
-          </div>
 
-          <p></p>
+                  <p></p>
 
-          <p></p>
+                  <p></p>
 
-          <!-- 3 -Submit changes button.-->
-          <div class="button-style">
-            <!--<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm(), callAPI(document.getElementById('Employee').value, document.getElementById('Exhibit').value, document.getElementById('Priority').value)""> Save Changes </button> -->
+                  <!-- 3 -Submit changes button.-->
+                  <div class="button-style">
+                      <!--<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm(), callAPI(document.getElementById('Employee').value, document.getElementById('Exhibit').value, document.getElementById('Priority').value)""> Save Changes </button> -->
 
-            <button
-              type="button"
-              id="submit_button"
-              style="
+                      <button type="button"
+                              id="submit_button"
+                              style="
                 margin-right: 20px;
                 width: 100px;
                 height: 50px;
                 background-color: lightblue;
               "
-              onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Issue_Type').value, document.getElementById('Priority').value)"
-            >
-              Save Changes
-            </button>
+                              onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Issue_Type').value, document.getElementById('Priority').value, document.getElementById('Description').value)">
+                          Save Changes
+                      </button>
 
-            <input
-              type="reset"
-              value="Reset"
-              style="
+                      <input type="reset"
+                             value="Reset"
+                             style="
                 margin-right: 20px;
                 width: 100px;
                 height: 50px;
                 background-color: lightblue;
-              "
-            />
+              " />
 
-            <!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
-          </div>
-        </form>
+                      <!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
+                  </div>
+          </form>
       </div>
     </div>
+  </div>
 
     <div class="navbar" style="opacity: 0.95">
       <a href="#nothing">
         <img
           style="float: left; height: auto; width: 15vw"
-          src="../Images/Logo.jpg"
+          src="../Images/IT_Logo.jpg"
         />
       </a>
       <a href="../Homepage (Steven Graham)/homepage.html">
@@ -340,13 +333,7 @@
       <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html">
         <p>Dashboard</p>
       </a>
-      <a href="../index.html"><p>Sign out</p> </a>
-      <a href="#home">
-        <img
-          style="float: right; height: auto; width: 15vw"
-          src="../Images/IT_Logo.jpg"
-        />
-      </a>
+      <a href="../index.html" onclick="signOut()"><p>Sign out</p> </a>
     </div>
   </body>
 </html>

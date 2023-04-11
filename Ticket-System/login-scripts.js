@@ -38,6 +38,8 @@ window.onload = function ()
 				else if (output == 1)
 				{
 					localStorage.permissions = data.Permissions;
+                    localStorage.setItem('username', data.Username);
+                    localStorage.setItem('permissions', data.Permissions);
                     location.assign("Homepage (Steven Graham)/homepage.html");
 				}
 				})

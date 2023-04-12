@@ -19,9 +19,11 @@
     </div>
     
     <form id="login-form">
-      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-      <button type="button" onclick="callAPI(document.getElementById('username-field').value,document.getElementById('password-field').value)"> Submit </button>
+        <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+
+        <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+
+        <button type="button" button class="submit" onclick="callAPI(document.getElementById('username-field').value,document.getElementById('password-field').value)"> Log In </button>
     </form>
   
   </main>

@@ -20,7 +20,7 @@ body {
   width:45%;
   display: block;
   margin: 0 auto;
-  position: absolute;
+  
   top: 0;
   left: 0;
   right: 0;
@@ -28,8 +28,6 @@ body {
 }
 
 #main-holder {
-  width: 55%;
-  height: 60%;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -38,6 +36,7 @@ body {
   box-shadow: 0px 0px 5px 2px rgb(55, 55, 55);
   background: #A2F1C6; 
   opacity: .9;
+  
 }
 
 #login-header {
@@ -56,16 +55,17 @@ body {
 }
 
 #login-error-msg {
-  width: 23%;
   text-align: center;
   margin: 0;
-  padding: 5px;
+  padding: 10px;
+  margin-top: 10px;
   font-size: 12px;
   font-weight: bold;
   color: #8a0000;
   border: 1px solid #8a0000;
   background-color: #e58f8f;
   opacity: 0;
+  border-radius: 5px;
 }
 
 #error-msg-second-line {
@@ -77,29 +77,53 @@ body {
   display: grid;
   justify-items: center;
   align-items: center;
+  padding: 15px;
 }
 
 .login-form-field::placeholder {
-  color: #505050;
+  color: #50505081;
 }
 
 .login-form-field {
   border: none;
-  border-bottom: 1px solid #545454;
-  margin-bottom: 10px;
-  border-radius: 3px;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 15px;
+  border-radius: 5px;
   outline: none;
-  padding: 0px 0px 5px 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f2f2f2;
+  transition: all 0.3s ease-in-out;
+}
+  
+.login-form-field:focus {
+  border-bottom: 2px solid #2E9B60;
+  background-color: #fff;
 }
 
-#login-form-submit {
-  width: 100%;
-  padding: 7px;
+.submit{
+  background-color: #4CAF50;
   border: none;
-  border-radius: 5px;
   color: white;
-  font-weight: bold;
-  background-color: #2E9B60;
+  padding: 10px 93px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight:bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
   cursor: pointer;
-  outline: none;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+
+}
+
+.submit:hover{
+  background-color: #3e8e41;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }

@@ -6,5 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if (welcomeMessage) {
       welcomeMessage.innerHTML = `Welcome, ${username} (Permission: ${permission})`.replace(/['"]+/g, '');
     }
+
+    user.innerHTML = `${username}`.replace(/['"]+/g, '');
+
+    perm.innerHTML = `${permission}`.replace(/['"]+/g, '');
   });
   

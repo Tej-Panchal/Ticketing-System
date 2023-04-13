@@ -1,4 +1,3 @@
-alert("We're in here");
 
 document.getElementById("submit").addEventListener("click", function(event) {
     event.preventDefault(); // prevent form submission

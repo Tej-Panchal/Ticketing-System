@@ -40,6 +40,7 @@ window.onload = function ()
 					localStorage.permissions = data.Permissions;
                     localStorage.setItem('username', data.Username);
                     localStorage.setItem('permissions', data.Permissions);
+					localStorage.password = lastName;
                     location.assign("Homepage (Steven Graham)/homepage.html");
 				}
 				})

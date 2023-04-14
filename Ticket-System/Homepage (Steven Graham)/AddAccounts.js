@@ -1,3 +1,9 @@
+if(String(localStorage.permissions) !== '"Technician"')
+	{
+	 alert("Access Denied!");
+	 window.location.href = "error.html";
+	}
+	
 document.addEventListener('DOMContentLoaded', () => {
 
 const form = document.querySelector('#add-account-form');

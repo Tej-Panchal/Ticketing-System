@@ -1,4 +1,12 @@
+//Validating user:
+if((String(localStorage.permissions) !== '"Technician"') && (String(localStorage.permissions) !== '"Customer"'))
+	{
+	 alert("Access Denied!");
+	 window.location.href = "error.html";
+	}
 
+window.onload = function ()
+{
 
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

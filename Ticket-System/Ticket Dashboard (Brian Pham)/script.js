@@ -5,9 +5,6 @@ if((String(localStorage.permissions) !== '"Technician"') && (String(localStorage
 	 window.location.href = "error.html";
 	}
 
-window.onload = function ()
-{
-
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("ticket-table");

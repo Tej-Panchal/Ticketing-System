@@ -1,4 +1,9 @@
-alert("We're in here");
+//Validating user:
+if((String(localStorage.permissions) !== '"Technician"') && (String(localStorage.permissions) !== '"Customer"'))
+	{
+	 alert("Access Denied!");
+	 window.location.href = "error.html";
+	}
 
 document.getElementById("submit").addEventListener("click", function(event) {
     event.preventDefault(); // prevent form submission

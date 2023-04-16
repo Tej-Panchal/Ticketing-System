@@ -1,12 +1,12 @@
-window.onload = function ()
-{
-	
 if(String(localStorage.permissions) !== '"Technician"')
 	{
 	 alert("Access Denied!");
 	 window.location.href = "error.html";
 	}
 
+
+window.onload = function ()
+{
 //This is a function that loads the temp data from the ticket request; it will be removed later. 
 setData();
 	
@@ -20,8 +20,16 @@ var assigned_tech;
 
 //Obtaining url for ticket ID number:
 var url = window.location.href;
+
+//Obtaining portion after "?" towards the end:
 var parameters = url.substring(url.indexOf('?'));
-var ticket_number = parameters.charAt(4);
+
+//Obtaining ticket numbe, which is situated between "id=" and "&":
+const idIndex = url.indexOf("id=") + 3; // add 3 to skip "id="
+const ampersandIndex = url.indexOf("&", idIndex); // find the next "&" after "id="
+const id = url.substring(idIndex, ampersandIndex); // extract the substring between "id=" and "&"
+
+var ticket_number = id;
 
 function setcomments(ticket)
 {
@@ -109,7 +117,7 @@ function load_thread()
 						}
 					}
 					else{
-						console.log("not 9");
+						console.log("Nothing");
 					}
 				});
 			})
@@ -156,7 +164,6 @@ function loadInitial(t, s)
 comment = "";
 status_1 = s;
 assigned_tech = t;
-console.log("Here's the ticket ID: " + ticket_number);
 }
 
 document.getElementById("reset_button").addEventListener("click", reset_all);

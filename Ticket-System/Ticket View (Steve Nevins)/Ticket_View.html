@@ -206,7 +206,12 @@
       //Obtaining ticket ID number:
       var url = window.location.href;
       var parameters = url.substring(url.indexOf('?'));
-      var ticket_number = parameters.charAt(4);
+	
+		//Obtaining ticket numbe, which is situated between "id=" and "&":
+		const idIndex = url.indexOf("id=") + 3; // add 3 to skip "id="
+		const ampersandIndex = url.indexOf("&", idIndex); // find the next "&" after "id="
+		const ticket_number = url.substring(idIndex, ampersandIndex); // extract the substring between "id=" and "&"
+		
       // instantiate a headers object
       var myHeaders = new Headers();
       // add content type header to object

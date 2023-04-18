@@ -7,50 +7,6 @@
     <script src="Ticket_Request.js"></script>
     <script src="../script/signout.js"></script>
 
-    <script type="text/javascript">
-      function enableChoice(answer) {
-        console.log(answer.value);
-        if (answer.value == "Software Installation") {
-          document.getElementById("Software").classList.remove("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Hardware Issue") {
-          document.getElementById("Hardware").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Dinosaur Exhibit") {
-          document.getElementById("Dinosaur").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Outerspace Exhibit") {
-          document.getElementById("Outerspace").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        } else if (answer.value == "Other Exhibit") {
-          document.getElementById("Other").classList.remove("d-none");
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-        } else {
-          ``;
-          document.getElementById("Software").classList.add("d-none");
-          document.getElementById("Hardware").classList.add("d-none");
-          document.getElementById("Dinosaur").classList.add("d-none");
-          document.getElementById("Outerspace").classList.add("d-none");
-          document.getElementById("Other").classList.add("d-none");
-        }
-      }
-    </script>
-
     <script>
       function submitForm() {
         if (typeof localStorage != "undefined") {
@@ -67,7 +23,7 @@
 
     <script>
       // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (Employee, Exhibit, Priority, Description) => {
+        var callAPI = (Employee, Priority, Floor, Subject, Description) => {
         // instantiate a headers object
         var myHeaders = new Headers();
         // add content type header to object
@@ -75,8 +31,9 @@
         // using built in JSON utility package turn object to string and store in a variable
         var raw = JSON.stringify({
           Employee: Employee,
-          Exhibit: Exhibit,
           Priority: Priority,
+          Floor: Floor,
+          Subject: Subject,
           Description: Description,
         });``
         // create a JSON object with parameters for API call and store in a variable
@@ -158,6 +115,63 @@
 
               <!-- 3 -Assigned technician box.-->
               <div style="display: flex; justify-content: center">
+                  <label>Floor/Subfloor</label><br />
+              </div>
+
+              <div style="display: flex; justify-content: center">
+                  <select name="Floor"
+                          id="Floor"
+                          style="width: 282px; height: 30px">
+                      <option>Select a floor</option>
+
+                      <option value="Lower Level - Sports Hall">Lower Level - Sports Hall</option>
+                      <option value="Lower Level - Children's Museum">Lower Level - Children's Museum</option>
+                      <option value="Lower Level - Temporary Hall">Lower Level - Temporary Hall</option>
+
+                      <option value="Lobby">Lobby</option>
+
+                      <option value="Theater">Theater</option>
+
+                      <option value="Level 2 - Life Hall">Level 2 - Life Hall</option>
+                      <option value="Level 2- Human Hall">Level 2- Human Hall</option>
+                      <option value="Level 2 - Engineering Hall">Level 2 - Engineering Hall</option>
+
+                      <option value="Level 3 - Earth Hall">Level 3 - Earth Hall</option>
+                      <option value="Level 3- Energy Hall">Level 3- Energy Hall</option>
+                      <option value="Level 3 - Gems and Minerals">Level 3 - Gems and Minerals</option>
+
+                      <option value="Level 4 - Space Hall">Level 4 - Space Hall</option>
+                      <option value="Level 4 - Then and Now ">Level 4 - Then and Now </option>
+
+                      <option value="Level 4M - Birds Hall">Level 4M - Birds Hall</option>
+
+                      <option value="Level 5 - Offices">Level 5 - Offices</option>
+
+                      <option value="Other (Specified In name)">Other (Specified In name)</option>
+                  </select>
+              </div>
+
+              <p></p>
+
+              <!-- 3 Subject box.-->
+              <div style="display: flex; justify-content: center">
+                  <label>Subject</label><br />
+              </div>
+
+              <div name="Subject" style="display: flex; justify-content: center">
+                  <input type="text"
+                         placeholder="Subject"
+                         id="Subject"
+                         size="35"
+                         name="Subject"
+                         maxlenght="30"
+                         style="height: 30px; margin-bottom: 10px" />
+                  <!--<input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">-->
+              </div>
+
+              <!--<div style="display: flex; justify-content: center;">
+
+                   <div style="display: flex; justify-content: center">
                   <label>Category/Exhibity</label><br />
               </div>
 
@@ -167,19 +181,13 @@
                           onchange="enableChoice(this)"
                           style="width: 282px; height: 30px">
                       <option>Select Issue Type</option>
-                      <option value="Software Installation">
-                          Software Installation
-                      </option>
+                      <option value="Software Installation">Software Installation</option>
                       <option value="Hardware Issue">Hardware Issue</option>
                       <option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
                       <option value="Outerspace Exhibit">Outerspace Exhibit</option>
                       <option value="Other Exhibit">Other Exhibit</option>
                   </select>
               </div>
-
-              <p></p>
-
-              <!--<div style="display: flex; justify-content: center;">
 
         <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
             <option value="Corrupt Drivers">Corrupt Drivers</option>
@@ -269,46 +277,45 @@
 
               <div name="Description" style="display: flex; justify-content: center">
                   <input type="text"
-                         placeholder="Enter your name . . . "
+                         placeholder="Please describe your issue in detail . . . "
                          id="Description"
                          size="35"
                          name="Description"
-                         style="height: 175px" 
-                    />
-                </div>
+                         style="height: 175px" />
+              </div>
 
 
-                  <p></p>
+              <p></p>
 
-                  <p></p>
+              <p></p>
 
-                  <!-- 3 -Submit changes button.-->
-                  <div class="button-style">
-                      <!--<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm(), callAPI(document.getElementById('Employee').value, document.getElementById('Exhibit').value, document.getElementById('Priority').value)""> Save Changes </button> -->
+              <!-- 3 -Submit changes button.-->
+              <div class="button-style">
+                  <!--<button id="submit_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;" onclick="submitForm(), callAPI(document.getElementById('Employee').value, document.getElementById('Exhibit').value, document.getElementById('Priority').value)""> Save Changes </button> -->
 
-                      <button type="button"
-                              id="submit_button"
-                              style="
+                  <button type="button"
+                          id="submit_button"
+                          style="
                 margin-right: 20px;
                 width: 100px;
                 height: 50px;
                 background-color: lightblue;
               "
-                              onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Issue_Type').value, document.getElementById('Priority').value, document.getElementById('Description').value)">
-                          Save Changes
-                      </button>
+                          onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Priority').value, document.getElementById('Floor').value, document.getElementById('Subject').value, document.getElementById('Description').value)">
+                      Save Changes
+                  </button>
 
-                      <input type="reset"
-                             value="Reset"
-                             style="
+                  <input type="reset"
+                         value="Reset"
+                         style="
                 margin-right: 20px;
                 width: 100px;
                 height: 50px;
                 background-color: lightblue;
               " />
 
-                      <!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
-                  </div>
+                  <!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
+              </div>
           </form>
       </div>
     </div>

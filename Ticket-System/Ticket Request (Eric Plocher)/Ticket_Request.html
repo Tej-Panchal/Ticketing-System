@@ -18,6 +18,7 @@
             document.getElementById("Description").value;
         }
         document.getElementById("form").submit();
+        
       }
     </script>
 
@@ -58,7 +59,16 @@
   </head>
 
   <body>
+    <div class="message">
+      <div class="success" id="success">
+      Ticket submitted successfully!</div>
+      <div class="danger" id="danger">
+      Feilds can't be empty, sorry!</div>
+  </div>
+
     <div class="main-content">
+      
+
     <div class="header">
       <h1><center>TICKET REQUEST PORTAL</center></h1>
     </div>
@@ -295,13 +305,15 @@
 
                   <button type="button"
                           id="submit_button"
+                          
                           style="
                 margin-right: 20px;
                 width: 100px;
                 height: 50px;
                 background-color: lightblue;
               "
-                          onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Priority').value, document.getElementById('Floor').value, document.getElementById('Subject').value, document.getElementById('Description').value)">
+              
+                          onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Priority').value, document.getElementById('Floor').value, document.getElementById('Subject').value, document.getElementById('Description').value); message()">
                       Save Changes
                   </button>
 
@@ -316,7 +328,12 @@
 
                   <!--<button id="reset_button" style="margin-right:20px; width: 100px; height: 50px; background-color: lightblue;"> Reset </button>-->
               </div>
+
+              
           </form>
+
+          
+
       </div>
     </div>
   </div>

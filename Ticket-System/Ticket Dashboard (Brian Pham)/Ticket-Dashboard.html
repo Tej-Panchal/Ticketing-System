@@ -48,6 +48,8 @@
 					<th>CREATE DATE</th>
 					<th onclick="sortTable(3)">TICKET PRIORITY</th>
 					<th onclick="sortTable(4)">CUSTOMER</th>
+					<th onclick="sortTable(5)">FLOOR</th>
+					<th onclick="sortTable(6)">SUBJECT</th>
 				</thead>
 				
 				<tbody>
@@ -99,6 +101,8 @@
 									<td>${item.LatestGreetingTime.substring(0, 10)}</td>
 									<td>${item.Priority}</td>
 									<td>${item.TicketOwner}</td>
+									<td>${item.Floor}</td>
+									<td>${item.Subject}</td>
 								</tr>`);
 							} else if ((item.TicketStatus.toLowerCase() === 'closed') || (item.TicketStatus.toLowerCase() === 'cancelled') || (item.TicketStatus.toLowerCase() === 'complete')){
 								closedTableData.push(`

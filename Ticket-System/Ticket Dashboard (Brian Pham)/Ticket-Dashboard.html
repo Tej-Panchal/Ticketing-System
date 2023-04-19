@@ -70,11 +70,13 @@
 			<table class="ticket-table2" id="ticket-table2" data-filter-control="true"
 				data-show-search-clear-button="true">
 				<thead>
-					<th onclick="sortTable1(0)">TICKET NUMBER</th>
-					<th onclick="sortTable1(1)">TICKET STATUS</th>
+					<th onclick="sortTable(0)">TICKET NUMBER</th>
+					<th onclick="sortTable(1)">TICKET STATUS</th>
 					<th>DATE SUBMITTED</th>
-					<th onclick="sortTable1(3)">TICKET PRIORITY</th>
-					<th onclick="sortTable1(4)">CUSTOMER</th>
+					<th onclick="sortTable(3)">TICKET PRIORITY</th>
+					<th onclick="sortTable(4)">CUSTOMER</th>
+					<th onclick="sortTable(5)">FLOOR</th>
+					<th onclick="sortTable(6)">SUBJECT</th>
 				</thead>
 
 				<tbody>
@@ -107,11 +109,13 @@
 							} else if ((item.TicketStatus.toLowerCase() === 'closed') || (item.TicketStatus.toLowerCase() === 'cancelled') || (item.TicketStatus.toLowerCase() === 'complete')){
 								closedTableData.push(`
 								<tr>
-										<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
-										<td>${item.TicketStatus}</td>
-										<td>${item.LatestGreetingTime.substring(0, 10)}</td>
-										<td>${item.Priority}</td>
-										<td>${item.TicketOwner}</td>
+									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
+									<td>${item.TicketStatus}</td>
+									<td>${item.LatestGreetingTime.substring(0, 10)}</td>
+									<td>${item.Priority}</td>
+									<td>${item.TicketOwner}</td>
+									<td>${item.Floor}</td>
+									<td>${item.Subject}</td>
 									</tr>
 								`);
 							}

@@ -120,7 +120,7 @@ async function deleteRow() {
   }
 }
 
-document.getElementById('delete-button').addEventListener('click', deleteRow);
+//document.getElementById('delete-button').addEventListener('click', deleteRow);
 
 
 

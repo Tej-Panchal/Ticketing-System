@@ -39,14 +39,21 @@ form.addEventListener('submit', async (e) => {
   const username = form.elements.Username.value;
   const date = form.elements.Date.value;
   const permissions = form.elements.Permissions.value;
-  const status = form.elements.Status.value;
+  const resetPassword = form.elements.ResetPassword.checked;
+
+  console.log('Reset password checkbox checked:', resetPassword); // Add this line to log the checkbox value
+
 
   const payload = {
     "Username": username,
     "Date": date,
     "Permissions": permissions,
-    
   };
+
+  // Add this condition to check if the reset password checkbox is checked
+  if (resetPassword) {
+    payload.Password = "Password123";
+  }
 
   const requestMethod = id ? 'PUT' : 'POST'; // Use PUT for updating if id exists, otherwise use POST for creating
 
@@ -64,11 +71,12 @@ form.addEventListener('submit', async (e) => {
     console.log('Success:', JSON.stringify(data));
 
     form.reset(); // Move this line here
-} catch (error) {
+  } catch (error) {
     console.error('Error:', error);
-}
+  }
 
 });
+
 
 
 });

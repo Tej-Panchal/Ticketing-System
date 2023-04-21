@@ -230,4 +230,35 @@ function check_comment()
 	}
 }
 
+
+}
+function message () {
+	
+	var Employee = document.getElementById('Employee');
+	var Priority = document.getElementById('Priority');
+	var Floor = document.getElementById('Floor');
+	var Subject = document.getElementById('Subject');
+	var Description = document.getElementById('Description');
+	const success = document.getElementById('success');
+	const danger = document.getElementById('danger');
+
+	if (Employee.value === '' || Priority.value === '' ||Floor.value === '' ||Subject.value === '' ||Description.value === ''){
+		danger.style.display = 'block';
+	}
+	else {
+		setTimeout(()=> {
+			Employee.value = '';
+			Priority.value = '';
+			Floor.value = '';
+			Subject.value = '';
+			Description.value = '';
+		}, 2000);
+
+		success.style.display = 'block';
+	}
+
+	setTimeout(() => {
+		danger.style.display = 'none';
+		success.style.display = 'none';
+	}, 4000);
 }

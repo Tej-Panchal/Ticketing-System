@@ -105,7 +105,20 @@ function tableSearch() {
     }
 }
 
-
+function deleteAllRows() {
+    const openTable = document
+      .getElementById("ticket-table")
+      .querySelector("tbody");
+    while (openTable.firstChild) {
+      openTable.removeChild(openTable.firstChild);
+    }
+    const closedTable = document
+      .getElementById("ticket-table2")
+      .querySelector("tbody");
+    while (closedTable.firstChild) {
+      closedTable.removeChild(closedTable.firstChild);
+    }
+  }
 
 function tableSearch2() {
     let input, filter, table, tr, td, td1, txtValue;

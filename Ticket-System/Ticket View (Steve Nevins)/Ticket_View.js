@@ -31,6 +31,8 @@ const id = url.substring(idIndex, ampersandIndex); // extract the substring betw
 
 var ticket_number = id;
 
+
+//Function to set description, subject, and floor of ticket:
 function setcomments(ticket)
 {
 	        // instantiate a headers object
@@ -51,6 +53,8 @@ function setcomments(ticket)
             .then(response => response.json())
             .then(data => {
 				document.getElementById("Description").value = data.data;
+				document.getElementById("Risk").value = data.subject;
+				document.getElementById("Exhibit").value = data.floor;
 			})
             .catch(error => console.log('error', error));
 }

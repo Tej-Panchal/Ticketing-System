@@ -1,102 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ticket Dashboard</title>
+    <script src="../script/signout.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        var navbarHeight = document.querySelector(".navbar").offsetHeight;
+        document.querySelector(".main").style.marginBottom =
+          navbarHeight + "px";
+      });
+    </script>
 
+    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="utf-8" />
-	<title>Ticket Dashboard</title>
-	<script src="../script/signout.js"></script>
-	<script>
-		window.addEventListener('load', function () {
-			var navbarHeight = document.querySelector('.navbar').offsetHeight;
-			document.querySelector('.main').style.marginBottom = navbarHeight + 'px';
-		});
-	</script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./Ticket-Dashboard.css"
+    />
+    <script src="script.js"></script>
+  </head>
 
-	<style>
+  <body>
+    <div class="main">
+      <div class="heading">
+        <h1>Ticket Dashboard</h1>
+      </div>
 
-	</style>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <div class="break">
+        <h2>Open Tickets</h2>
+      </div>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="./Ticket-Dashboard.css" />
-	<script src="script.js"></script>
+      <div class="search-box">
+        <input
+          type="text"
+          id="myInput"
+          onkeyup="tableSearch()"
+          placeholder="Search Open Tickets table . . .  "
+        />
+        <button class="button" onclick="deleteAllRow();">
+          Delete All Rows
+        </button>
+      </div>
 
-</head>
+      <!--Open Ticket Table-->
+      <div class="scroll">
+        <table
+          class="ticket-table"
+          id="ticket-table"
+          data-filter-control="true"
+          data-show-search-clear-button="true"
+        >
+          <thead>
+            <th onclick="sortTable(0)">TICKET NAME</th>
+            <th onclick="sortTable(1)">TICKET STATUS</th>
+            <th>CREATE DATE</th>
+            <th onclick="sortTable(3)">TICKET PRIORITY</th>
+            <th onclick="sortTable(4)">CUSTOMER</th>
+            <th onclick="sortTable(5)">FLOOR</th>
+            <th onclick="sortTable(6)">SUBJECT</th>
+          </thead>
 
+          <tbody></tbody>
+        </table>
+      </div>
 
-<body>
-	<div class="main">
-		<div class="heading">
-			<h1>Ticket Dashboard</h1>
-		</div>
+      <div class="break">
+        <h2>Closed Tickets</h2>
+      </div>
 
-		<div class="break">
-			<h2>Open Tickets</h2>
-		</div>
+      <div class="search-box">
+        <input
+          type="text"
+          id="myInput2"
+          onkeyup="tableSearch2()"
+          placeholder="Search Closed Tickets table . . .  "
+        />
+      </div>
 
-		<div class="search-box">
-			<input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search Open Tickets table . . .  ">
-		</div>
+      <!--Closed Ticket Table-->
+      <div class="scroll">
+        <table
+          class="ticket-table2"
+          id="ticket-table2"
+          data-filter-control="true"
+          data-show-search-clear-button="true"
+        >
+          <thead>
+            <th onclick="sortTable1(0)">TICKET NAME</th>
+            <th onclick="sortTable1(1)">TICKET STATUS</th>
+            <th>CREATE DATE</th>
+            <th onclick="sortTable1(3)">TICKET PRIORITY</th>
+            <th onclick="sortTable1(4)">CUSTOMER</th>
+          </thead>
 
-		<!--Open Ticket Table-->
-		<div class="scroll">
-			<table class="ticket-table" id="ticket-table" data-filter-control="true"
-				data-show-search-clear-button="true">
-				<thead>
-					<th onclick="sortTable(0)">TICKET NAME</th>
-					<th onclick="sortTable(1)">TICKET STATUS</th>
-					<th>CREATE DATE</th>
-					<th onclick="sortTable(3)">TICKET PRIORITY</th>
-					<th onclick="sortTable(4)">CUSTOMER</th>
-					<th onclick="sortTable(5)">FLOOR</th>
-					<th onclick="sortTable(6)">SUBJECT</th>
-				</thead>
-				
-				<tbody>
-				</tbody>
-			</table>
-		</div>
+          <tbody></tbody>
+        </table>
+        <script>
+          const API_ENDPOINT =
+            "https://iol6fw0pfe.execute-api.us-west-2.amazonaws.com/default/TicketFunction";
 
-		<div class="break">
-			<h2>Closed Tickets</h2>
-		</div>
+          fetch(API_ENDPOINT)
+            .then((response) => response.json())
+            .then((data) => {
+              const openTableData = [];
+              const closedTableData = [];
+              //<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
 
-		<div class="search-box">
-			<input type="text" id="myInput2" onkeyup='tableSearch2()' placeholder="Search Closed Tickets table . . .  ">
-		</div>
-
-		<!--Closed Ticket Table-->
-		<div class="scroll">
-			<table class="ticket-table2" id="ticket-table2" data-filter-control="true"
-				data-show-search-clear-button="true">
-				<thead>
-					<th onclick="sortTable1(0)">TICKET NAME</th>
-					<th onclick="sortTable1(1)">TICKET STATUS</th>
-					<th>CREATE DATE</th>
-					<th onclick="sortTable1(3)">TICKET PRIORITY</th>
-					<th onclick="sortTable1(4)">CUSTOMER</th>
-				</thead>
-
-				<tbody>
-				</tbody>
-
-			</table>
-			<script>
-				const API_ENDPOINT = "https://iol6fw0pfe.execute-api.us-west-2.amazonaws.com/default/TicketFunction";
-
-
-				fetch(API_ENDPOINT)
-					.then(response => response.json())
-					.then(data => {
-						const openTableData = [];
-						const closedTableData = [];
-						//<td><a href="..\\Ticket View (Steve Nevins)\Ticket_View.html?id=${item.ID}">${item.ID}</a></td>
-
-						data.forEach(item => {
-							if ((item.TicketStatus.toLowerCase() === 'new') || (item.TicketStatus.toLowerCase() === 'pending') || (item.TicketStatus.toLowerCase() === 'open')){
-								openTableData.push(`
+              data.forEach((item) => {
+                if (
+                  item.TicketStatus.toLowerCase() === "new" ||
+                  item.TicketStatus.toLowerCase() === "pending" ||
+                  item.TicketStatus.toLowerCase() === "open"
+                ) {
+                  openTableData.push(`
 								<tr>
-									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
+									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${
+                    item.ID
+                  }&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${
+                    item.Priority
+                  }&owner=${item.TicketOwner}">${item.ID}</a></td>
 									<td>${item.TicketStatus}</td>
 									<td>${item.LatestGreetingTime.substring(0, 10)}</td>
 									<td>${item.Priority}</td>
@@ -104,37 +130,58 @@
 									<td>${item.Floor}</td>
 									<td>${item.Subject}</td>
 								</tr>`);
-							} else if ((item.TicketStatus.toLowerCase() === 'closed') || (item.TicketStatus.toLowerCase() === 'cancelled') || (item.TicketStatus.toLowerCase() === 'complete')){
-								closedTableData.push(`
+                } else if (
+                  item.TicketStatus.toLowerCase() === "closed" ||
+                  item.TicketStatus.toLowerCase() === "cancelled" ||
+                  item.TicketStatus.toLowerCase() === "complete"
+                ) {
+                  closedTableData.push(`
 								<tr>
-										<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
+										<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${
+                      item.ID
+                    }&date=${item.LatestGreetingTime.substring(
+                    0,
+                    10
+                  )}&priority=${item.Priority}&owner=${item.TicketOwner}">${
+                    item.ID
+                  }</a></td>
 										<td>${item.TicketStatus}</td>
 										<td>${item.LatestGreetingTime.substring(0, 10)}</td>
 										<td>${item.Priority}</td>
 										<td>${item.TicketOwner}</td>
 									</tr>
 								`);
-							}
-						});
+                }
+              });
 
-						document.querySelector('#ticket-table tbody').innerHTML = openTableData.join('');
-						document.querySelector('#ticket-table2 tbody').innerHTML = closedTableData.join('');
-					});
-			</script>
+              document.querySelector("#ticket-table tbody").innerHTML =
+                openTableData.join("");
+              document.querySelector("#ticket-table2 tbody").innerHTML =
+                closedTableData.join("");
+            });
+        </script>
+      </div>
+    </div>
 
-
-		</div>
-	</div>
-
-	<div class="navbar" style="opacity: 0.95">
-		<a href="#nothing"> <img style= "float: left; height: auto; width: 15vw;" src="../Images/IT_Logo.jpg"> </a>
-		<a href="../Homepage (Steven Graham)/homepage.html"> <p> Home </p> </a>
-		<a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"><p> New Ticket </p> </a>
-		<a href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"><p> Accounts </p> </a>
-		<a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"><p> Dashboard </p> </a>
-		<a href="../index.html" onclick="signOut()"><p> Sign out </p> </a>
-		</div>
-
-</body>
-
+    <div class="navbar" style="opacity: 0.95">
+      <a href="#nothing">
+        <img
+          style="float: left; height: auto; width: 15vw"
+          src="../Images/IT_Logo.jpg"
+        />
+      </a>
+      <a href="../Homepage (Steven Graham)/homepage.html"> <p>Home</p> </a>
+      <a href="../Ticket Request (Eric Plocher)/Ticket_Request.html"
+        ><p>New Ticket</p>
+      </a>
+      <a
+        href="../Accounts Page (Mahroona Yasar)/Ticket-System_Account_Page.html"
+        ><p>Accounts</p>
+      </a>
+      <a href="../Ticket Dashboard (Brian Pham)/Ticket-Dashboard.html"
+        ><p>Dashboard</p>
+      </a>
+      <a href="../index.html" onclick="signOut()"><p>Sign out</p> </a>
+    </div>
+  </body>
 </html>

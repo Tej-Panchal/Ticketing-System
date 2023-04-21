@@ -15,22 +15,36 @@ function handleSubmit(event) {
     const oldPassword = document.getElementById("Old-Password").value;
     const newPassword = document.getElementById("New-Password").value;
     const confirmNewPassword = document.getElementById("Confirm-Password").value;
+	const delayTime = 5000;
   
     const currentPassword = localStorage.password; // replace with your actual current password
-  
+	
     if (oldPassword !== currentPassword) {
-      alert("Error: The old password is incorrect.");
+		document.getElementById("change-password-msg").innerHTML = "The old password is incorrect.";
+		document.getElementById("change-password-msg").style.opacity = 1;
     } else if (newPassword !== confirmNewPassword) {
-      alert("Error: New password and confirmed password do not match.");
+		document.getElementById("change-password-msg").innerHTML = "The new password does not match.";
+		document.getElementById("change-password-msg").style.opacity = 1;
     } else {
 	  
-	  let str = localStorage.username;
-	  str = str.replace(/"/g, ''); // Remove all quotation marks from the string
+	  	let str = localStorage.username;
+	  	str = str.replace(/"/g, ''); // Remove all quotation marks from the string
  
-	  callAPI(str, newPassword);
+	  	callAPI(str, newPassword);
 	  
-	  localStorage.password = newPassword;
+	  	localStorage.password = newPassword;
+
+	  	document.getElementById("password-success-msg").innerHTML = "Password Updated!";
+	  	document.getElementById("password-success-msg").style.opacity = 1;
+		setTimeout(() => {location.reload();}, delayTime);
     }
+	
+	var passwordField1 = document.getElementById('Old-Password');
+	var passwordField2 = document.getElementById('New-Password');
+	var passwordField3 = document.getElementById('Confirm-Password');
+	passwordField1.value = '';
+	passwordField2.value = '';
+	passwordField3.value = '';
 }
 
 // define the callAPI function that takes a first name and last name as parameters

@@ -22,9 +22,11 @@ function handleSubmit(event) {
     if (oldPassword !== currentPassword) {
 		document.getElementById("change-password-msg").innerHTML = "The old password is incorrect.";
 		document.getElementById("change-password-msg").style.opacity = 1;
+		
     } else if (newPassword !== confirmNewPassword) {
 		document.getElementById("change-password-msg").innerHTML = "The new password does not match.";
 		document.getElementById("change-password-msg").style.opacity = 1;
+		
     } else {
 	  
 	  	let str = localStorage.username;
@@ -34,7 +36,8 @@ function handleSubmit(event) {
 	  
 	  	localStorage.password = newPassword;
 
-	  	document.getElementById("password-success-msg").innerHTML = "Password Updated!";
+		document.getElementById("change-password-msg").style.opacity = 0;
+	  	document.getElementById("password-success-msg").innerHTML = "Password Change Successful.";
 	  	document.getElementById("password-success-msg").style.opacity = 1;
 		setTimeout(() => {location.reload();}, delayTime);
     }

@@ -29,11 +29,16 @@ window.onload = function ()
 				{
 					document.getElementById("login-error-msg").innerHTML = "Username Not Found.";
 					document.getElementById("login-error-msg").style.opacity = 1;
+					document.getElementById("login-error-msg").style.color = "black";
+					console.log("I'm in here");
+					
 				}
 				else if (output == 2)
 				{
 					document.getElementById("login-error-msg").innerHTML = "Incorrect Password.";
 					document.getElementById("login-error-msg").style.opacity = 1;
+					document.getElementById("login-error-msg").style.color = "black";
+					console.log("I'm in here");
 				}
 				else if (output == 1)
 				{

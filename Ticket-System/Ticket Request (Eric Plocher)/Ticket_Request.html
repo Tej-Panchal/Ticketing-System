@@ -34,6 +34,34 @@
     <script>
       // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (Employee, Priority, Floor, Subject, Description) => {
+		
+		//Validating that provided info is not empty:
+		if(Employee === "")
+		{
+			console.log("No employee name provided.");
+			return;
+			}
+		else if(Priority === "")
+		{
+			console.log("No priority provided.");
+			return;
+			}	
+		else if(Floor === "")
+		{
+			console.log("No floor provided.");
+			return;
+			}	
+		else if(Subject === "")
+		{
+			console.log("No subject provided.");
+			return;
+			}	
+		else if(Description === "")
+		{
+			console.log("No description provided.");
+			return;
+			}	
+			
         // instantiate a headers object
         var myHeaders = new Headers();
         // add content type header to object
@@ -222,7 +250,7 @@
                 background-color: lightblue;
               "
               
-                          onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Priority').value, document.getElementById('Floor').value, document.getElementById('Subject').value, document.getElementById('Description').value); message()">
+                 onclick="callAPI(document.getElementById('Employee').value, document.getElementById('Priority').value, document.getElementById('Floor').value, document.getElementById('Subject').value, document.getElementById('Description').value); message()">
                       Save Changes
                   </button>
 

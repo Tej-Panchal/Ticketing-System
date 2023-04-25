@@ -11,6 +11,31 @@
           navbarHeight + "px";
       });
     </script>
+	
+	<script>
+        // This function is used to clear the contents of the ticket tables:
+        var callAPI = ()=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: '',
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://prymyznlxf.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+			.then(result => {
+			  // Reload the page
+			  location.reload();
+			})
+            .catch(error => console.log('error', error));
+        }
+    </script>
 
     <style></style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,8 +66,8 @@
           onkeyup="tableSearch()"
           placeholder="Search Open Tickets table . . .  "
         />
-        <button class="button" onclick="deleteAllRow();">
-          Delete All Rows
+        <button class="button" onclick="callAPI()">
+          DELETE ALL TICKETS
         </button>
       </div>
 
@@ -55,9 +80,9 @@
           data-show-search-clear-button="true"
         >
           <thead>
-            <th onclick="sortTable(0)">TICKET NAME</th>
+            <th onclick="sortTable(0)">TICKET NUMBER</th>
             <th onclick="sortTable(1)">TICKET STATUS</th>
-            <th>CREATE DATE</th>
+            <th onclick="sortTable(2)">DATE SUBMITTED</th>
             <th onclick="sortTable(3)">TICKET PRIORITY</th>
             <th onclick="sortTable(4)">CUSTOMER</th>
             <th onclick="sortTable(5)">FLOOR</th>
@@ -90,11 +115,13 @@
           data-show-search-clear-button="true"
         >
           <thead>
-            <th onclick="sortTable1(0)">TICKET NAME</th>
+            <th onclick="sortTable1(0)">TICKET NUMBER</th>
             <th onclick="sortTable1(1)">TICKET STATUS</th>
-            <th>CREATE DATE</th>
+            <th onclick="sortTable1(2)">DATE SUBMITTED</th>
             <th onclick="sortTable1(3)">TICKET PRIORITY</th>
             <th onclick="sortTable1(4)">CUSTOMER</th>
+			<th onclick="sortTable1(5)">FLOOR</th>
+            <th onclick="sortTable1(6)">SUBJECT</th>
           </thead>
 
           <tbody></tbody>
@@ -137,18 +164,13 @@
                 ) {
                   closedTableData.push(`
 								<tr>
-										<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${
-                      item.ID
-                    }&date=${item.LatestGreetingTime.substring(
-                    0,
-                    10
-                  )}&priority=${item.Priority}&owner=${item.TicketOwner}">${
-                    item.ID
-                  }</a></td>
-										<td>${item.TicketStatus}</td>
-										<td>${item.LatestGreetingTime.substring(0, 10)}</td>
-										<td>${item.Priority}</td>
-										<td>${item.TicketOwner}</td>
+									<td><a href="..\\Ticket View (Steve Nevins)/Ticket_View.html?id=${item.ID}&date=${item.LatestGreetingTime.substring(0, 10)}&priority=${item.Priority}&owner=${item.TicketOwner}">${item.ID}</a></td>
+									<td>${item.TicketStatus}</td>
+									<td>${item.LatestGreetingTime.substring(0, 10)}</td>
+									<td>${item.Priority}</td>
+									<td>${item.TicketOwner}</td>
+									<td>${item.Floor}</td>
+									<td>${item.Subject}</td>
 									</tr>
 								`);
                 }

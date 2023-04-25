@@ -10,6 +10,10 @@
 	  h2 {
 		margin-top: 30px;
 	  }
+	  
+	  textarea::placeholder {
+		  text-align: center;
+		}
 	</style>
 
     <script>
@@ -62,16 +66,6 @@
     <!-- Interesting title -->
     <title>Ticket Request</title>
   </head>
-
-	<!--
-  <body>
-    <div class="message">
-      <div class="success" id="success">
-      Ticket submitted successfully!</div>
-      <div class="danger" id="danger">
-      Feilds can't be empty, sorry!</div>
-  </div>
-  -->
 
     <div class="main-content">
       
@@ -128,11 +122,11 @@
 
               <div name="Subject" style="display: flex; justify-content: center">
                   <input type="text"
-                         placeholder="Subject"
+                         placeholder="Maximum 40 Characters . . . "
                          id="Subject"
                          size="35"
                          name="Subject"
-                         maxlenght="30"
+                         maxlength="40"
                          style="height: 30px; margin-bottom: 10px" />
                   <!--<input type="text" placeholder="Enter your name . . . " id="Technician_Name" size="35" name="Technician_Name" style="height: 30px; margin-bottom: 10px;">-->
               </div>
@@ -145,7 +139,7 @@
               <div style="display: flex; justify-content: center">
                   <select name="Priority"
                           id="Priority"
-                          style="width: 282px; height: 30px">
+                          style="width: 270px; height: 30px">
                       <option value="Low">Low</option>
                       <option value="Urgent">Urgent</option>
                       <option value="Moderate">Moderate</option>
@@ -162,7 +156,7 @@
               <div style="display: flex; justify-content: center">
                   <select name="Floor"
                           id="Floor"
-                          style="width: 282px; height: 30px">
+                          style="width: 270px; height: 30px">
                       <option value="Lower Level - Sports Hall">Lower Level - Sports Hall</option>
                       <option value="Lower Level - Children's Museum">Lower Level - Children's Museum</option>
                       <option value="Lower Level - Temporary Hall">Lower Level - Temporary Hall</option>
@@ -186,112 +180,12 @@
 
                       <option value="Level 5 - Offices">Level 5 - Offices</option>
 
-                      <option value="Other (Specified In name)">Other (Specified In name)</option>
+                      <option value="Other (Specified In name)">Other (Specify In Subject Field)</option>
                   </select>
               </div>
 
               <p></p>
 
-              <!--<div style="display: flex; justify-content: center;">
-
-                   <div style="display: flex; justify-content: center">
-                  <label>Category/Exhibity</label><br />
-              </div>
-
-              <div style="display: flex; justify-content: center">
-                  <select name="Issue_Type"
-                          id="Issue_Type"
-                          onchange="enableChoice(this)"
-                          style="width: 282px; height: 30px">
-                      <option>Select Issue Type</option>
-                      <option value="Software Installation">Software Installation</option>
-                      <option value="Hardware Issue">Hardware Issue</option>
-                      <option value="Dinosaur Exhibit">Dinosaur Exhibit</option>
-                      <option value="Outerspace Exhibit">Outerspace Exhibit</option>
-                      <option value="Other Exhibit">Other Exhibit</option>
-                  </select>
-              </div>
-
-        <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
-            <option value="Corrupt Drivers">Corrupt Drivers</option>
-            <option value="Unable to Access">Unable to Access</option>
-            <option value="Blue Screen">Blue Screen</option>
-        </select>
-
-        <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-            <option value="Wont Turn On">Wont Turn On</option>
-            <option value="Screen Freeze">Screen Freeze</option>
-            <option value="Insufficent Memory">Insufficent Memory</option>
-        </select>
-
-        <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-            <option value="Cleaning">Cleaning</option>
-            <option value="Repair">Repair</option>
-            <option value="Inspection">Inspection</option>
-        </select>
-
-        <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-            <option value="Cleaning">Cleaning</option>
-            <option value="Repair">Repair</option>
-            <option value="Broken Part">Broken Part</option>
-        </select>
-
-        <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
-            <option value="Spill">Spill</option>
-            <option value="Broken Part">Broken Part</option>
-            <option value="Crying Kid">Crying Kid</option>
-        </select>
-
-    </div>-->
-              <!--<div style="display: flex; justify-content: center;">
-
-        <select name="Issue_Specific" id="Software" class="d-none" style="width: 282px; height: 30px">
-            <option value="Corrupt Drivers">Corrupt Drivers</option>
-            <option value="Unable to Access">Unable to Access</option>
-            <option value="Blue Screen">Blue Screen</option>
-        </select>
-
-    </div>
-
-    <div style="display: flex; justify-content: center;">
-
-        <select name="Issue_Specific" id="Hardware" class="d-none" style="width: 282px; height: 30px">
-            <option value="Wont Turn On">Wont Turn On</option>
-            <option value="Screen Freeze">Screen Freeze</option>
-            <option value="Insufficent Memory">Insufficent Memory</option>
-        </select>
-
-    </div>
-
-    <div style="display: flex; justify-content: center;">
-
-        <select name="Issue_Specific" id="Dinosaur" class="d-none" style="width: 282px; height: 30px">
-            <option value="Cleaning">Cleaning</option>
-            <option value="Repair">Repair</option>
-            <option value="Inspection">Inspection</option>
-        </select>
-
-    </div>
-
-    <div style="display: flex; justify-content: center;">
-
-        <select name="Issue_Specific" id="Outerspace" class="d-none" style="width: 282px; height: 30px">
-            <option value="Cleaning">Cleaning</option>
-            <option value="Repair">Repair</option>
-            <option value="Broken Part">Broken Part</option>
-        </select>
-
-    </div>
-
-    <div style="display: flex; justify-content: center;">
-
-        <select name="Issue_Specific" id="Other" class="d-none" style="width: 282px; height: 30px">
-            <option value="Spill">Spill</option>
-            <option value="Broken Part">Broken Part</option>
-            <option value="Crying Kid">Crying Kid</option>
-        </select>
-
-    </div> -->
               <!-- 3 -Comments box.-->
 
               <div style="display: flex; justify-content: center">
@@ -299,12 +193,14 @@
               </div>
 
               <div name="Description" style="display: flex; justify-content: center">
-                  <input type="text"
-                         placeholder="Please describe your issue in detail . . . "
-                         id="Description"
-                         size="35"
-                         name="Description"
-                         style="height: 175px" />
+                  <textarea
+					placeholder="Please describe your issue in detail"
+					id="Description"
+					rows="10"
+					cols="34"
+					name="Description"
+					style="resize: none;"
+				  ></textarea>
               </div>
 
 

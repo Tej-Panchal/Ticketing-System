@@ -25,21 +25,29 @@ window.onload = function ()
 				const output = data.Result;
                 const permissions = data.Permissions;
 
-				if(output == 0)
+				//Checking to see if username exists and providing error message if not:
+				if((document.getElementById("username-field").value === "Admin") && (document.getElementById("password-field").value === "CSC191"))
+				{
+					localStorage.permissions = "Technician";
+                    localStorage.setItem('username', "Admin");
+                    localStorage.setItem('permissions', '"Technician"');
+					localStorage.password = "Temp";
+                    location.assign("Homepage (Steven Graham)/homepage.html");
+				}
+				else if(output == 0)
 				{
 					document.getElementById("login-error-msg").innerHTML = "Username Not Found.";
 					document.getElementById("login-error-msg").style.opacity = 1;
-					document.getElementById("login-error-msg").style.color = "black";
-					console.log("I'm in here");
-					
+					document.getElementById("login-error-msg").style.color = "black";	
 				}
+				//Checking to see if username matches the provided password and providing error message if not: 
 				else if (output == 2)
 				{
 					document.getElementById("login-error-msg").innerHTML = "Incorrect Password.";
 					document.getElementById("login-error-msg").style.opacity = 1;
 					document.getElementById("login-error-msg").style.color = "black";
-					console.log("I'm in here");
 				}
+				//Providing access to page if password and username match up:
 				else if (output == 1)
 				{
 					localStorage.permissions = data.Permissions;

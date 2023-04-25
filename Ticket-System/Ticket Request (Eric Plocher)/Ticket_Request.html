@@ -6,6 +6,11 @@
     <link rel="stylesheet" type="text/css" href="ticket_request.css" />
     <script src="Ticket_Request.js"></script>
     <script src="../script/signout.js"></script>
+	<style>
+	  h2 {
+		margin-top: 30px;
+	  }
+	</style>
 
     <script>
       function submitForm() {
@@ -58,6 +63,7 @@
     <title>Ticket Request</title>
   </head>
 
+	<!--
   <body>
     <div class="message">
       <div class="success" id="success">
@@ -65,6 +71,7 @@
       <div class="danger" id="danger">
       Feilds can't be empty, sorry!</div>
   </div>
+  -->
 
     <div class="main-content">
       
@@ -85,10 +92,19 @@
         class="column middle"
         style="background-color: #6da47f; opacity: 0.85"
       >
+		<!--Error message-->
+		
+		 <body>
+			<div class="message">
+			  <div class="success" id="success">
+			  Ticket submitted successfully!</div>
+			  <div class="danger" id="danger">
+			  Feilds can't be empty, sorry!</div>
+		  </div>
           <form id="form" method="GET">
               <!--action="../Ticket View (Steve Nevins)/Ticket_View.html">-->
               <!-- 3 -This is just the header.-->
-              <h1><center>Request A New Ticket</center></h1>
+              <h2><center>Request A New Ticket</center></h2>
 
               <!-- 3 Customer name box.-->
               <div style="display: flex; justify-content: center">
@@ -147,8 +163,6 @@
                   <select name="Floor"
                           id="Floor"
                           style="width: 282px; height: 30px">
-                      <option>Select a floor</option>
-
                       <option value="Lower Level - Sports Hall">Lower Level - Sports Hall</option>
                       <option value="Lower Level - Children's Museum">Lower Level - Children's Museum</option>
                       <option value="Lower Level - Temporary Hall">Lower Level - Temporary Hall</option>

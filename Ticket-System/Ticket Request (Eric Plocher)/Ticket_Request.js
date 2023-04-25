@@ -14,7 +14,7 @@ var comment = "";
 var status_1 = "Pending";
 var assigned_tech = "Unassigned";
 
-document.getElementById("reset_button").addEventListener("click", reset_all);
+//document.getElementById("reset_button").addEventListener("click", reset_all);
 
 function reset_all()
 {	
@@ -242,7 +242,28 @@ function message () {
 	const success = document.getElementById('success');
 	const danger = document.getElementById('danger');
 
-	if (Employee.value === '' || Priority.value === '' ||Floor.value === '' ||Subject.value === '' ||Description.value === ''){
+	if (Employee.value === ''){
+		danger.innerHTML = 'Please enter an employee name.';
+		danger.style.display = 'block';
+	}
+	else if(Priority.value === '')
+	{
+		danger.innerHTML = 'Please select a priority value.';
+		danger.style.display = 'block';
+	}
+	else if(Floor.value === '')
+	{
+		danger.innerHTML = 'Please select a floor.';
+		danger.style.display = 'block';
+	}
+	else if(Subject.value === '')
+	{
+		danger.innerHTML = 'Please provide a brief subject.';
+		danger.style.display = 'block';
+	}
+	else if(Description.value === '')
+	{
+		danger.innerHTML = 'Please provide a detailed description.';
 		danger.style.display = 'block';
 	}
 	else {

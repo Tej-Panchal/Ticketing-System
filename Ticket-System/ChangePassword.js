@@ -68,6 +68,5 @@ var callAPI = (firstName,lastName)=>{
 	// make API call with parameters and use promises to get response
 	fetch("https://sg9ye980k6.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
 	.then(response => response.text())
-	.then(result => alert(JSON.parse(result).body))
 	.catch(error => console.log('error', error));
 }

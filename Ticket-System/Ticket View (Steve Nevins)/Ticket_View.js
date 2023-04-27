@@ -9,6 +9,8 @@ window.onload = function ()
 {
 //This is a function that loads the temp data from the ticket request; it will be removed later. 
 setData();
+
+var username = localStorage.getItem('username');
 	
 //Prepping header for API call to obtain most recent tech and status.
 
@@ -109,15 +111,15 @@ function load_thread()
 					{
 						if(obj.Subtype === "Comment")
 						{
-							update_comments(obj.Date, obj.Info);
+							update_comments(obj.Date, obj.Info, obj.User);
 						}
 						if(obj.Subtype === "Status Change")
 						{
-							update_status(obj.Date, obj.Info);
+							update_status(obj.Date, obj.Info, obj.User);
 						}
 						if(obj.Subtype === "Tech Change")
 						{
-							update_tech(obj.Date, obj.Info);
+							update_tech(obj.Date, obj.Info, obj.User);
 						}
 					}
 					else{
@@ -183,7 +185,7 @@ function reset_all()
 
 //Code to update status section after change is validated. 
 
-function update_status(date, input)
+function update_status(date, input, user)
 {
 	//Updating database:
 	console.log("Passing ticket " + ticket_number + " to database. Status change = " + input);
@@ -210,7 +212,7 @@ function update_status(date, input)
 	
 	space.innerHTML = "\n" + "\n";
 	
-	legend.innerHTML = " @Steve Nevins - - - - - - - - " + timestamp;
+	legend.innerHTML = "@" + user + " - - - - - - " + timestamp;
 	
 	tag.rows = 5;
 	
@@ -228,11 +230,14 @@ function update_status(date, input)
 	
 	box.appendChild(tag);
 	
+	//Resetting username back to local value:
+	username = localStorage.getItem('username');
+	
 }
 
 //Code to update technician section after change is validated. 
 
-function update_tech(date, input)
+function update_tech(date, input, user)
 {
 	assigned_tech = input;
 	
@@ -254,7 +259,7 @@ function update_tech(date, input)
 	
 	space.innerHTML = "\n" + "\n";
 	
-	legend.innerHTML = " @Steve Nevins - - - - - - - - " + timestamp;
+	legend.innerHTML = "@" + user + " - - - - - - " + timestamp;
 	
 	tag.rows = 5;
 	
@@ -272,11 +277,14 @@ function update_tech(date, input)
 	
 	box.appendChild(tag);
 	
+	//Resetting username back to local value:
+	username = localStorage.getItem('username');
+	
 }
 
 //Code to update comments section after change is validated. 
 
-function update_comments(date, input)
+function update_comments(date, input, user)
 {
 	var timestamp = date;
 	
@@ -298,7 +306,7 @@ function update_comments(date, input)
 	
 	space.innerHTML = "\n" + "\n";
 	
-	legend.innerHTML = " @Steve Nevins - - - - - - - - " + timestamp;
+	legend.innerHTML = "@" + user + " - - - - - - " + timestamp;
 	
 	tag.rows = 5;
 	
@@ -317,6 +325,9 @@ function update_comments(date, input)
 	box.appendChild(tag);
 	
 	document.getElementById("comments").value = "";
+	
+	//Resetting username back to local value:
+	username = localStorage.getItem('username');
 	
 }
 
@@ -345,9 +356,9 @@ function check_status()
 	
 	if(input != status_1)
 	{
-		callAPI("Steven Nevins",document.getElementById('Status').value, "Action", "Status Change", "3");
+		callAPI(username ,document.getElementById('Status').value, "Action", "Status Change", "3");
 		
-		update_status(timestamp, input);
+		update_status(timestamp, input, username);
 	}
 	
 }	
@@ -365,9 +376,9 @@ function check_tech()
 	
 	if(input != assigned_tech)
 	{
-		callAPI("Steven Nevins",document.getElementById('technician').value, "Action", "Tech Change", "2");
+		callAPI(username ,document.getElementById('technician').value, "Action", "Tech Change", "2");
 		
-		update_tech(timestamp, input);
+		update_tech(timestamp, input, username);
 	}
 	
 }
@@ -387,9 +398,9 @@ function check_comment()
 	
 	if((input != comment) && (input != ""))
 	{
-		callAPI("Steven Nevins",document.getElementById('comments').value, "Comment", "Comment", "1");
+		callAPI(username ,document.getElementById('comments').value, "Comment", "Comment", "1");
 		
-		update_comments(timestamp, input);
+		update_comments(timestamp, input, username);
 	}
 }
 

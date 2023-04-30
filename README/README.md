@@ -42,51 +42,43 @@ Our client's business is the Perot Museum of Nature and Science, located in Dall
 
 The museum currently utilizes a third-party, online ticketing system, which allows employees to request services from the museums's IT team and subsequently provides the IT team the ability to track, distribute, and resolve tickets requested by the museum’s employees. Our client feels that the current system is often unintuitive and inefficient for both the IT team and the museum staff; the IT employees often finds themsevles in circumstances in which they are forced to navigate an excessive number of pages and data to locate, update, and coordinate various tickets. Our client has tasked us with producing a more refined and productive website to use when allocating work tickets for the IT team. Our goal is to create a functional prototype that meets the needs of our client before integrating it onto the museum's existing servers for future use by their in-house maintenance department.
 
-## Project Summary
+### < Project - Develop an Improved IT Ticketing System >
 
-### Milestones
+## Delivered Product
 
-- [x] Find approved client and project.
-- [x] Establish project requirements.
-- [x] Develop GUI prototypes.
-    - [x] Login page.
-    - [x] Ticket dashboard.
-    - [x] Account management dashboard.
-    - [x] Ticket request portal.
-    - [x] Individual ticket views.
-- [x] Implement guis into webpages.
-- [x] Add functionality and cohesiveness to webpages
-    - [x] Login mechanism.
-    - [x] Search, sort, and filter options for data.
-    - [x] Ticket activity tracking.
-    - [x] General system navigation.
-    - [x] Unified color schemes and images.
-- [ ] Assemble server and relevant databases components. 
-- [ ] Connect webpages to server.
-- [ ] Establish and perform system testing.
-- [ ] Deploy to customer. 
+### Application Summary
 
-### Find approved client and project (completed early-October, 2022)
+In accordance with our client’s needs, we developed a fully-functioning, web-based ticketing system. The ticketing system was built to serve the needs of the museum’s employees by providing a mechanism to request and monitor tickets; it also serves the needs of the museum’s IT team by providing a mechanism to view and modify tickets and manage access to the ticketing system. 
 
-The Perot Museum of Nature and Science was officially selected as our client in early October of 2022.
+The system can be accessed by museum employees and the museum’s IT staff, both of whom have separate use cases. In light of that, two distinct permission levels have been implemented into the system’s structure, which have been designed to dictate the content and features accessible by the end user. Museum employees are viewed as “Customers” and IT Staff are viewed as “Technicians”.
 
-### Establish project requirements (Sprint 00 - completed in mid-October, 2022)
-
-Basic project requirements were established in mid-October of 2022. A requirements document was assembled in Jira (this is a project management software) to track and manage all articulated requirements. The document is organized by the webpages needed for the ticketing system.
-
-### Develop GUI prototypes (Spring 01 - completed in late-October, 2022)
+### System Pages
 
 Login page:
 
 <img src="IMAGES/Ticket_Request_Page.PNG" alt="Logo" width="500" height="300">
 
-Ticket dashboard:
+Description:
+
+The login page is the landing page for anyone with access to the website's url. If valid credentials for a "Customer" or "Technician" are provided, the end user will
+be directed to the system's home page.
+
+Home Page:
 
 <img src="IMAGES/Dashboard Ticket Page.PNG" alt="Logo" width="500" height="300">
 
-Account management dashboard:
+Description:
+
+The home screen acts as the central hub for the website. It contains a simple nav bar at the top of the screen, which provides access to all of the website's main pages; additionally, the username and permission level for logged in user are displayed at the bottom left of the screen. 
+
+Ticket Request Page:
 
 <img src="IMAGES/Accounts_Page.JPG" alt="Logo" width="500" height="300">
+
+Description:
+
+The ticket request page can be accessed by users of all permission levels in the system; it contains a simple form, which prompts the user for information related
+to the issue they are facing. Various input validation features exist that help guide the user through the form submission process. All tickets submitted via this page populate in the ticket dashboard. 
 
 Ticket request portal:
 

@@ -162,26 +162,26 @@ To download a copy of the system's files without github, simply go to <a href="h
 
 The website is hosted via AWS's Amplify web hosting platform. Follow these steps to publish the system's files via Amplify's service:
 
-1. Prepare The System Files > 
+<b> 1. Prepare The System Files > </b>
 
 You'll need to zip the system files that you just downloaded to your local device. Note that you cannot simply zip the parent file in which the system files are     contained: you must zip the files by selecting them all and then sending them to a compressed zip folder. 
 
-2. Log Into The Team's AWS Account > 
+<b> 2. Log Into The Team's AWS Account > </b>
 
 You can access the login page <a href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-west-2_d220f71efef85d34&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=aRF2ZixfCaj2htUXwXT6eZkRfoVJIQxUHBchCQCDpbI&code_challenge_method=SHA-256"> here </a>. The team's Root user email address is "stevennevins@csus.edu". After entering that email address, select "Next". You'll be taken to a screen prompting you for the password for the team's account; this has been provided to the client. Enter the provided password and select "Sign In". 
 
-3. Boot Up AWS Amplify > 
+<b> 3. Boot Up AWS Amplify > </b>
 
 After successfully logging into the Team's AWS account, you'll be taken to the "Console Home". This screen contains a list of the different AWS services utilized by the team. Select the service labeled "AWS Amplify". 
 
-4. Open The Website's Hosting App >
+<b> 4. Open The Website's Hosting App > </b>
 
 You'll be taken to a screen with the team's web hosting apps. The application used to host the website is labeled "IT Ticketing (Gitless)"; select this app. 
 
-5. Deploy App > 
+<b> 5. Deploy App > </b> 
 
 The hosting platform will appear. At the bottom of the screen, there is a section in which you can drag and drop files for deployment; simply drag and drop the zipped file from step one. The application will automatically deploy those files. 
 
-6. View Deployed Website > 
+<b> 6. View Deployed Website > </b> 
 
 After the deployment has finished, a link labeled as "Domain" will populate to the middle of the screen; this link will take you to the homepage of the newly deployed website. Congragulations! The website is now up and running!

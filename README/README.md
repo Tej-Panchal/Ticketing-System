@@ -10,7 +10,7 @@
   <p align="center">
     This is a prototype IT ticketing system for the Perot Museum of Nature and Science; it was developed by a group of Computer Science students, attending Sacramento State Unviversity in the Fall and Spring of 2022 and 2023, respectively.
    </p>
-    <h2> <a href="https://github.com/othneildrew/Best-README-Template"><strong> Explore our system's files » </strong></a> </h2> 
+    <h2> <a href="https://github.com/babyhuey616/Ticketing-System/tree/main/Ticket-System"><strong> Explore our system's files » </strong></a> </h2> 
 </div>
 
 <!-- ABOUT THE PROJECT -->
@@ -54,7 +54,7 @@ The system can be accessed by museum employees and the museum’s IT staff, both
 
 <b> Login page: </b>
 
-<img src="IMAGES/Ticket_Request_Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_log_in.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -63,7 +63,7 @@ be directed to the system's home page.
 
 <b> Home Page: </b>
 
-<img src="IMAGES/Dashboard Ticket Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_home_screen.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -71,7 +71,7 @@ The home screen acts as the central hub for the website. It contains a simple na
 
 <b> Ticket Request Page: </b>
 
-<img src="IMAGES/Accounts_Page.JPG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_ticket_request.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -80,7 +80,7 @@ to the issue they are facing. Various input validation features exist that help 
 
 <b> Ticket Dashboard: </b>
 
-<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_ticket_dashboard.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -88,7 +88,7 @@ This page serves as the central hub for viewing tickets in the system. All ticke
 
 <b> Individual Ticket View </b> 
 
-<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_ticket_view.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -98,7 +98,7 @@ Note: this page is only accessible to user's registered as Technicians.
 
 <b> Accounts Dashboard </b> 
 
-<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_accounts_dashboard.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -108,7 +108,7 @@ Note: this page is only accessible to user's registered as Technicians.
 
 <b> Modify Accounts Page </b> 
 
-<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_edit_account.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -116,7 +116,7 @@ If the username of a given account is selected in the Accounts Dashboard, this p
 
 <b> Add Accounts Page </b> 
 
-<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_add_account.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 
@@ -124,7 +124,7 @@ If the "Add Account" button is selected in the Accounts Dashboard, this page wil
 
 <b> Reset Password Page </b> 
 
-<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_change_password.PNG" alt="Logo" width="500" height="300">
 
 <b> Description: </b> 
 

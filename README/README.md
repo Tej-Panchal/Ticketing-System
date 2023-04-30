@@ -42,8 +42,6 @@ Our client's business is the Perot Museum of Nature and Science, located in Dall
 
 The museum currently utilizes a third-party, online ticketing system, which allows employees to request services from the museums's IT team and subsequently provides the IT team the ability to track, distribute, and resolve tickets requested by the museum’s employees. Our client feels that the current system is often unintuitive and inefficient for both the IT team and the museum staff; the IT employees often finds themsevles in circumstances in which they are forced to navigate an excessive number of pages and data to locate, update, and coordinate various tickets. Our client has tasked us with producing a more refined and productive website to use when allocating work tickets for the IT team. Our goal is to create a functional prototype that meets the needs of our client before integrating it onto the museum's existing servers for future use by their in-house maintenance department.
 
-### < Project - Develop an Improved IT Ticketing System >
-
 ## Delivered Product
 
 ### Application Summary
@@ -54,7 +52,7 @@ The system can be accessed by museum employees and the museum’s IT staff, both
 
 ### System Pages
 
-Login page:
+<b> Login page: </b>
 
 <img src="IMAGES/Ticket_Request_Page.PNG" alt="Logo" width="500" height="300">
 

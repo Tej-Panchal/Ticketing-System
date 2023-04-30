@@ -54,7 +54,7 @@ The system can be accessed by museum employees and the museum’s IT staff, both
 
 <b> Login page: </b>
 
-<img src="IMAGES/F_log_in.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_log_in.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 

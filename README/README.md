@@ -156,7 +156,7 @@ To download a copy of the system's files without github, simply go to <a href="h
    
 <b> 2. Download With GitHub > </b>
 
-   This is where you'll put your instructions Eric. If you feel adding images would be good, simply toss them in the image folder with the other images for the system.
+Sign in with the GitHub Desktop application and you will be propted with all your avalable repositories. Navigate to "babyheuy616/Ticketing-System", from here you will be propted to pull origin of the repository where the application will pull from the GitHub repository and store it as default in C:\Users\'username'\GitHub\Ticketing-System from here you may proceede to the deployment section.
 
 ### Deploying Via AWS Amplify
 

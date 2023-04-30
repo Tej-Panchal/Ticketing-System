@@ -138,7 +138,7 @@ The final product delivered by our team consists of a data-driven interface and 
 
 ### Functional Testing Conditions
 
-Our functional tests are designed to assess all features accessible via the the website's graphical user interface. These tests have been organized by the various webpages in which the feature is visible. All tests include a description, expected behaviour, date, tester's name, and the results. Images of the tests results are also included in each test to further clearly illustrate the outcome.  
+Our functional tests are designed to assess all features accessible via the the website's graphical user interface. These tests have been organized by the various webpages in which the features are visible. All tests include a description, expected behaviour, date, tester's name, and the results. Images of the tests results are also included in each test to further clearly illustrate the outcome.  
 
 ### Unit Testing Conditions
 

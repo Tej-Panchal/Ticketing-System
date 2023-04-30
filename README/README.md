@@ -144,13 +144,25 @@ Our functional tests are designed to assess all features accessible via the the 
 
 The website's backend is powered by AWS. We specifically utilized AWS’s dynamo database services to store data related to the ticketing system, and we designed 12 distinct lambda functions to access and manipulate that data. Each of the lambda functions can be triggered directly via the webpage when a given event occurs; however, the functions can also be tested via built-in unit tests, in which mock JSON data is passed to and from the function. We have assembled a minimum of one such unit test for each function.
 
-### Accessing Tests
+## Deployment Instructions
 
-A comprehensive document containing a detailed summary of both the functional and unit tests for our system can be found   
+### Downloading The System Files
+
+In order to deploy the website, you must save a local copy of the system's files to your PC. There are two available mechanisms to complete this process:
+
+<b> 1. Download Without GitHub > </b>
+   
+To download a copy of the system's files without github, simply go to <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fbabyhuey616%2FTicketing-System%2Ftree%2Fmain%2FTicket-System">this</a>link; a copy of the system's files will automatically download to your device. The files will be stored in a zipped file named "babyhuey616 Ticketing-System main Ticket-System"; simply unzip this file then proceed to the deployment section.
+   
+<b> 2. Download With GitHub > </b>
+
+   This is where you'll put your instructions Eric. If you feel adding images would be good, simply toss them in the image folder with the other images for the system.
+
 <a href="https://github.com/babyhuey616/Ticketing-System/tree/main/README"> here </a>. Instructions on how to run unit tests are also included in this document. 
 
+## System Testing
 
-
+### Introduction
 
 
 

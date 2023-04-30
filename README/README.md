@@ -56,35 +56,79 @@ The system can be accessed by museum employees and the museum’s IT staff, both
 
 <img src="IMAGES/Ticket_Request_Page.PNG" alt="Logo" width="500" height="300">
 
-Description:
+<b> Description: </b> 
 
 The login page is the landing page for anyone with access to the website's url. If valid credentials for a "Customer" or "Technician" are provided, the end user will
 be directed to the system's home page.
 
-Home Page:
+<b> Home Page: </b>
 
 <img src="IMAGES/Dashboard Ticket Page.PNG" alt="Logo" width="500" height="300">
 
-Description:
+<b> Description: </b> 
 
 The home screen acts as the central hub for the website. It contains a simple nav bar at the top of the screen, which provides access to all of the website's main pages; additionally, the username and permission level for logged in user are displayed at the bottom left of the screen. 
 
-Ticket Request Page:
+<b> Ticket Request Page: </b>
 
 <img src="IMAGES/Accounts_Page.JPG" alt="Logo" width="500" height="300">
 
-Description:
+<b> Description: </b> 
 
 The ticket request page can be accessed by users of all permission levels in the system; it contains a simple form, which prompts the user for information related
-to the issue they are facing. Various input validation features exist that help guide the user through the form submission process. All tickets submitted via this page populate in the ticket dashboard. 
+to the issue they are facing. Various input validation features exist that help guide the user through the form submission process. All tickets submitted via this page populate in the Ticket Dashboard. 
 
-Ticket request portal:
+<b> Ticket Dashboard: </b>
 
 <img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
 
-Individual ticket view:
+<b> Description: </b> 
 
-<img src="IMAGES/Ticket_View.JPG" alt="Logo" width="500" height="300">
+This page serves as the central hub for viewing tickets in the system. All tickets that are successfully submitted in the Ticket Request Page populate to the Open Tickets table in the Ticket Dashboard. Ticket's that are subsequently closed or completed are moved to the Closed Tickets table. 
+
+<b> Individual Ticket View </b> 
+
+<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+
+<b> Description: </b> 
+
+Individual ticket data can be accessed by clicking on the ticket number of any ticket in the Ticket Dashboard. From this page, you can view the static information from when the ticket was originally submitted. The control panel provides a mechanism manipulate the ticket's status, assigned technician, and make comments on the ticket; these updates all register to the ticket's activity stream.
+
+Note: this page is only accessible to user's registered as Technicians.
+
+<b> Accounts Dashboard </b> 
+
+<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+
+<b> Description: </b> 
+
+This page serves as the central hub for managing access to the system. From here, accounts can be searched, sorted, deleted, modified, and added. 
+
+Note: this page is only accessible to user's registered as Technicians.
+
+<b> Modify Accounts Page </b> 
+
+<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+
+<b> Description: </b> 
+
+If the username of a given account is selected in the Accounts Dashboard, this page will populate; it provides a mechanism to modify all information related to the given account. 
+
+<b> Add Accounts Page </b> 
+
+<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+
+<b> Description: </b> 
+
+If the "Add Account" button is selected in the Accounts Dashboard, this page will populate; it provides a mechanism to add an account to the system.
+
+<b> Reset Password Page </b> 
+
+<img src="IMAGES/Ticket_Submission Page.PNG" alt="Logo" width="500" height="300">
+
+<b> Description: </b> 
+
+This page is only accessible via the nav bar on the home screen; it can be used to reset the password of the given user. 
 
 ### Implement GUIs and functionality into web pages (Sprint 02 & 03 - completed in November, 2022)
 

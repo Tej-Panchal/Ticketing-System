@@ -63,7 +63,7 @@ be directed to the system's home page.
 
 <b> Home Page: </b>
 
-<img src="IMAGES/F_home_screen.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_home_screen.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -71,7 +71,7 @@ The home screen acts as the central hub for the website. It contains a simple na
 
 <b> Ticket Request Page: </b>
 
-<img src="IMAGES/F_ticket_request.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_ticket_request.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -80,7 +80,7 @@ to the issue they are facing. Various input validation features exist that help 
 
 <b> Ticket Dashboard: </b>
 
-<img src="IMAGES/F_ticket_dashboard.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_ticket_dashboard.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -88,7 +88,7 @@ This page serves as the central hub for viewing tickets in the system. All ticke
 
 <b> Individual Ticket View </b> 
 
-<img src="IMAGES/F_ticket_view.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_ticket_view.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -98,7 +98,7 @@ Note: this page is only accessible to user's registered as Technicians.
 
 <b> Accounts Dashboard </b> 
 
-<img src="IMAGES/F_accounts_dashboard.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_accounts_dashboard.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -108,7 +108,7 @@ Note: this page is only accessible to user's registered as Technicians.
 
 <b> Modify Accounts Page </b> 
 
-<img src="IMAGES/F_edit_account.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_edit_account.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -116,7 +116,7 @@ If the username of a given account is selected in the Accounts Dashboard, this p
 
 <b> Add Accounts Page </b> 
 
-<img src="IMAGES/F_add_account.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_add_account.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -124,7 +124,7 @@ If the "Add Account" button is selected in the Accounts Dashboard, this page wil
 
 <b> Reset Password Page </b> 
 
-<img src="IMAGES/F_change_password.PNG" alt="Logo" width="500" height="300">
+<img src="IMAGES/F_change_password.PNG" alt="Logo" width="750" height="400">
 
 <b> Description: </b> 
 
@@ -134,7 +134,7 @@ This page is only accessible via the nav bar on the home screen; it can be used 
 
 Login page (includes password/username functionality):
 
-<img src="IMAGES/Login.JPG" alt="Logo" width="500" height="300">
+<img src="IMAGES/Login.JPG" alt="Logo" width="750" height="300">
 
 Ticket dashboard (includes search and sort feature):
 

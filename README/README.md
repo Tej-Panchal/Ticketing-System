@@ -130,42 +130,30 @@ If the "Add Account" button is selected in the Accounts Dashboard, this page wil
 
 This page is only accessible via the nav bar on the home screen; it can be used to reset the password of the given user. 
 
-### Implement GUIs and functionality into web pages (Sprint 02 & 03 - completed in November, 2022)
+## System Testing
 
-Login page (includes password/username functionality):
+### Introduction
 
-<img src="IMAGES/Login.JPG" alt="Logo" width="750" height="300">
+The final product delivered by our team consists of a data-driven interface and various ticketing and account management related features. A comprehensive suite of functional tests has been assembled to test all the GUI components of the webpage; additionally, several automated, unit tests have been configured to test the system’s back end.
 
-Ticket dashboard (includes search and sort feature):
+### Functional Testing Conditions
 
-<img src="IMAGES/Ticket Mangement.JPG" alt="Logo" width="500" height="300">
+Our functional tests are designed to assess all features accessible via the the website's graphical user interface. These tests have been organized by the various webpages in which the feature is visible. All tests include a description, expected behaviour, date, tester's name, and the results. Images of the tests results are also included in each test to further clearly illustrate the outcome.  
 
-Account management dashboard (includes search and sort features):
+### Unit Testing Conditions
 
-<img src="IMAGES/Account Management.JPG" alt="Logo" width="500" height="300">
+The website's backend is powered by AWS. We specifically utilized AWS’s dynamo database services to store data related to the ticketing system, and we designed 12 distinct lambda functions to access and manipulate that data. Each of the lambda functions can be triggered directly via the webpage when a given event occurs; however, the functions can also be tested via built-in unit tests, in which mock JSON data is passed to and from the function. We have assembled a minimum of one such unit test for each function.
 
-Ticket request portal (includes functioning drop downs and fields):
+### Accessing Tests
 
-<img src="IMAGES/Ticket Request New.JPG" alt="Logo" width="500" height="300">
+A comprehensive document containing a detailed summary of both the functional and unit tests for our system can be found   
+<a href="https://github.com/babyhuey616/Ticketing-System/tree/main/README"> here </a>. Instructions on how to run unit tests are also included in this document. 
 
-Individual ticket view (includes functioning activity stream):
 
-<img src="IMAGES/Ticket Data.JPG" alt="Logo" width="500" height="300">
 
-General nav (this is the homepage - navbar included in other screen shots):
 
-<img src="IMAGES/Home Page.JPG" alt="Logo" width="500" height="300">
 
-### Assemble server and relevant database componenets (Work In Progress)
 
-### Connect webpages to server (Work In Progress)
 
-### Establish and perform system testing (Work In Progress)
-
-### Deploye to customer (Work In Progress)
-
-## Developer and customer guidance (Work in Progres)
-
-This section will be used to document guidance for developers and users.
 
 

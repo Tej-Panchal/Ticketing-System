@@ -151,6 +151,8 @@ The website's backend is powered by AWS. We specifically utilized AWS’s dynamo
 In order to deploy the website, you must save a local copy of the system's files to your PC. There are two available mechanisms to complete this process:
 
 <b> 1. Download Without GitHub > </b>
+
+<img src="IMAGES/Download_without_github.png" alt="logo" height = "400" width="750">
    
 To download a copy of the system's files without github, simply go to <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fbabyhuey616%2FTicketing-System%2Ftree%2Fmain%2FTicket-System">this</a> link; a copy of the system's files will automatically download to your device. The files will be stored in a zipped file named "babyhuey616 Ticketing-System main Ticket-System"; simply unzip this file then proceed to the deployment section.
    
@@ -164,24 +166,41 @@ The website is hosted via AWS's Amplify web hosting platform. Follow these steps
 
 <b> 1. Prepare The System Files > </b>
 
+<img src="IMAGES/Prepare_System_Files.png" alt="logo" height = "400" width="750">
+
 You'll need to zip the system files that you just downloaded to your local device. Note that you cannot simply zip the parent file in which the system files are     contained: you must zip the files by selecting them all and then sending them to a compressed zip folder. 
 
 <b> 2. Log Into The Team's AWS Account > </b>
 
-You can access the login page <a href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-west-2_d220f71efef85d34&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=aRF2ZixfCaj2htUXwXT6eZkRfoVJIQxUHBchCQCDpbI&code_challenge_method=SHA-256"> here </a>. The team's Root user email address is "stevennevins@csus.edu". After entering that email address, select "Next". You'll be taken to a screen prompting you for the password for the team's account; this has been provided to the client. Enter the provided password and select "Sign In". 
+<img src="IMAGES/Login-AWS.png" alt="logo" height = "400" width="750">
+
+You can access the login page <a href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-west-2_d220f71efef85d34&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=aRF2ZixfCaj2htUXwXT6eZkRfoVJIQxUHBchCQCDpbI&code_challenge_method=SHA-256"> here </a>. The team's Root user email address is "stevennevins@csus.edu". 
+After entering that email address, select "Next". 
+
+<img src="IMAGES/Login-password-AWS.png" alt="logo" height = "400" width="750">
+
+You'll be taken to a screen prompting you for the password for the team's account; this has been provided to the client. Enter the provided password and select "Sign In". 
 
 <b> 3. Boot Up AWS Amplify > </b>
+
+<img src="IMAGES/Console-Home-AWS.png" alt="logo" height = "400" width="750">
 
 After successfully logging into the Team's AWS account, you'll be taken to the "Console Home". This screen contains a list of the different AWS services utilized by the team. Select the service labeled "AWS Amplify". 
 
 <b> 4. Open The Website's Hosting App > </b>
 
+<img src="IMAGES/AWS-Amplify-Gitless.png" alt="logo" height = "400" width="750">
+
 You'll be taken to a screen with the team's web hosting apps. The application used to host the website is labeled "IT Ticketing (Gitless)"; select this app. 
 
 <b> 5. Deploy App > </b> 
 
+<img src="IMAGES/Amplify-Drag-Drop.png" alt="logo" height = "400" width="750">
+
 The hosting platform will appear. At the bottom of the screen, there is a section in which you can drag and drop files for deployment; simply drag and drop the zipped file from step one. The application will automatically deploy those files. 
 
 <b> 6. View Deployed Website > </b> 
+
+<img src="IMAGES/Deployed-site.png" alt="logo" height = "400" width="750">
 
 After the deployment has finished, a link labeled as "Domain" will populate to the middle of the screen; this link will take you to the homepage of the newly deployed website. Congragulations! The website is now up and running!

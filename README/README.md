@@ -34,6 +34,16 @@ Here is a list of our team members:
 * Brian Pham
 * Mahroona Yasar
 
+Team Member Contact Info:
+
+*	Alexander Escobar, alexescobar@csus.edu
+*	Steven Graham, stevenscottgraham@csus.edu
+*	Eric Plocher, ericplocher@csus.edu
+*	Tej Panchal, tppanchal@csus.edu
+*	Brian Pham, brianpham2@csus.edu
+*	Steven Nevins, Stevennevins@csus.edu
+*	Mahroona Yasar, mahroonayasar@csus.edu 
+
 ### < Client - Perot Museum of Nature and Science >
 
 Our client's business is the Perot Museum of Nature and Science, located in Dallas, Texas. The museum contains over 100 nature and science related exhibits, which notably include  a dinosaur exhibit, bird exhibits, an engineering exhibit, and a gem and mineral exhibit. The museum also hosts education outreach programs such as school field trips, in-school presentations, and virtual programs.

@@ -92,7 +92,7 @@ This page serves as the central hub for viewing tickets in the system. All ticke
 
 <b> Description: </b> 
 
-Individual ticket data can be accessed by clicking on the ticket number of any ticket in the Ticket Dashboard. From this page, you can view the static information from when the ticket was originally submitted. The control panel provides a mechanism manipulate the ticket's status, assigned technician, and make comments on the ticket; these updates all register to the ticket's activity stream.
+Individual ticket data can be accessed by clicking on the ticket number of any ticket in the Ticket Dashboard. From this page, you can view the static information from when the ticket was originally submitted. The control panel provides a mechanism to manipulate the ticket's status, assigned technician, and make comments on the ticket; these updates all register to the ticket's activity stream.
 
 Note: this page is only accessible to user's registered as Technicians.
 

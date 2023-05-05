@@ -54,6 +54,10 @@ form.addEventListener('submit', async (e) => {
   if (resetPassword) {
     payload.Password = "Password123";
   }
+  else
+  {
+	  payload.Password = localStorage.password;
+  }
 
   const requestMethod = id ? 'PUT' : 'POST'; // Use PUT for updating if id exists, otherwise use POST for creating
 

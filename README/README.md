@@ -36,7 +36,7 @@ Here is a list of our team members:
 
 Team Member Contact Info:
 
-*	Alexander Escobar, alexescobar@csus.edu
+*	Alexander Escobar, alexescobar@csus.edu, https://github.com/Alex-coding-3420
 *	Steven Graham, stevenscottgraham@csus.edu
 *	Eric Plocher, ericplocher@csus.edu
 *	Tej Panchal, tppanchal@csus.edu
